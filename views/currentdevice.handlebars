@@ -9,13 +9,14 @@
    {{content}}
  {{/if}}
 <table border=5>
-{{#each newUser}}
-{{#each this}}
 <tr>
   <th>DeviceName:</th>
   <th>DeviceID</th>
   <th>Dop</th>
-</tr>>
+</tr>
+{{#each newUser}}
+{{#each this}}
+
 <br>
 <tr>
 <td>{{this.DeviceName}}</td>
