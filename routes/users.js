@@ -50,25 +50,7 @@ router.get('/login',function(req,res)
     res.render('login');
 });
 
-/*var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
 
-var result;
-MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("contact");
-      router.get('/currentdevice', function(req,res){
-  res.render('currentdevice',{
-    content: 'welcome',
-    published: true,
-    result:dbo.collection("user1").find({DeviceName:DeviceName}).toArray(function(err, result) {
-    if (err) throw err; 
-    db.close();
-  })
-});      
-
-  });
-    });*/
 
 router.get('/currentdevice', function(req,res){
   User1.find(function(err,docs){
@@ -182,16 +164,22 @@ router.post('/login',
 //add device
 router.post('/add_device',function(req,res)
 {
+  var customername=req.body.customername;
+   var customerid=req.body.customerid;
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
-   //var password=req.body.password;
-   //var password2=req.body.password2;
+   var balance=req.body.balance;
+   var emi=req.body.emi;
+ 
+req.checkBody('customername','customername is req').notEmpty();
+req.checkBody('customerid','customerid dosnt match').notEmpty();  
 req.checkBody('DeviceName','name is req').notEmpty();
 req.checkBody('DeviceId','id is req').notEmpty();
 req.checkBody('Dop','dop is req').notEmpty();
-//req.checkBody('password','pwd is req').notEmpty();
-//req.checkBody('password2','pwd dosnt match').equals(req.body.password);
+req.checkBody('balance','balance is req').notEmpty();
+req.checkBody('emi','emi is req').notEmpty();
+
 var errors=req.validationErrors();
 if(errors)
 {
@@ -203,9 +191,13 @@ res.render('add_device',{
 else
 {
     var newUser=new User1({
+        customername:customername,
+        customerid:customerid,
         DeviceName:DeviceName,
         DeviceId:DeviceId,
-        Dop:Dop
+        Dop:Dop,
+        balance:balance,
+        emi:emi
         
     });
     User1.createUser(newUser,function(err,user1)
