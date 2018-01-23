@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>device</title>
+</head>
+<body>
+<h1>Welcome</h1>
+{{#if published}}
+   {{content}}
+ {{/if}}
+<ul>
+{{#each newUser}}
+{{#each this}}
+<li>DeviceName:{{this.DeviceName}}</li>
+<li>DeviceId:{{this.DeviceId}}</li>
+<li>Dop:{{this.Dop}}</li>
+{{/each}}
+{{/each}}
+</ul>
+</body>
+</html>   
