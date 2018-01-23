@@ -4,13 +4,15 @@
 <title>device</title>
 </head>
 <body>
-<h1>Welcome</h1>
+<h1>current device list</h1>
 {{#if published}}
    {{content}}
  {{/if}}
  <center>
 <table border=5>
 <tr>
+  <th>customer name</th>
+  <th>customer id</th>
   <th>DeviceName</th>
   <th>DeviceID</th>
   <th>Date of purchase</th>
@@ -20,6 +22,8 @@
 
 <br>
 <tr>
+<td>{{this.customername}}</td>
+<td>{{this.customerid}}</td>
 <td>{{this.DeviceName}}</td>
 <td>{{this.DeviceId}}</td>
 <td>{{this.Dop}}</td>
