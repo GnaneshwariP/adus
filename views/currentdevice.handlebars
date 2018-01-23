@@ -16,6 +16,9 @@
   <th>DeviceName</th>
   <th>DeviceID</th>
   <th>Date of purchase</th>
+  <th>Balance</th>
+  <th>EMI</th>
+  <th> selection</th>
 </tr>
 {{#each newUser}}
 {{#each this}}
@@ -27,6 +30,9 @@
 <td>{{this.DeviceName}}</td>
 <td>{{this.DeviceId}}</td>
 <td>{{this.Dop}}</td>
+<td></td>
+<td></td>
+<td></td>
 <td><input type="radio" name="payment" value="DeviceName"></td>
 </tr>
 {{/each}}
