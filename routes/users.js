@@ -6,6 +6,11 @@ var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
 
+//var jwt=require('jsonwebtoken');
+//var jwt = require('jwt-simple');
+//var mongoose=require('mongoose');
+//    useMongoClient:true,
+   // });
 
 
 router.get('/register',function(req,res)
@@ -18,10 +23,20 @@ router.get('/payment',function(req,res)
     res.render('payment');
 });
 
-router.get('/receiptentry',function(req,res)
+router.get('/otp',function(req,res)
 {
-    res.render('receiptentry');
+    res.render('otp');
 });
+
+router.post('/pay',function(req,res)
+{
+    res.render('pay');
+});
+
+
+
+
+
 
 router.get('/add_device',function(req,res)
 {
@@ -35,7 +50,26 @@ router.get('/login',function(req,res)
     res.render('login');
 });
 
-//to display current device
+/*var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+var result;
+MongoClient.connect(url, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("contact");
+      router.get('/currentdevice', function(req,res){
+  res.render('currentdevice',{
+    content: 'welcome',
+    published: true,
+    result:dbo.collection("user1").find({DeviceName:DeviceName}).toArray(function(err, result) {
+    if (err) throw err; 
+    db.close();
+  })
+});      
+
+  });
+    });*/
+
 router.get('/currentdevice', function(req,res){
   User1.find(function(err,docs){
   var deviceChunks = [];
@@ -45,7 +79,7 @@ router.get('/currentdevice', function(req,res){
   deviceChunks.push(docs.slice(i,i+chunkSize));
 }  
 res.render('currentdevice',{
-    content: 'welcome',
+    content: 'CURRENT DEVICE LIST',
     published: true,
     newUser:deviceChunks
     });
@@ -53,7 +87,14 @@ res.render('currentdevice',{
 });
 
 
+router.get('/currentdevice', function(req,res){
+  res.render('currentdevice',{
+    content: 'CURRENT DEVICE LIST',
+    published: true,
+    result:result
 
+  });
+});
 
 
 
@@ -144,11 +185,13 @@ router.post('/add_device',function(req,res)
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
-   
+   //var password=req.body.password;
+   //var password2=req.body.password2;
 req.checkBody('DeviceName','name is req').notEmpty();
 req.checkBody('DeviceId','id is req').notEmpty();
 req.checkBody('Dop','dop is req').notEmpty();
-
+//req.checkBody('password','pwd is req').notEmpty();
+//req.checkBody('password2','pwd dosnt match').equals(req.body.password);
 var errors=req.validationErrors();
 if(errors)
 {
@@ -176,7 +219,16 @@ res.redirect('/users/add_device');
 });
 
 
-
+/*passport.use(new LocalStrategy(
+    function(DeviceName, DeviceId,Dop, done) {
+ User1.getUserByDeviceName(DeviceName,function(err,user1)  {
+if(err) throw err;
+if(!user1)
+{
+    return done(null,false,{message:'unknown user'});
+}
+});
+}));*/
 
 var res=['jhon','mary'];
 router.get('/currentdevice', function(req,res){
@@ -187,7 +239,12 @@ router.get('/currentdevice', function(req,res){
 
   });
 });
-
+/*router.get('/user1', function(req, res){
+  User1.find({}, function(err, docs){
+    if(err) res.json(err);
+    else    res.render('currentdevice', {users: docs});
+  });
+});*/
 
 
   
