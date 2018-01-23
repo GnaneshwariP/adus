@@ -72,9 +72,9 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-           <li><a href="/users/add_device">add device</a></li>
+           <li><a href="/users/add_device">add customer</a></li>
             <li><a href="/users/payment">payment history</a></li>
-            <li><a href="/users/receiptentry">receipt entry</a></li>
+            <li><a href="/users/receiptentry">payment</a></li>
           </ul>
           <ul class="nav nav-sidebar">
             <li><a href="/users/currentdevice">current devices</a></li>
@@ -90,13 +90,24 @@
           </ul>
         </div>
         <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
-          <h1 class="page-header">Add Devices</h1>
+          <h1 class="page-header">Add Customer</h1>
 
          
 
           <div class="css/bootstrap.min.css" >
                      
                 <form method="post" action="/users/add_device">
+
+     <div class="form-group">
+        <label>CustomerName</label><br>
+        <input type="text" class="form-control"
+        placeholder="customer name" name="customername">
+    </div><br>
+     <div class="form-group">
+        <label>Customer ID</label><br>
+        <input type="text" class="form-control"
+        placeholder="customer id" name="customerid">
+    </div><br>      
 
     <div class="form-group">
         <label>DeviceName</label><br>
