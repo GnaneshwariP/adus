@@ -38,6 +38,13 @@ MongoClient.connect(url, function(err, db) {
 
 
 var UserSchema= mongoose.Schema({
+    customername:{
+      type:String,
+      index:true
+    },
+    customerid:{
+      type:String
+    },
     DeviceName:{
         type:String,
         index:true
