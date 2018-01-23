@@ -35,7 +35,7 @@ router.get('/login',function(req,res)
     res.render('login');
 });
 
-
+//to display current device
 router.get('/currentdevice', function(req,res){
   User1.find(function(err,docs){
   var deviceChunks = [];
@@ -53,14 +53,7 @@ res.render('currentdevice',{
 });
 
 
-router.get('/currentdevice', function(req,res){
-  res.render('currentdevice',{
-    content: 'welcome',
-    published: true,
-    result:result
 
-  });
-});
 
 
 
