@@ -46,7 +46,7 @@ var UserSchema= mongoose.Schema({
       type:String
     },
     DeviceName:{
-        type:String,
+       type:String,
         index:true
     },
     DeviceId:{
@@ -54,22 +54,19 @@ var UserSchema= mongoose.Schema({
     },
     Dop:{
         type:String
+    },
+    balance:{
+      type:String
+    },
+    emi:{
+      type:String
     }
 
 });
 
 var User1=module.exports=mongoose.model('User1',UserSchema);
 
-/*module.exports.createUser=function(item,err){
-    var newUser = new User1(req.body);
- newUser.save()
- .then(item => {
- res.send("item saved to database");
- })
- .catch(err => {
- res.status(400).send("unable to save to database");
- });
-}*/
+
 
 module.exports.createUser=function(newUser,callback){
            newUser.save(callback);
@@ -91,12 +88,4 @@ MongoClient.connect(url, function(err, db) {
 });
 
 
-//console.log(getUserByDeviceId);
 
-/*module.exports.comparePassword=function(candidatePassword,hash,callback){
-    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-        if(err) throw err;
-        callback(null,isMatch);
-        
-    });
-}*/
