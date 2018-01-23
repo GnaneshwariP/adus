@@ -8,14 +8,22 @@
 {{#if published}}
    {{content}}
  {{/if}}
-<ul>
+<table border=5>
 {{#each newUser}}
 {{#each this}}
-<li>DeviceName:{{this.DeviceName}}</li>
-<li>DeviceId:{{this.DeviceId}}</li>
-<li>Dop:{{this.Dop}}</li>
+<tr>
+  <th>DeviceName:</th>
+  <th>DeviceID</th>
+  <th>Dop</th>
+</tr>>
+<br>
+<tr>
+<td>{{this.DeviceName}}</td>
+<td>{{this.DeviceId}}</td>
+<td>{{this.Dop}}</td>
+</tr>
 {{/each}}
 {{/each}}
-</ul>
+</table>
 </body>
 </html>   
