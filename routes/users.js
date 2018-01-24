@@ -69,14 +69,7 @@ res.render('currentdevice',{
 });
 
 
-router.get('/currentdevice', function(req,res){
-  res.render('currentdevice',{
-    content: 'CURRENT DEVICE LIST',
-    published: true,
-    result:result
 
-  });
-});
 
 router.get('/pay', function(req,res){
     User1.find(function(err,docs){
