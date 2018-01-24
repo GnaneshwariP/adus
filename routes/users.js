@@ -33,13 +33,6 @@ router.post('/pay',function(req,res)
     res.render('pay');
 });
 
-router.get('/pay',function(req,res)
-{
-    res.render('otp');
-});
-
-
-
 router.get('/add_device',function(req,res)
 {
     res.render('add_device');
@@ -80,6 +73,33 @@ router.get('/currentdevice', function(req,res){
   });
 });
 
+router.get('/pay', function(req,res){
+    User1.find(function(err,docs){
+    var deviceChunks = [];
+    chunkSize = 3;
+    for(var i = 0; i<docs.length; i+=chunkSize)
+  {
+    deviceChunks.push(docs.slice(i,i+chunkSize));
+  }  
+  res.render('pay',{
+      content: 'CURRENT DEVICE LIST',
+      published: true,
+      newUser:deviceChunks
+      });
+      });
+  });
+  
+  
+  router.get('/pay', function(req,res){
+    res.render('pay',{
+      content: 'CURRENT DEVICE LIST',
+      published: true,
+      result:result
+  
+    });
+  });
+  
+
 
 
 
@@ -91,6 +111,7 @@ router.post('/register',function(req,res)
    var username=req.body.username;
    var password=req.body.password;
    var password2=req.body.password2;
+   
 req.checkBody('name','name is req').notEmpty();
 req.checkBody('email','email is req').notEmpty();
 req.checkBody('email','email is not valid').isEmail();
@@ -173,6 +194,7 @@ router.post('/add_device',function(req,res)
    var Dop=req.body.Dop;
    var balance=req.body.balance;
    var emi=req.body.emi;
+   var payment=req.body.payment;
  
 req.checkBody('customername','customername is req').notEmpty();
 req.checkBody('customerid','customerid dosnt match').notEmpty();  
@@ -199,8 +221,8 @@ else
         DeviceId:DeviceId,
         Dop:Dop,
         balance:balance,
-        emi:emi
-        
+        emi:emi,
+        payment:payment
     });
     User1.createUser(newUser,function(err,user1)
 {
@@ -239,7 +261,15 @@ router.get('/currentdevice', function(req,res){
     else    res.render('currentdevice', {users: docs});
   });
 });*/
+var res=['jhon','mary'];
+router.get('/pay', function(req,res){
+  res.render(pay,{
+    content: 'welcome',
+    published: true,
+    res:res
 
+  });
+});
 
   
 module.exports=router;
