@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,9 +52,9 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><h4 class="hello">welcome</h4></li>
+            <li><marquee><font color="lightgreen" size="8"> Welcome </font></marquee></li>
             <li><a href="/">Dashboard</a></li>
-            <li><a href="#">account Settings</a></li>
+            <li><a href="#">Account Settings</a></li>
             <li><a href="/users/logout">Logout</a></li>
           </ul>
           
@@ -63,21 +64,18 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2 col-md-1 sidebar">
+        <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="/users/add_device">add device</a></li>
-            <li><a href="/users/payment">payment history</a></li>
+            <li><a href="/users/add_device">Add Device</a></li>
+            <li><a href="/users/payment">Payment History</a></li>
            <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
+  
           <ul class="nav nav-sidebar">
-            
-           
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">help</a></li>
-            <li><a href="">about us</a></li>
-            <li><a href="">contact us</a></li>
+            <li><a href="">Help</a></li>
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -85,6 +83,8 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
             
 
     <main role="main" class="container">
+     <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
+       <p align="center" class="lead">Your Payment is successful</p>
       <div class="jumbotron">
         <h1 align="center">Generated Otp</h1>
         <p  align="center" class="lead"><script type="text/javascript">document.write(val);</script> </p>
@@ -104,3 +104,4 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
