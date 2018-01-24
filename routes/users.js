@@ -33,8 +33,10 @@ router.post('/pay',function(req,res)
     res.render('pay');
 });
 
-
-
+router.get('/pay',function(req,res)
+{
+    res.render('otp');
+});
 
 
 
