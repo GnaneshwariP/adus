@@ -33,6 +33,11 @@ router.post('/pay',function(req,res)
     res.render('pay');
 });
 
+router.get('/pay',function(req,res)
+{
+    res.render('otp');
+});
+
 router.get('/add_device',function(req,res)
 {
     res.render('add_device');
