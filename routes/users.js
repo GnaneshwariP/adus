@@ -30,6 +30,10 @@ router.get('/otp',function(req,res)
 
 router.post('/pay',function(req,res)
 {
+   var selected1 ={
+       sel:req.body.payment
+   }
+   console.log(selected1);
     res.render('pay');
 });
 
@@ -71,31 +75,10 @@ res.render('currentdevice',{
 
 
 
-router.get('/pay', function(req,res){
-    User1.find(function(err,docs){
-    var deviceChunks = [];
-    chunkSize = 3;
-    for(var i = 0; i<docs.length; i+=chunkSize)
-  {
-    deviceChunks.push(docs.slice(i,i+chunkSize));
-  }  
-  res.render('pay',{
-      content: 'CURRENT DEVICE LIST',
-      published: true,
-      newUser:deviceChunks
-      });
-      });
-  });
+
   
   
-  router.get('/pay', function(req,res){
-    res.render('pay',{
-      content: 'CURRENT DEVICE LIST',
-      published: true,
-      result:result
-  
-    });
-  });
+
   
 
 
@@ -232,42 +215,6 @@ res.redirect('/users/add_device');
 }
 });
 
-
-/*passport.use(new LocalStrategy(
-    function(DeviceName, DeviceId,Dop, done) {
- User1.getUserByDeviceName(DeviceName,function(err,user1)  {
-if(err) throw err;
-if(!user1)
-{
-    return done(null,false,{message:'unknown user'});
-}
-});
-}));*/
-
-var res=['jhon','mary'];
-router.get('/currentdevice', function(req,res){
-  res.render(currentdevice,{
-    content: 'welcome',
-    published: true,
-    res:res
-
-  });
-});
-/*router.get('/user1', function(req, res){
-  User1.find({}, function(err, docs){
-    if(err) res.json(err);
-    else    res.render('currentdevice', {users: docs});
-  });
-});*/
-var res=['jhon','mary'];
-router.get('/pay', function(req,res){
-  res.render(pay,{
-    content: 'welcome',
-    published: true,
-    res:res
-
-  });
-});
 
   
 module.exports=router;
