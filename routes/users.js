@@ -22,6 +22,12 @@ router.get('/payment',function(req,res)
     res.render('payment');
 });
 
+router.get('/profile',function(req,res)
+{
+    res.render('profile');
+});
+
+
 router.get('/otp',function(req,res)
 {
     res.render('otp');
