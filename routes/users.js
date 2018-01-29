@@ -6,12 +6,6 @@ var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
 
-//var jwt=require('jsonwebtoken');
-//var jwt = require('jwt-simple');
-//var mongoose=require('mongoose');
-//    useMongoClient:true,
-   // });
-
 
 router.get('/register',function(req,res)
 {
@@ -33,6 +27,7 @@ router.get('/otp',function(req,res)
     res.render('otp');
 });
 
+//retreive the selected device
 router.post('/pay',function(req,res)
 {
 var selected1 = req.body.payment;
@@ -40,12 +35,7 @@ var selected1 = req.body.payment;
    console.log(selected1);
   
   User1.find({DeviceId:selected1},function(err,docs){
-  //var deviceChunks = [];
-  //chunkSize = 3;
-  //for(var i = 0; i<docs.length; i+=chunkSize)
-//{
-  //deviceChunks.push(docs.slice(i,i+chunkSize));
-//}  
+  
 res.render('pay',{
     content: 'CURRENT DEVICE LIST',
     published: true,
