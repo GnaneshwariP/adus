@@ -35,12 +35,27 @@ router.get('/otp',function(req,res)
 
 router.post('/pay',function(req,res)
 {
-   var selected1 ={
-       sel:req.body.payment
-   }
+var selected1 = req.body.payment;
+   
    console.log(selected1);
-    res.render('pay');
-});
+  
+  User1.find({DeviceId:selected1},function(err,docs){
+  //var deviceChunks = [];
+  //chunkSize = 3;
+  //for(var i = 0; i<docs.length; i+=chunkSize)
+//{
+  //deviceChunks.push(docs.slice(i,i+chunkSize));
+//}  
+res.render('pay',{
+    content: 'CURRENT DEVICE LIST',
+    published: true,
+    newUser:docs
+    });
+console.log(docs);
+    });
+  
+});   
+
 
 router.get('/pay',function(req,res)
 {
