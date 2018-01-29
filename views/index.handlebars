@@ -2,6 +2,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,12 +57,13 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">ADUS</a>
+          <marquee direction="left"><font size="3" color="lightgreen">AUTOMATED DEVICE USAGE SYSTEM</font></marquee>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><marquee><font color="lightgreen" size="8"> Welcome </font></marquee></li>
+            <li><marquee><font color="lightgreen" size="8"> {{user.username}} </font></marquee></li>
              <li><a href="/">Dashboard</a></li>
-            <li><a href="#">account Settings</a></li>
+            <li><a href="/users/profile">Profile</a></li>
             <li><a href="/users/logout">Logout</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
@@ -156,5 +159,7 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
+
+
 
 
