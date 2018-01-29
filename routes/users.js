@@ -23,6 +23,11 @@ router.get('/payment',function(req,res)
     res.render('payment');
 });
 
+router.get('/payment',function(req,res)
+{
+    res.render('payment');
+});
+
 router.get('/otp',function(req,res)
 {
     res.render('otp');
