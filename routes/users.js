@@ -5,21 +5,22 @@ var passport=require('passport');
 var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
-
+var User2=require('../models/payhis');
 
 router.get('/register',function(req,res)
 {
     res.render('register');
 });
 
-router.get('/payment',function(req,res)
-{
-    res.render('payment');
-});
-
-router.get('/payment',function(req,res)
-{
-    res.render('payment');
+router.get('/payment', function(req,res,next){
+  User2.find(function(err,docs){
+    
+   res.render('payment',{
+    title:'Payment history',
+    published:true,
+    newUser:docs
+   });
+    });
 });
 
 router.get('/profile',function(req,res)
