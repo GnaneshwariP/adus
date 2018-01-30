@@ -98,42 +98,32 @@
          
           <h2 class="sub-header">payment </h2>   <!-- device table -->
           <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Transaction ID</th>
-                  <th>Date</th>
-                  <th>device id</th>
-                  <th>Amount</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td><a href="#">Print</a></td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                 <td><a href="#">Print</a></td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                 <td><a href="#">Print</a></td>
-                </tr>
-                
-                
-              </tbody>
-            </table>
+            {{#if published}}
+   {{content}}
+ {{/if}}
+
+<table border="2">
+  <tr>
+    <th>Transactionid</th>
+    <th>Date</th>
+    <th>Deviceid</th>
+    <th>Amount</th>
+  </tr>
+ 
+
+  {{#each newUser}}
+  {{#each this}}
+   <tr>
+  <td>{{this.transactionid}}</td>
+  <td>{{this.date}}</td>
+   <td>{{this.Deviceid}}</td>
+   <td>{{this.amount}}</td></tr>
+{{/each}}
+   {{/each}}
+</table>
+
+   
+
           </div>
         </div>
       </div>
