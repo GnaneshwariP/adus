@@ -236,9 +236,9 @@ else
         DeviceName:DeviceName,
         DeviceId:DeviceId,
         Dop:Dop,
-        balance:balance,
-        emi:emi,
-        payment:payment
+       totalamount:totalamount,
+        balanceamount:balanceamount,
+        chargepd:chargepd
     });
     User1.createUser(newUser,function(err,user1)
 {
