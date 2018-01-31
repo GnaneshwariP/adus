@@ -77,6 +77,10 @@
 {{/each}}
 </table><br><br>
 
+<form method="post" action="/users/otp">
+<label>Amount to pay : <input type="text" name="paidamount" value="{{this.DeviceId}}"></label>
+</form>
+
 <form onsubmit="return checkform(this);" class="formmargin">
 
 <div class="capbox">
