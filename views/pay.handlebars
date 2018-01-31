@@ -56,8 +56,9 @@
   <th>DeviceName</th>
   <th>DeviceID</th>
   <th>Date of purchase</th>
-  <th>Balance</th>
-  <th>EMI</th>
+   <th>Total amount</th>
+  <th>Balance amount</th>
+  <th>Charge per day</th>
 </tr>
 {{#each newUser}}
 {{#each this}}
@@ -69,8 +70,9 @@
 <td>{{this.DeviceName}}</td>
 <td>{{this.DeviceId}}</td>
 <td>{{this.Dop}}</td>
-<td>{{this.balance}}
-  <td>{{this.emi}}</td>
+<td>{{this.totalamount}}</td>
+  <td>{{this.balanceamount}}</td>
+  <td>{{this.chargepd}}</td>
 
 </tr>
 {{/each}}
