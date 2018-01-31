@@ -55,10 +55,13 @@ var UserSchema= mongoose.Schema({
     Dop:{
         type:String
     },
-    balance:{
+   totalamount:{
       type:String
     },
-    emi:{
+    balanceamount:{
+      type:String
+    },
+     chargepd:{
       type:String
     }
 
