@@ -22,8 +22,10 @@ var UserSchema= mongoose.Schema({
     },
     amount:{
         type:String
+   },
+    paidamount:{
+        type:String
     }
-
 });
 
 var User2=module.exports=mongoose.model('User2',UserSchema);
