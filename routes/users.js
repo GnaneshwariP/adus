@@ -51,8 +51,25 @@ res.render('pay',{
 console.log(docs);
     });
   
-});   
+}); 
 
+router.post('/otp',function(req,res){
+  var paidamount=req.body.paidamount;
+  console.log(paidamount);
+  var DeviceId=req.body.DeviceId;
+  req.checkBody('paidamount','paidamount is required').notEmpty();
+ // console.log(paidamount);
+  
+  var newUser=new User2({
+    paidamount:paidamount
+  });
+  User2.createUser(newUser,function(err,user)
+  {
+    if(err) throw err;
+    console.log(user);
+  });
+  res.redirect('/users/otp');
+});
 
 router.get('/pay',function(req,res)
 {
