@@ -207,17 +207,18 @@ router.post('/add_device',function(req,res)
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
-   var balance=req.body.balance;
-   var emi=req.body.emi;
-   var payment=req.body.payment;
+ var totalamount=req.body.totalamount;
+   var balanceamount=req.body.balanceamount;
+   var chargepd=req.body.chargepd;
  
 req.checkBody('customername','customername is req').notEmpty();
 req.checkBody('customerid','customerid dosnt match').notEmpty();  
 req.checkBody('DeviceName','name is req').notEmpty();
 req.checkBody('DeviceId','id is req').notEmpty();
 req.checkBody('Dop','dop is req').notEmpty();
-req.checkBody('balance','balance is req').notEmpty();
-req.checkBody('emi','emi is req').notEmpty();
+req.checkBody('totalamount','amount is req').notEmpty();
+req.checkBody('balanceamount','balanceamount is req').notEmpty();
+req.checkBody('chargepd','chargepd is req').notEmpty();
 
 var errors=req.validationErrors();
 if(errors)
