@@ -23,6 +23,18 @@ router.get('/payment', function(req,res,next){
     });
 });
 
+
+router.post('/payment',function(req,res){
+  var d1=req.body.dev1;
+  User2.find({DeviceId:d1},function(err,docs){
+     res.render('payment',{
+    title:'Payment history',
+    published:true,
+    newUser:docs
+   });
+   });
+});
+
 router.get('/profile',function(req,res)
 {
     res.render('profile');
@@ -33,6 +45,12 @@ router.get('/otp',function(req,res)
 {
     res.render('otp');
 });
+
+router.get('/detail',function(req,res){
+res.render('otp');
+});
+
+
 
 //retreive the selected device
 router.post('/pay',function(req,res)
@@ -56,12 +74,29 @@ console.log(docs);
 router.post('/otp',function(req,res){
   var paidamount=req.body.paidamount;
   console.log(paidamount);
-  var DeviceId=req.body.DeviceId;
+  var p1=req.body.dev1;
+  console.log(p1);
+
+
+      User1.find({DeviceId:p1},function(err,docs){
+
+  res.render('detail',{
+    content: 'CURRENT DEVICE LIST',
+    published: true,
+    newUser:docs,
+    A:paidamount
+  });
+  console.log(docs);
+});
+    
+    
+    
   req.checkBody('paidamount','paidamount is required').notEmpty();
  // console.log(paidamount);
   
   var newUser=new User2({
-    paidamount:paidamount
+    paidamount:paidamount,
+    DeviceId:p1
   });
   User2.createUser(newUser,function(err,user)
   {
