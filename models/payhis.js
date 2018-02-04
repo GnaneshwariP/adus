@@ -17,12 +17,10 @@ var UserSchema= mongoose.Schema({
     date:{
         type:String
     },
-    Deviceid:{
+    DeviceId:{
         type:String
     },
-    amount:{
-        type:String
-   },
+   
     paidamount:{
         type:String
     }
@@ -30,4 +28,18 @@ var UserSchema= mongoose.Schema({
 
 var User2=module.exports=mongoose.model('User2',UserSchema);
 
-        
+module.exports.createUser=function(newUser,callback){
+    newUser.save(callback);
+ };
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+
+MongoClient.connect(url, function(err, db) {
+if (err) throw err;
+var dbo = db.db("contact");
+
+
+});
+
