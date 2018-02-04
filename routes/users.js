@@ -41,11 +41,6 @@ router.get('/profile',function(req,res)
 });
 
 
-router.get('/otp',function(req,res)
-{
-    res.render('otp');
-});
-
 router.get('/detail',function(req,res){
 res.render('otp');
 });
@@ -71,7 +66,9 @@ console.log(docs);
   
 }); 
 
-router.post('/otp',function(req,res){
+
+// getting the amount to be paid
+router.post('/detail',function(req,res){
   var paidamount=req.body.paidamount;
   console.log(paidamount);
   var p1=req.body.dev1;
@@ -87,13 +84,10 @@ router.post('/otp',function(req,res){
     A:paidamount
   });
   console.log(docs);
-});
-    
-    
+});   
     
   req.checkBody('paidamount','paidamount is required').notEmpty();
- // console.log(paidamount);
-  
+   
   var newUser=new User2({
     paidamount:paidamount,
     DeviceId:p1
@@ -102,14 +96,10 @@ router.post('/otp',function(req,res){
   {
     if(err) throw err;
     console.log(user);
-  });
-  res.redirect('/users/otp');
+  });  
 });
 
-router.get('/pay',function(req,res)
-{
-    res.render('otp');
-});
+
 
 router.get('/add_device',function(req,res)
 {
@@ -140,18 +130,6 @@ res.render('currentdevice',{
     });
     });
 });
-
-
-
-
-
-  
-  
-
-  
-
-
-
 
 //register
 router.post('/register',function(req,res)
