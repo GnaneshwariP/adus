@@ -39,6 +39,36 @@
 
 #CaptchaInput { margin: 1px 0px 1px 0px; width: 135px; }
 
+/*table css */
+
+#myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+}
+
+#myTable th {
+    text-align: center; /* Left-align text */
+    padding: 12px; /* Add padding */
+    background-color: rgb(37, 46, 37);
+    color: #ddd;
+}
+
+ #myTable td{
+   text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+ }
+
+#myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd; 
+    
+}
+
+#myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
 </style>
 
 </head>
@@ -48,8 +78,7 @@
    {{content}}
  {{/if}}
  <center>
-
-<table border=5>
+<table class="table table-hover" border=5 id="myTable">
 <tr>
   <th>customer name</th>
   <th>customer id</th>
