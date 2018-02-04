@@ -3,27 +3,42 @@
   
     <head>
         <title>loginapp</title>
-        <link rel="stylesheet" href="/css/bootstrap.css"/>
-        <link rel="stylesheet" href="/css/style.css"/> 
+       <link rel="stylesheet" href="/css/bootstrap.css"/>
+      <!--  <link rel="stylesheet" href="/css/style.css"/> -->
     </head>
     <body>
 
     <div class="container">
       <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            
+    
+     
+     <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         <a class="navbar-brand" href="#">ADUS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
             {{#if user}}
-            <li role="presentation" ><a href="/">dashboard</a></li>
-               <li role="presentation"><a href="/users/logout">logout</a></li>
+            <li><a>WELCOME: {{user.username}}</a> </li>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/users/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="/users/logout"><span class="glyphicon glyphicon-log-out"></span>  Logout</a></li>
             {{else}}
-            <li role="presentation"><a href="/users/login"><font size="4" color="blue"><b>login</b></font></a></li></ul>
-            <li role="presentation"><a href="/users/register"><font size="4" color="blue"><b>register</b></font></a></li></ul>
+            <li><a href="/users/register"><span class="glyphicon glyphicon-user"></span> Signup</a></li>
+            <li><a href="/users/login"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
+            
             {{/if}}
           </ul>
-        </nav>
-     <div class="left"><font size="8" left="30px" color="Green">Schneider Electric</font></div>
-     </div>
+          </div>
+      </div>
+    </nav>
       
       
 
