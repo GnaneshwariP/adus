@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>device</title>
+
+
 <style type="text/css">#myInput {
     background-image: url('/css/searchicon.png'); /* Add a search icon to input */
     background-position: 10px 12px; /* Position the search icon */
@@ -20,19 +22,28 @@
     font-size: 18px; /* Increase font-size */
 }
 
-#myTable th, #myTable td {
-    text-align: left; /* Left-align text */
+#myTable th {
+    text-align: center; /* Left-align text */
     padding: 12px; /* Add padding */
+    background-color: rgb(37, 46, 37);
+    color: #ddd;
 }
+
+ #myTable td{
+   text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+ }
 
 #myTable tr {
     /* Add a bottom border to all table rows */
     border-bottom: 1px solid #ddd; 
+    
 }
 
 #myTable tr.header, #myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
+    
 }</style>
 
 <script>
@@ -66,8 +77,8 @@ function myFunction() {
  <center>
  	<form method="post" action="/users/pay">
    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-<table border=5 id="myTable">
-<tr>
+<table  class="table table-hover" border=5 id="myTable">
+<tr class="back_g">
   <th>customer name</th>
   <th>customer id</th>
   <th>DeviceName</th>
@@ -104,3 +115,8 @@ function myFunction() {
 </center>
 </body>
 </html>    
+
+
+
+
+
