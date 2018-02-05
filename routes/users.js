@@ -12,6 +12,7 @@ router.get('/register',function(req,res)
     res.render('register');
 });
 
+//to show the past payments
 router.get('/payment', function(req,res,next){
   User2.find(function(err,docs){
     
@@ -24,16 +25,6 @@ router.get('/payment', function(req,res,next){
 });
 
 
-router.post('/payment',function(req,res){
-  var d1=req.body.dev1;
-  User2.find({DeviceId:d1},function(err,docs){
-     res.render('payment',{
-    title:'Payment history',
-    published:true,
-    newUser:docs
-   });
-   });
-});
 
 router.get('/profile',function(req,res)
 {
@@ -70,15 +61,10 @@ console.log(docs);
 // getting the amount to be paid
 router.post('/detail',function(req,res){
   var paidamount=req.body.paidamount;
-  console.log(paidamount);
   var p1=req.body.dev1;
-  console.log(p1);
-
 
       User1.find({DeviceId:p1},function(err,docs){
-
-  res.render('detail',{
-    content: 'CURRENT DEVICE LIST',
+  res.render('detail',{    
     published: true,
     newUser:docs,
     A:paidamount
@@ -97,10 +83,16 @@ router.post('/detail',function(req,res){
     if(err) throw err;
     console.log(user);
   });  
+
+  //update the balance amount when paid
+  User1.update_doc(p1,paidamount,function(err,user1){
+    if(err) throw err;
+    console.log(user1);
+});
 });
 
 
-
+// add customer page
 router.get('/add_device',function(req,res)
 {
     res.render('add_device');
