@@ -20,7 +20,7 @@
       }
     </style>
 
-   
+
 
     <!-- Custom styles for this template -->
     <link href="C:\project\success\loginapp2_success\views\dashboard.css" rel="stylesheet">
@@ -33,12 +33,12 @@ var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
 
 </script>
 
-    
+
   </head>
 
   <body>
 
-    
+
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -48,11 +48,11 @@ var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
             <li><a href="/users/payment">Payment History</a></li>
            <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
-  
+
           <ul class="nav nav-sidebar">
-            <li><a href="">Help</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
+        
+            <li><a href="/users/aboutus">About Us</a></li>
+            <li><a href="/users/contactus">Contact Us</a></li>
           </ul>
         </div>
         <div *ngIf="user" class="col-sm-4">
@@ -61,12 +61,13 @@ var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
            <li class="list-group-item">Username : {{user.username}}</li>
            <li class="list-group-item">Email : {{user.email}}</li>
        </ul>
+     </div>
        </div>
       </div>
     </div>
-            
-      
-        
+
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
