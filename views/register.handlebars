@@ -1,21 +1,31 @@
+
+<style type="text/css">
+   .sign{
+     padding-top: 200px;
+     padding-left: 500px;
+   }
+</style>
+
+
 <div class="container">
     {{#if errors}}
 {{#each errors}}
 <div class="alert alert-danger">{{msg}}</div>
 {{/each}}
 {{/if}}
-    <div class="jumbotron">       
-  <form method="post" action="/users/register"> 
-    <h2  class="Center">SignUp</h2>      
-      <div class="input-group">          
+<div class="sign">
+    <div class="jumbotron">
+  <form method="post" action="/users/register">
+    <h2  class="Center">SignUp</h2>
+      <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         <input id="email" type="text" class="form-control" name="name" placeholder="Name">
       </div><br>
-      <div class="input-group">          
+      <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
           <input id="email" type="text" class="form-control" name="username" placeholder="Username">
         </div><br>
-        <div class="input-group">          
+        <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
             <input id="email" type="text" class="form-control" name="email" placeholder="Email">
           </div>
@@ -33,8 +43,9 @@
       <div style="text-align:center;">
           <button type="submit" class="btn btn-primary btn-md">SignUp</button>
       </div>
-      
-    
+
+    </div>
       </form>
     </div>
 </div>
+
