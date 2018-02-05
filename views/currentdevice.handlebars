@@ -12,7 +12,7 @@
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
+    /*margin-bottom: 12px; /* Add some space below the input */
 }
 
 #myTable {
@@ -20,6 +20,7 @@
     width: 100%; /* Full-width */
     border: 1px solid #ddd; /* Add a grey border */
     font-size: 18px; /* Increase font-size */
+
 }
 
 #myTable th {
@@ -36,19 +37,43 @@
 
 #myTable tr {
     /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd; 
-    
+    border-bottom: 1px solid #ddd;
+
 }
 
 #myTable tr.header, #myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
     background-color: #f1f1f1;
-    
-}</style>
+  }
+
+.find{
+  padding-top: 80px;
+  padding-bottom: 0px;
+
+}
+
+
+/*search button css*/
+.btn-search {
+	  background: #424242;
+	  border-radius: 0;
+	  color: #fff;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-color: #1c1c1c;
+	}
+	.btn-search:link, .btn-search:visited {
+	  color: #fff;
+	}
+	.btn-search:active, .btn-search:hover {
+	  background: #1c1c1c;
+	  color: #fff;
+	}
+</style>
 
 <script>
 function myFunction() {
-  // Declare variables 
+  // Declare variables
   var input, filter, table, tr, td, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
@@ -64,21 +89,44 @@ function myFunction() {
       } else {
         tr[i].style.display = "none";
       }
-    } 
+    }
   }
 }
 </script>
 </head>
 <body>
-<h1>current device list</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+         <li><a href="/users/add_device">Add Customer</a></li>
+          <li><a href="/users/payment">Payment History</a></li>
+          <li><a href="/users/currentdevice">Payment</a></li>
+        </ul>
+
+        <ul class="nav nav-sidebar">
+          <li><a href="/users/aboutus">About Us</a></li>
+          <li><a href="/users/contactus">Contact Us</a></li>
+        </ul>
+      </div>
+
+
+  <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
+
 {{#if published}}
    {{content}}
  {{/if}}
  <center>
  	<form method="post" action="/users/pay">
-   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+  <div class="find">
+  <div class="right-inner-addon ">
+  <input type="search" id="myInput" onkeyup="myFunction()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" >
+</div><br>
+</div>
 <table  class="table table-hover" border=5 id="myTable">
-<tr class="back_g">
+
+<tr>
   <th>customer name</th>
   <th>customer id</th>
   <th>DeviceName</th>
@@ -91,8 +139,6 @@ function myFunction() {
 </tr>
 {{#each newUser}}
 {{#each this}}
-
-<br>
 <tr>
 <td>{{this.customername}}</td>
 <td>{{this.customerid}}</td>
@@ -102,21 +148,20 @@ function myFunction() {
 <td>{{this.totalamount}}</td>
 <td>{{this.balanceamount}}</td>
 <td>{{this.chargepd}}</td>
-
-
 <td align="center"><input type="radio" name="payment" value="{{this.DeviceId}}"></td>
 </tr>
 {{/each}}
 {{/each}}
 </table><br><br>
 
-<input type="submit" name="submit" >
+<div style="text-align:center;">
+            <button type="submit" class="btn btn-primary btn-md">SELECT</button>
+        </div>
+
 </form>
+</div>
+</div>
+</div>
 </center>
 </body>
-</html>    
-
-
-
-
-
+</html>
