@@ -61,8 +61,8 @@
 
 #myTable tr {
     /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd; 
-    
+    border-bottom: 1px solid #ddd;
+
 }
 
 #myTable tr.header, #myTable tr:hover {
@@ -70,12 +70,39 @@
 
 </head>
 <body>
-<h1>current device list</h1>
+
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					<ul class="nav nav-sidebar">
+						<li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+						<li><a href="/users/add_device">Add Device</a></li>
+						<li><a href="/users/payment">Payment History</a></li>
+					 <li><a href="/users/currentdevice">Payment</a></li>
+					</ul>
+
+					<ul class="nav nav-sidebar">
+
+						<li><a href="/users/aboutus">About Us</a></li>
+						<li><a href="/users/contactus">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+		
+
+
+<div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
+
+<h1>PAYMET PAGE</h1>
 {{#if published}}
    {{content}}
  {{/if}}
  <center>
- 
+
 <table class="table table-hover" border=5 id="myTable">
 <tr>
   <th>customer name</th>
@@ -90,7 +117,7 @@
   <th>Pay</th>
 </tr>
 {{#each newUser}}
-{{#each this}}
+
 
 <br>
 <tr>
@@ -103,16 +130,21 @@
   <td>{{this.balanceamount}}</td>
   <td>{{this.chargepd}}</td>
   <td><form method="post" action="/users/detail"><input type="text" name="paidamount" ></td>
-<td><button name="dev1" value="{{this.DeviceId}}">Submit</button></form></td>
 
+<td>
+ <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary btn-md"  name="dev1" value="{{this.DeviceId}}">PAY</button>
+        </div>
+
+</form>
+</td>
 </tr>
-{{/each}}
 {{/each}}
 </table><br><br>
 
 
 
-
+</div>
 </center>
 </body>
-</html>   
+</html>
