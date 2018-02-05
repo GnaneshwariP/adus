@@ -45,8 +45,8 @@
 
 #myTable tr {
     /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd; 
-    
+    border-bottom: 1px solid #ddd;
+
 }
 
 #myTable tr.header, #myTable tr:hover {
@@ -87,22 +87,22 @@
             <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            
+
            <!-- <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
             <li><a href="">More navigation</a></li>-->
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="">Help</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
+
+            <li><a href="/users/aboutus">About Us</a></li>
+            <li><a href="/users/contactus">Contact Us</a></li>
           </ul>
         </div>
         <div class="col-sm-18 col-sm-offset-82 col-md-180 col-md-offset-2 main">
           <h1 class="page-header">Payment history</h1>
 
-         
+
           <h2 class="sub-header">payment </h2>   <!-- device table -->
           <div class="table-responsive">
             {{#if published}}
@@ -116,7 +116,7 @@
     <th>Deviceid</th>
     <th>paid amount</th>
   </tr>
- 
+
 
   {{#each newUser}}
   {{#each this}}
@@ -128,7 +128,7 @@
    </tr>
 {{/each}}
    {{/each}}
-</table>   
+</table>
 
           </div>
         </div>
@@ -147,6 +147,3 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
-
-
