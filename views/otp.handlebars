@@ -19,9 +19,13 @@
       .hello{
         color:white;
       }
+      .new{
+        padding-top: 100px;
+        padding-left: 500px;
+      }
     </style>
 
-   
+
 
     <!-- Custom styles for this template -->
     <link href="C:\project\success\loginapp2_success\views\dashboard.css" rel="stylesheet">
@@ -34,33 +38,11 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
 
 </script>
 
-    
+
   </head>
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-         <a class="navbar-brand" href="#">ADUS</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><marquee><font color="lightgreen" size="8"> {{user.username}} </font></marquee></li>
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="/users/profile">Profile</a></li>
-            <li><a href="/users/logout">Logout</a></li>
-          </ul>
-          
-        </div>
-      </div>
-    </nav>
 
     <div class="container-fluid">
       <div class="row">
@@ -71,27 +53,32 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
             <li><a href="/users/payment">Payment History</a></li>
            <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
-  
+
           <ul class="nav nav-sidebar">
             <li><a href="">Help</a></li>
             <li><a href="">About Us</a></li>
             <li><a href="">Contact Us</a></li>
           </ul>
         </div>
-      </div>
-    </div>
-            
+      
+   
+
 
     <main role="main" class="container">
+    <div class="new">
      <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
        <p align="center" class="lead">Your Payment is successful</p>
       <div class="jumbotron">
         <h1 align="center">Generated Otp</h1>
         <p  align="center" class="lead"><script type="text/javascript">document.write(val);</script> </p>
       </div>
+    </div>
+  </div>
+</div>
+</div>
     </main>
 
-        
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -104,4 +91,3 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
