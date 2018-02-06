@@ -61,8 +61,8 @@
 
 #myTable tr {
     /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd;
-
+    border-bottom: 1px solid #ddd; 
+    
 }
 
 #myTable tr.header, #myTable tr:hover {
@@ -70,39 +70,12 @@
 
 </head>
 <body>
-
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-sm-3 col-md-2 sidebar">
-					<ul class="nav nav-sidebar">
-						<li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-						<li><a href="/users/add_device">Add Device</a></li>
-						<li><a href="/users/payment">Payment History</a></li>
-					 <li><a href="/users/currentdevice">Payment</a></li>
-					</ul>
-
-					<ul class="nav nav-sidebar">
-
-						<li><a href="/users/aboutus">About Us</a></li>
-						<li><a href="/users/contactus">Contact Us</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-
-		
-
-
-<div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
-
-<h1>PAYMET PAGE</h1>
+<h1>current device list</h1>
 {{#if published}}
    {{content}}
  {{/if}}
  <center>
-
+ 
 <table class="table table-hover" border=5 id="myTable">
 <tr>
   <th>customer name</th>
@@ -112,14 +85,10 @@
   <th>Date of purchase</th>
    <th>Total amount</th>
   <th>Balance amount</th>
-  <th>Charge per day</th>
-  <th>Amount to pay</th>
-  <th>Pay</th>
+ <th>Charge per day</th>
+ 
 </tr>
 {{#each newUser}}
-
-
-<br>
 <tr>
 <td>{{this.customername}}</td>
 <td>{{this.customerid}}</td>
@@ -129,22 +98,83 @@
 <td>{{this.totalamount}}</td>
   <td>{{this.balanceamount}}</td>
   <td>{{this.chargepd}}</td>
-  <td><form method="post" action="/users/detail"><input type="text" name="paidamount" ></td>
-
-<td>
- <div style="text-align:center;">
-            <button type="submit" class="btn btn-primary btn-md"  name="dev1" value="{{this.DeviceId}}">PAY</button>
-        </div>
-
-</form>
-</td>
+  
 </tr>
 {{/each}}
 </table><br><br>
+<!--
+<form method="post" action="/users/detail">-->
 
+<form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin">
+<label>PAY:</label><input  type="text" name="paidamount"><br><br><br>
+<div class="capbox">
 
+<div id="CaptchaDiv"></div>
 
+<div class="capbox-inner">
+Type the above number:<br>
+
+<input type="hidden" id="txtCaptcha">
+<input type="text" name="CaptchaInput" id="CaptchaInput"  size="15"><br>
 </div>
+</div>
+
+<br>
+
+<br>
+{{#each newUser}}
+<button type="submit" name="dev1" value="{{this.DeviceId}}">Submit</button><br>
+{{/each}}
+</form>
+
+<script type="text/javascript">
+
+// Captcha Script
+
+function checkform(theform){
+var why = "";
+
+if(theform.CaptchaInput.value == ""){
+why += "- Please Enter CAPTCHA Code.\n";
+}
+if(theform.CaptchaInput.value != ""){
+if(ValidCaptcha(theform.CaptchaInput.value) == false){
+why += "- The CAPTCHA Code Does Not Match.\n";
+}
+}
+if(why != ""){
+alert(why);
+return false;
+}
+}
+
+var a = Math.ceil(Math.random() * 9)+ '';
+var b = Math.ceil(Math.random() * 9)+ '';
+var c = Math.ceil(Math.random() * 9)+ '';
+var d = Math.ceil(Math.random() * 9)+ '';
+var e = Math.ceil(Math.random() * 9)+ '';
+
+var code = a + b + c + d + e;
+document.getElementById("txtCaptcha").value = code;
+document.getElementById("CaptchaDiv").innerHTML = code;
+
+// Validate input against the generated number
+function ValidCaptcha(){
+var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
+if (str1 == str2){
+return true;
+}else{
+return false;
+}
+}
+
+// Remove the spaces from the entered and generated code
+function removeSpaces(string){
+return string.split(' ').join('');
+}
+</script>
+
 </center>
 </body>
-</html>
+</html>   
