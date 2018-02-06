@@ -6,8 +6,7 @@ var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
 var User2=require('../models/payhis');
-var datetime = require('node-datetime');
-
+var datetime=require('node-datetime');
 router.get('/register',function(req,res)
 {
     res.render('register');
@@ -32,9 +31,31 @@ router.get('/profile',function(req,res)
     res.render('profile');
 });
 
+router.post('/otp',function(req,res){
 
-router.get('/detail',function(req,res){
-res.render('otp');
+var dt = datetime.create();
+var my_date = dt.format('m-d-Y');
+var paidamount=req.body.paidamount;
+  var p1=req.body.dev1;
+  console.log(p1);
+  console.log(paidamount);
+
+  var newUser=new User2({
+    paidamount:paidamount,
+    DeviceId:p1,
+    date:my_date
+  });
+  User2.createUser(newUser,function(err,user)
+  {
+    if(err) throw err;
+    res.render('otp');
+  });  
+
+  //update the balance amount when paid
+ User1.update_doc(p1,paidamount,function(err,user1){
+    if(err) throw err;
+   
+});
 });
 
 
@@ -59,40 +80,7 @@ console.log(docs);
 }); 
 
 
-// getting the amount to be paid
-router.post('/detail',function(req,res){
-  var paidamount=req.body.paidamount;
-  var p1=req.body.dev1;
-  var dt = datetime.create();
-  var formatted = dt.format('m-d-Y ');
 
-      User1.find({DeviceId:p1},function(err,docs){
-  res.render('detail',{    
-    published: true,
-    newUser:docs,
-    A:paidamount
-  });
-  console.log(docs);
-});   
-    
-  req.checkBody('paidamount','paidamount is required').notEmpty();
-   
-  var newUser=new User2({
-    paidamount:paidamount,
-    DeviceId:p1
-  });
-  User2.createUser(newUser,function(err,user)
-  {
-    if(err) throw err;
-    console.log(user);
-  });  
-
-  //update the balance amount when paid
-  User1.update_doc(p1,paidamount,function(err,user1){
-    if(err) throw err;
-    console.log(user1);
-});
-});
 
 
 // add customer page
