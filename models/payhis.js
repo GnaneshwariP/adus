@@ -22,7 +22,7 @@ var UserSchema= mongoose.Schema({
     },
    
     paidamount:{
-        type:String
+        type:Number
     }
 });
 
