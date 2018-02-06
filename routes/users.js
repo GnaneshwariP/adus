@@ -6,20 +6,11 @@ var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
 var User2=require('../models/payhis');
+var datetime = require('node-datetime');
 
 router.get('/register',function(req,res)
 {
     res.render('register');
-});
-
-
-router.get('/aboutus',function(req,res)
-{
-    res.render('aboutus');
-});
-router.get('/contactus',function(req,res)
-{
-    res.render('contactus');
 });
 
 //to show the past payments
@@ -72,6 +63,8 @@ console.log(docs);
 router.post('/detail',function(req,res){
   var paidamount=req.body.paidamount;
   var p1=req.body.dev1;
+  var dt = datetime.create();
+  var formatted = dt.format('m-d-Y ');
 
       User1.find({DeviceId:p1},function(err,docs){
   res.render('detail',{    
