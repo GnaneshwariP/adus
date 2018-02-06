@@ -31,6 +31,7 @@ router.get('/profile',function(req,res)
     res.render('profile');
 });
 
+//retreive the amount paid and update it in balance
 router.post('/otp',function(req,res){
 
 var dt = datetime.create();
@@ -48,7 +49,7 @@ var paidamount=req.body.paidamount;
   User2.createUser(newUser,function(err,user)
   {
     if(err) throw err;
-    res.render('otp');
+   
   });  
 
   //update the balance amount when paid
@@ -56,6 +57,14 @@ var paidamount=req.body.paidamount;
     if(err) throw err;
    
 });
+
+User1.findOne({DeviceId:p1},function(err,docs){
+    var num_of_days=(paidamount)/(docs.chargepd);
+    res.render('otp',{
+        nod:num_of_days
+    });
+});
+
 });
 
 
