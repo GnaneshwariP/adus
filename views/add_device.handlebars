@@ -21,6 +21,11 @@
       .hello{
         color:white;
       }
+      .add{
+        padding-top: 70px;
+        padding-left: 50px;
+    
+      }
     </style>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -35,53 +40,42 @@
 
 <script src="C:\project2\loginapp2\public\js\bootstrap"></script>
 
-   
+
    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  
+
   <script>
   $(document).ready(function() {
     $("#datepicker").datepicker();
   });
   </script>
-   
-   
+
+
   </head>
 
   <body>
-
-    
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li ><a href="/">Overview <span class="sr-only">(current)</span></a></li>
            <li><a href="/users/add_device">Add Customer</a></li>
             <li><a href="/users/payment">Payment History</a></li>
             <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
+
           <ul class="nav nav-sidebar">
-           
-           
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Help</a></li>
-            <li><a href="">About us</a></li>
-            <li><a href="">Contact us</a></li>
+            <li><a href="/users/aboutus">About Us</a></li>
+            <li><a href="/users/contactus">Contact Us</a></li>
           </ul>
         </div>
+     <div class="add">
         <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
           <h1 class="page-header">Add Customer</h1>
-
-         
-
-         <div>
-                     
-                <form method="post" action="/users/add_device">
-
-     <div class="form-group">
+ <div>
+    <form method="post" action="/users/add_device">
+    <div class="form-group">
         <label>CustomerName</label><br>
         <input type="text" class="form-control"
         placeholder="customer name" name="customername">
@@ -90,7 +84,7 @@
         <label>Customer ID</label><br>
         <input type="text" class="form-control"
         placeholder="customer id" name="customerid">
-    </div><br>              
+    </div><br>
 
     <div class="form-group">
         <label>DeviceName</label><br>
@@ -121,16 +115,19 @@
         <input type="text" class="form-control"
         placeholder="charge per day" name="chargepd">
     </div>
-    <button type="submit" class="btn btn-default">submit</button>
-</form>
-                       
-                  
-          </div> 
-
-          
-        </div>
-      </div>
     </div>
+   <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary btn-lg">    ADD    </button>
+   </div>
+
+</form>
+
+
+          </div>
+       </div>
+        </div>
+      
+     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -144,7 +141,3 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-
-
-
-
