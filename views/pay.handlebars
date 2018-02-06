@@ -164,6 +164,16 @@ if(why != ""){
 alert(why);
 return false;
 }
+
+var why1 = "";
+if(theform.paidamount.value == ""){
+why1 += "- Enter the Amount.\n";
+}
+if(why1 != ""){
+alert(why1);
+return false;
+}
+
 }
 var a = Math.ceil(Math.random() * 9)+ '';
 var b = Math.ceil(Math.random() * 9)+ '';
