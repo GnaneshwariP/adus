@@ -51,7 +51,13 @@
 
 #myTable tr.header, #myTable tr:hover {
     /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
+    background-color: #f1f1f1;}
+
+
+    .pad{
+      padding-left: 50px;
+      padding-top: 70px;
+    }
     </style>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -81,29 +87,22 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
            <li><a href="/users/add_device">Add Customer</a></li>
             <li><a href="/users/payment">Payment History</a></li>
             <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
+          
           <ul class="nav nav-sidebar">
-
-           <!-- <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>-->
-          </ul>
-          <ul class="nav nav-sidebar">
-
             <li><a href="/users/aboutus">About Us</a></li>
             <li><a href="/users/contactus">Contact Us</a></li>
           </ul>
         </div>
+
+  <div class="pad">
         <div class="col-sm-18 col-sm-offset-82 col-md-180 col-md-offset-2 main">
           <h1 class="page-header">Payment history</h1>
-
-
-          <h2 class="sub-header">payment </h2>   <!-- device table -->
+         <!-- device table -->
           <div class="table-responsive">
             {{#if published}}
    {{content}}
@@ -119,20 +118,22 @@
 
 
   {{#each newUser}}
-  {{#each this}}
+  
    <tr>
   <td>{{this.transactionid}}</td>
   <td>{{this.date}}</td>
    <td>{{this.DeviceId}}</td>
    <td>{{this.paidamount}}</td>
    </tr>
-{{/each}}
+
    {{/each}}
-</table>
+
 
           </div>
         </div>
       </div>
+      </div>
+
     </div>
 
     <!-- Bootstrap core JavaScript
