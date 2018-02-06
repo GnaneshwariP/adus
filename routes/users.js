@@ -13,7 +13,7 @@ router.get('/register',function(req,res)
 });
 
 //to show the past payments
-router.get('/payment', function(req,res,next){
+router.get('/payment',ensureAuthenticated, function(req,res,next){
   User2.find(function(err,docs){
     
    res.render('payment',{
@@ -26,7 +26,7 @@ router.get('/payment', function(req,res,next){
 
 
 
-router.get('/profile',function(req,res)
+router.get('/profile',ensureAuthenticated,function(req,res)
 {
     res.render('profile');
 });
@@ -93,7 +93,7 @@ console.log(docs);
 
 
 // add customer page
-router.get('/add_device',function(req,res)
+router.get('/add_device',ensureAuthenticated,function(req,res)
 {
     res.render('add_device');
 });
@@ -107,7 +107,7 @@ router.get('/login',function(req,res)
 
 
 
-router.get('/currentdevice', function(req,res){
+router.get('/currentdevice',ensureAuthenticated, function(req,res){
   User1.find(function(err,docs){
   var deviceChunks = [];
   chunkSize = 3;
@@ -255,6 +255,18 @@ res.redirect('/users/add_device');
 }
 });
 
+
+function ensureAuthenticated(req,res,next){
+    if(req.isAuthenticated())
+    {
+        return next();
+    }
+    else
+    {
+        //req.flash('error_msg','you are not logged in');
+        res.redirect('/users/login');
+    }
+}
 
   
 module.exports=router;
