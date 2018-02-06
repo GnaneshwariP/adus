@@ -21,7 +21,11 @@
       }
       .new{
         padding-top: 100px;
-        padding-left: 500px;
+        padding-left: 150px;
+        padding-right: 100px;
+      }
+      .heading{
+        background-color: blue;
       }
     </style>
 
@@ -48,29 +52,27 @@ var val = Math.floor(10000000 + Math.random() * 90000000);
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="/users/add_device">Add Device</a></li>
             <li><a href="/users/payment">Payment History</a></li>
            <li><a href="/users/currentdevice">Payment</a></li>
           </ul>
 
           <ul class="nav nav-sidebar">
-            <li><a href="">Help</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="/users/aboutus">About Us</a></li>
+            <li><a href="/users/contactus">Contact Us</a></li>
           </ul>
         </div>
       
-   
-
-
     <main role="main" class="container">
     <div class="new">
      <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
        <p align="center" class="lead">Your Payment is successful</p>
       <div class="jumbotron">
         <h1 align="center">Generated Otp</h1>
+
         <p  align="center" class="lead"><script type="text/javascript">document.write(val);</script> </p>
+        <h3 align="center" class="heading">number of valid days: {{nod}}</h3>
       </div>
     </div>
   </div>
