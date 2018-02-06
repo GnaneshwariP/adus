@@ -46,11 +46,7 @@
     background-color: #f1f1f1;
   }
 
-.find{
-  padding-top: 80px;
-  padding-bottom: 0px;
 
-}
 
 
 /*search button css*/
@@ -69,6 +65,13 @@
 	  background: #1c1c1c;
 	  color: #fff;
 	}
+
+
+  .pad{
+      padding-left: 50px;
+      padding-top: 70px;
+    }
+
 </style>
 
 <script>
@@ -99,7 +102,7 @@ function myFunction() {
     <div class="row">
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
-          <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+          <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
          <li><a href="/users/add_device">Add Customer</a></li>
           <li><a href="/users/payment">Payment History</a></li>
           <li><a href="/users/currentdevice">Payment</a></li>
@@ -111,9 +114,9 @@ function myFunction() {
         </ul>
       </div>
 
-
+<div class="pad">
   <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
-
+  <h1 class="page-header">CUSTOMER DETAILS</h1>
 {{#if published}}
    {{content}}
  {{/if}}
@@ -156,12 +159,12 @@ function myFunction() {
 
 <div style="text-align:center;">
             <button type="submit" class="btn btn-primary btn-md">SELECT</button>
-        </div>
+        </div><br><br>
 
 </form>
 </div>
-</div>
-</div>
+
 </center>
+</div></div>
 </body>
 </html>
