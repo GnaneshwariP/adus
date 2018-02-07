@@ -31,6 +31,27 @@ router.get('/profile',ensureAuthenticated,function(req,res)
     res.render('profile');
 });
 
+//router for report
+router.get('/report',ensureAuthenticated,function(req,res)
+{
+  User1.device_sum(function(err,user3){
+    if(err) throw err;
+    User1.cust_name(function(err,result){
+      if(err) throw err;
+
+console.log(result);
+    var n1 = user3;
+console.log(n1);
+res.render('report',{
+  sum:n1,
+  cust:result
+});
+  });
+});
+
+});
+
+
 //retreive the amount paid and update it in balance
 router.post('/otp',function(req,res){
 
