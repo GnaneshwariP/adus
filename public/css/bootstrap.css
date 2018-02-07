@@ -1584,7 +1584,7 @@ pre code {
 /*.container {
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
+  margin-right: 3px;
   margin-left: auto;
 }*/
 @media (min-width: 768px) {
@@ -2250,6 +2250,7 @@ pre code {
 }
 table {
   background-color: transparent;
+
 }
 caption {
   padding-top: 8px;
@@ -2264,6 +2265,8 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px;
+  padding-left: 200px;
+
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -3971,6 +3974,45 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 2;
   margin-left: -1px;
 }
+
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+
+/* Sidebar navigation */
+.nav-sidebar {
+  padding-top: 40px;
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+  /*position: fixed;*/
+  background-color: #D6DCE0;
+  
+  border: 1px solid black;
+border-radius: 10px;
+margin-bottom: 15px;
+
+}
+
+
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+   color: black ;
+    font-size: 15pt;
+
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #eee;
+}
+
+
 .nav {
   padding-left: 0;
   margin-bottom: 0;
@@ -4054,6 +4096,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs.nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 800%;
+    }
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li {
