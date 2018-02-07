@@ -58,6 +58,16 @@ module.exports.update_doc=function(dev,pd_amt,callback){
 }
 
 
+//device name and their revenue
+module.exports.device_sum=function(callback){
+User1.aggregate([{$group:{"_id":"$DeviceName",sum:{$sum:{$subtract:["$totalamount","$balanceamount"]}}}}],callback);
+}
+
+//customername and payment
+module.exports.cust_name=function(callback){
+User1.aggregate([{$project:{"_id":"$customername","cid":"$customerid",sum1:{$sum:{$subtract:["$totalamount","$balanceamount"]}}}}],callback);
+}
+
 
 
 
