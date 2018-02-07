@@ -43,3 +43,8 @@ var dbo = db.db("contact");
 
 });
 
+module.exports.sum=function(callback){
+User2.aggregate([{$group:{"_id":"",sum:{$sum:"$paidamount"}}}],callback);
+}
+
+
