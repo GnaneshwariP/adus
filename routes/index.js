@@ -12,12 +12,20 @@ router.get('/',ensureAuthenticated,function(req,res)
 {
   User1.find().count(function(err,docs){
     if(err) throw err;
-    res.render('index',{
-      num_of_cust:docs
+
+    User2.sum(function(err,user2){
+      if(err) throw err;
+
+      var n = user2;
+  console.log(n);
+ res.render('index',{
+    sum:n,
+    num_of_cust:docs
+  });
     });
   });
+ });
 
-});
 function ensureAuthenticated(req,res,next){
     if(req.isAuthenticated())
     {
