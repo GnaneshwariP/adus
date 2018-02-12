@@ -192,8 +192,10 @@ border-radius:0;
   <div class="two">
     <!--<div class="jumbotron col-sm-6 text-center">-->
       <div class="jumbotron col-sm-6 col-sm-offset-21 text-center">
-        <p>Caption</p>
-        <h3></h3>
+        <p>Total Revenue</p>
+        {{#each sum}}
+<h1>₹{{sum}}</h1>
+{{/each}}
       </div>  </div>
 </div>
 </div>
