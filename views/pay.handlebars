@@ -15,7 +15,7 @@
 <body>
  <div class="container">
  <div class="container-fluid">
-  <div class="row">  
+   
  <h1 class="page-header">DEVICE LIST </h1>
        <div class="table-responsive">
 {{#if published}}
@@ -52,12 +52,11 @@
 
   </div>
   <center>
-<!--
-<form method="post" action="/users/detail">-->
-<form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin">
-    <div class="jumbotron">
-<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form"><br><br><br>
 
+
+  <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin">
+
+<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form"><br><br><br>
 <div class="capbox">
 <div id="CaptchaDiv"></div>
 <div class="capbox-inner">
@@ -70,16 +69,14 @@ Type the above number:<br>
 {{#each newUser}}
 
  <div style="text-align:center;">
-      <button type="submit" class="btn btn-primary btn-md" name="dev1" value="{{this.DeviceId}}">MAKE PAYMENT</button>
+      <button type="submit" class="btn btn-primary" name="dev1" value="{{this.DeviceId}}">MAKE PAYMENT</button>
    </div>
 
-{{/each}}</div>
+{{/each}}
 </form>
 </center>
-
-
 </div>
-</div>
+
 </div>
 <script type="text/javascript">
 // Captcha Script
@@ -121,6 +118,6 @@ function removeSpaces(string){
 return string.split(' ').join('');
 }
 </script>
-</center>
+</center></div></div>
 </body>
 </html>   
