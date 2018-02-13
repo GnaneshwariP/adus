@@ -11,7 +11,14 @@ router.get('/register',function(req,res)
 {
     res.render('register');
 });
-
+router.get('/aboutus',function(req,res)
+{
+    res.render('aboutus');
+});
+router.get('/contactus',function(req,res)
+{
+    res.render('contactus');
+});
 //to show the past payments
 router.get('/payment',ensureAuthenticated, function(req,res,next){
   User2.find(function(err,docs){
