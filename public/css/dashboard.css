@@ -1,0 +1,391 @@
+
+.header-right {
+  float: right;
+
+}
+.header-right a{
+  color: white;
+  font-size: 18px;
+  font-family: Calibri;
+}
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+html, body {
+  font-family: 'Lato', serif;  
+}
+
+.navbar-default {
+  
+  font-size: 1.15em;
+  font-weight: 400;
+  background-color: #006b96;
+  padding: 10px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  font-size: 20px;
+  font-family: calibri;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #ffffff;
+  text-shadow: 1px -1px 8px #b3e9ff;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  background-color: #004059;
+  color: white;
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border: none;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #002433;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+
+.dropdown-menu {
+  background-color: #004059;
+  color: white;
+  border: 0px;
+  border-radius: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu>li>a {
+  background-color: #004059;
+  color: white;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+  background-color: #004059;
+  color:white;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: ;
+    background-color: #003246;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #ffffff;
+    font-family: calibri;
+    font-size: 18px;
+}
+
+@media (max-width: 767px) { 
+  .dropdown-menu>li>a {
+    background-color: #006b96;
+    color: #ffffff;
+  }
+  .dropdown-menu>li>a:hover {
+    color: #ffffff;
+  }
+  
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  
+  .dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: ;
+    background-color: #005577;
+  }
+} /* END Media Query */
+
+/*tables css*/
+ #myTable {
+            border-collapse: collapse; /* Collapse borders */
+            width: 100%; /* Full-width */
+            border: 1px solid #ddd; /* Add a grey border */
+            font-size: 18px; /* Increase font-size */
+        }
+
+        #myTable th {
+            text-align: center; /* Left-align text */
+            padding: 12px; /* Add padding */
+            background-color: rgb(37, 46, 37);
+            color: #ddd;
+        }
+
+         #myTable td{
+           text-align: left; /* Left-align text */
+            padding: 12px; /* Add padding */
+         }
+
+        #myTable tr {
+            /* Add a bottom border to all table rows */
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+            /* Add a grey background color to the table header and on hover */
+            background-color: #f1f1f1;}
+
+  /*captcha css*/
+  .capbox {
+  background-color: #92D433;
+  border: #B3E272 0px solid;
+  border-width: 0px 12px 0px 0px;
+  display: inline-block;
+  *display: inline; zoom: 1; /* FOR IE7-8 */
+  padding: 8px 40px 8px 8px;
+  }
+.capbox-inner {
+  font: bold 11px arial, sans-serif;
+  color: #000000;
+  background-color: #DBF3BA;
+  margin: 5px auto 0px auto;
+  padding: 3px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  }
+#CaptchaDiv {
+  font: bold 17px verdana, arial, sans-serif;
+  font-style: italic;
+  color: #000000;
+  background-color: #FFFFFF;
+  padding: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  }
+#CaptchaInput { margin: 1px 0px 1px 0px; width: 135px; }
+
+/*jumbotron*/
+ .mystyle{
+      padding: 100px 200px 20px 200px;
+    }
+    
+   .one .jumbotron
+{ background-image:url('Img');
+color:black;
+padding-top: 0;
+min-height:200px;
+min-width:30%;
+border-radius:0;
+}
+
+.two .jumbotron
+{ background-image:url('Img');
+color:black;
+padding-top: 0;
+min-height:200px;
+min-width:30%;
+border-radius:0;
+}
+
+
+/*css for profile page*/
+
+      #content img {
+    margin-left: 30px;
+  float: left;
+  width:100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+#content .col {
+  float: left;
+}
+.photo{
+  float: left;
+  width:500px;
+  height: 500px;
+}
+
+
+/*profile card css*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+
+/*register page css*/
+   .sign{
+    
+     padding-left: 50px;
+
+     padding-right: 100px;
+   }
+
+
+
+
+/*search button css*/
+
+
+#myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    /*margin-bottom: 12px; /* Add some space below the input */
+}
+
+.btn-search {
+    background: #424242;
+    border-radius: 50;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #1c1c1c;
+  }
+  .btn-search:link, .btn-search:visited {
+    color: #fff;
+  }
+  .btn-search:active, .btn-search:hover {
+    background: #1c1c1c;
+    color: #fff;
+  }
+
+/*contact us page css*/
+
+/*css for the conatct us form*/
+ /* CTA CSS */
+ .cta-padding35 {
+    padding: 35px 0 35px;
+    background-color: #b40028;
+    color:#fff;
+}
+/* Buttons */
+.site-btn {
+    font-size: 14px;
+    padding: 13px 30px;
+    border-radius: 5px;
+    border: 1px solid #b40028 ;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #b40028 ;
+    background-color:transparent;
+    transition: all .25s ease-in-out;
+    margin: 10px 0px 10px 0px;
+    
+}
+.site-btn:hover {
+    background: #b40028 ;
+    border: 1px solid #fff;
+    font-weight:700px;
+    
+    
+}
+ 
+
+
+/* Social Icons */
+
+.social-icons{
+    
+    margin: 0;
+    padding: 0;
+    font-size : 10px;
+}
+.social {
+    margin:7px 7px 7px 0px;
+    color:#232323;
+}
+
+
+#social-fb:hover {
+     color: #3B5998;
+     transition:all .25s;
+ }
+ #social-tw:hover {
+     color: #4099FF;
+     transition:all .25s;
+ }
+ #social-gp:hover {
+     color: #d34836;
+     transition:all .25s;
+ }
+ #social-em:hover {
+     color: #f39c12;
+     transition:all .25s;
+ }
+
+
+
+
+.paddingTB60 {
+    padding-top:60px;
+    padding-bottom:60px;
+    margin-right: 40px;
+}
+
+ 
+.lg-text {
+    font-size:52px;
+    font-weight: 600;
+    text-transform: none;
+    color:#fff;
+}
+.image-aboutus-para {
+    color:#fff;
+}
+
