@@ -11,107 +11,65 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="C:\project\success\loginapp2_success\public\css\bootstrap.min.css" rel="stylesheet">
-
-<link href="C:\project\success\loginapp2_success\views\dashboard.css" rel="stylesheet">
-
-<style type="text/css">
-  .pad{
-      padding-left: 50px;
-      
-    }
-
-/*dropdown menu css*/
-
-.dropbtn  {
-    background-color: #D6DCE0;
-    color: black;
-    padding:10px;
-    padding-left: 3px;
-    font-size: 15pt;
-    border: none;
-    border-spacing: 30px;
-    cursor: pointer;
-    width: 125px;
-
-  
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AFB7B3 ;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 8;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration:none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #eee;
-}
-
-
-</style>
   </head>
 
   <body>
 
-
+<div class="container">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="/users/add_device">Add Device</a></li>
-            <li><a href="/users/payment">Payment History</a></li>
-           <li><a href="/users/currentdevice">Payment</a></li>
-         
 
-            <li><a href="/users/aboutus">About Us</a></li>
-            <li><a href="/users/contactus">Contact Us</a></li>
-            <li align="left">
-          <div class="dropdown">
-                  <button class="dropbtn">Dropdown</button>
-                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                  </div>
-            </div>
-        </div></li>
-          </ul>
-        </div>
-     
-    </div>
+            <h1 class="page-header">Contact Us</h1>
+<div class="contact-section paddingTB60">
+    <div class="container">
+    <div class="row">
+                 <div class="border">
+                  <div class="col-md-3 col-sm-4">
+              <i class="glyphicon glyphicon-home"></i> <b>Whitefield - Hoskote Main road, Near Safal Market, Goravigere Village, Bangalore, Karnataka 560067</b><br><br>
+              <i class="glyphicon glyphicon-phone"></i> <b>1800-xxx-990</b><br><br>
+              <i class="glyphicon glyphicon-earphone"></i> <b>1800-xxx-996</b><br><br>
+              <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:example@info.com">info@bigpixi.com</a><br><br>
+              <i class="fa fa-home"></i> <b>Mon - Fri 8.00am - 4.30pm</b><br>
+              Saturday - Sunday CLOSED
+                    </div></div>
+                    <div class="col-md-9 col-sm-8">
+                        <form method="post" id="contactform" name="contactform" class="contact-form clearfix" action="mail/contact.php">
+                          <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <input id="fname" name="First Name" class="form-control input-lg" placeholder="First name*" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="lname" name="Last Name" class="form-control input-lg" placeholder="Last name" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="email" name="email" class="form-control input-lg" placeholder="Email*" type="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="phone" name="phone" class="form-control input-lg" placeholder="Phone" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        <textarea cols="6" rows="8" id="comments" name="comments" class="form-control input-lg" placeholder="Message"></textarea>
+                                    </div>
+                                    <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-left" value="Submit now!" type="submit">
+                                    <input type="reset" name="reset" class="btn btn-primary btn-lg  site-btn pull-right" value="ClearForm!" type="submit">
+                                </div>
+                               
+                            </div>
+                    </form>
+                        <div class="clearfix"></div>
+                        <div id="message"></div>
+                    </div>
+                </div>
 
-<div class="pad">
-    <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
-            <h1 class="page-header">contact us</h1>
-           <div class="css/bootstrap.min.css" >
-           <p class="gold"> </p>
-            </div>
-   </div>
 </div>
 </div>
+
+
+
+
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -123,5 +81,10 @@
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  
+
+</div>
+</div>
+</div>
   </body>
 </html>

@@ -6,135 +6,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="C:\project\success\loginapp2_success\public\css\bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      .hello{
-        color:white;
-      }
-      .new{
-        padding-top: 100px;
-        padding-left: 150px;
-        padding-right: 100px;
-      }
-      .heading{
-        background-color: ;
-      }
-
-/*dropdown menu css*/
-
-.dropbtn  {
-    background-color: #D6DCE0;
-    color: black;
-    padding:10px;
-    padding-left: 3px;
-    font-size: 15pt;
-    border: none;
-    border-spacing: 30px;
-    cursor: pointer;
-    width: 125px;
-
-  
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AFB7B3 ;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 8;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration:none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #eee;
-}
-
-
-    </style>
-
-
-
-    <!-- Custom styles for this template -->
-    <link href="C:\project\success\loginapp2_success\views\dashboard.css" rel="stylesheet">
-
-
-<script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
-<script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
-<script type="text/javascript">
-var val = Math.floor(10000000 + Math.random() * 90000000);
-
-</script>
-
-
+        <script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
+        <script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
+        <script type="text/javascript">
+        var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
+        </script>
   </head>
 
   <body>
 
-
+<div class="container">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="/users/add_device">Add Device</a></li>
-            <li><a href="/users/payment">Payment History</a></li>
-           <li><a href="/users/currentdevice">Payment</a></li>
-            <li><a href="/users/aboutus">About Us</a></li>
-            <li><a href="/users/contactus">Contact Us</a></li>
-            <li align="left">
-          <div class="dropdown">
-                  <button class="dropbtn">Dropdown</button>
-                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                  </div>
-            </div>
-        </div></li>
-          </ul>
-        </div>
-      
-    <main role="main" class="container">
-    <div class="new">
-     <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
+   <!-- <main role="main" class="container">-->
        <p align="center" class="lead">Your Payment is successful</p>
-      <div class="jumbotron">
+       <div class="jumbotron">
         <h1 align="center">Generated Otp</h1>
-
-        <p  align="center" class="lead"><script type="text/javascript">document.write(val);</script> </p>
+        <p  align="center" class="lead">
+          <script type="text/javascript">document.write(val);</script> 
+        </p>
         <h3 align="center" class="heading">number of valid days: {{nod}}</h3>
       </div>
     </div>
   </div>
 </div>
-</div>
-    </main>
+   
 
 
     <!-- Bootstrap core JavaScript

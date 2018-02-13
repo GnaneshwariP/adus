@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
@@ -12,12 +14,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
  
+    </style>
 
     <link href="dashboard.css" rel="stylesheet">
+<script src="C:\project2\loginapp2\public\js\bootstrap"></script>
    
-    <script src="C:\project2\loginapp2\public\js\bootstrap"></script>
-   
+
     <script>
 function myFunction() {
   // Declare variables
@@ -44,27 +48,27 @@ function myFunction() {
   <body>
     <div class="container">
     <div class="container-fluid">
-      <div class="row">         
-          <h1 class="page-header">Customer Payment</h1>
-           <div class="find">
+      <div class="row">
+          <h1 class="page-header">Device Payment</h1>
+                <div class="table-responsive">
   <div class="right-inner-addon ">
-  <input type="search" id="myInput" onkeyup="myFunction()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" ><br>
+  <input type="search" id="myInput" onkeyup="myFunction()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" /><br>
 </div>
-</div> 
-     <div class="table-responsive">
+
+
  <table  class="table table-hover" border=5 id="myTable">
 
 <tr>
-  <th>customer name</th>
-  <th>customer id</th>
+  <th>Device Name</th>
+  
   <th>Payment</th>
  
 </tr>
-{{#each cust}}
+{{#each sum}}
 <tr>
 <td>{{this._id}}</td>
-<td>{{this.cid}}</td>
-<td>{{this.sum1}}</td>
+<td>{{this.sum}}</td>
+
 </tr>
 {{/each}}
 </table>

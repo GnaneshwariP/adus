@@ -1,165 +1,24 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-      .hello{
-        color:white;
-      }
-
-
-
-#myTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
-}
-
-#myTable th {
-    text-align: center; /* Left-align text */
-    padding: 12px; /* Add padding */
-    background-color: rgb(37, 46, 37);
-    color: #ddd;
-}
-
- #myTable td{
-   text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
- }
-
-#myTable tr {
-    /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd;
-
-}
-
-#myTable tr.header, #myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;}
-
-
-    .pad{
-       padding-top: 70px;
-        padding-left: 50px;
-        padding-right: 30px;
-    }
-
-/*dropdown menu css*/
-
-.dropbtn  {
-    background-color: #D6DCE0;
-    color: black;
-    padding:10px;
-    padding-left: 3px;
-    font-size: 15pt;
-    border: none;
-    border-spacing: 30px;
-    cursor: pointer;
-    width: 125px;
-
-  
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AFB7B3 ;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 8;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration:none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #eee;
-}
-
-
-    </style>
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
-
-    <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-   <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script>-->
-
-<script src="C:\project2\loginapp2\public\js\bootstrap"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+       <title>Dashboard Template for Bootstrap</title>        
+      <script src="C:\project2\loginapp2\public\js\bootstrap"></script>
   </head>
 
-  <body>
+<body>
 
 
-
+  <div class="container">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-           <li><a href="/users/add_device">Add Customer</a></li>
-            <li><a href="/users/payment">Payment History</a></li>
-            <li><a href="/users/currentdevice">Payment</a></li>
-            <li><a href="/users/aboutus">About Us</a></li>
-            <li><a href="/users/contactus">Contact Us</a></li>
-            <li align="left">
-          <div class="dropdown">
-                  <button class="dropbtn">Dropdown</button>
-                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                  </div>
-           </li>
-          </ul>
-           </div>
-      
-       
-
-  <div class="pad">
-        <div class="col-sm-18 col-sm-offset-82 col-md-180 col-md-offset-2 main">
-          <h1 class="page-header">Payment history</h1>
+      <div class="row">  
+       <h1 class="page-header">Payment history</h1>
          <!-- device table -->
           <div class="table-responsive">
             {{#if published}}
@@ -189,10 +48,8 @@
 
           </div>
         </div>
-      </div>
-      </div>
-
     </div>
+  </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

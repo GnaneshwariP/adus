@@ -3,127 +3,6 @@
 <head>
 <title>device</title>
 
-
-<style type="text/css">#myInput {
-    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    /*margin-bottom: 12px; /* Add some space below the input */
-}
-
-#myTable {
-    border-collapse: collapse; /* Collapse borders */
-    width: 100%; /* Full-width */
-    border: 1px solid #ddd; /* Add a grey border */
-    font-size: 18px; /* Increase font-size */
-
-}
-
-#myTable th {
-    text-align: center; /* Left-align text */
-    padding: 12px; /* Add padding */
-    background-color: rgb(37, 46, 37);
-    color: #ddd;
-}
-
- #myTable td{
-   text-align: left; /* Left-align text */
-    padding: 12px; /* Add padding */
- }
-
-#myTable tr {
-    /* Add a bottom border to all table rows */
-    border-bottom: 1px solid #ddd;
-
-}
-
-#myTable tr.header, #myTable tr:hover {
-    /* Add a grey background color to the table header and on hover */
-    background-color: #f1f1f1;
-  }
-
-
-
-
-/*search button css*/
-.btn-search {
-	  background: #424242;
-	  border-radius: 50;
-	  color: #fff;
-	  border-width: 1px;
-	  border-style: solid;
-	  border-color: #1c1c1c;
-	}
-	.btn-search:link, .btn-search:visited {
-	  color: #fff;
-	}
-	.btn-search:active, .btn-search:hover {
-	  background: #1c1c1c;
-	  color: #fff;
-	}
-
-
-  .pad{
-       padding-top: 70px;
-        padding-left: 50px;
-        padding-right: 30px;
-    }
-
-/*dropdown menu css*/
-
-.dropbtn  {
-    background-color: #D6DCE0;
-    color: black;
-    padding:10px;
-    padding-left: 3px;
-    font-size: 15pt;
-    border: none;
-    border-spacing: 30px;
-    cursor: pointer;
-    width: 125px;
-
-  
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #AFB7B3 ;
-    min-width: 300px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 8;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration:none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #eee;
-}
-
-
-
-</style>
-
 <script>
 function myFunction() {
   // Declare variables
@@ -148,37 +27,16 @@ function myFunction() {
 </script>
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
-        <ul class="nav nav-sidebar">
-          <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
-         <li><a href="/users/add_device">Add Customer</a></li>
-          <li><a href="/users/payment">Payment History</a></li>
-          <li><a href="/users/currentdevice">Payment</a></li>
-          <li><a href="/users/aboutus">About Us</a></li>
-          <li><a href="/users/contactus">Contact Us</a></li>
-          <li align="left">
-          <div class="dropdown">
-                  <button class="dropbtn">Dropdown</button>
-                  <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                  </div>
-          </li>
-        </ul>
-      </div>
-
-        
-
-<div class="pad">
-  <div class="col-sm-18 col-sm-offset-88 col-md-182 col-md-offset-2 main">
+  <div class="container">
+<div class="container-fluid">
+  
   <h1 class="page-header">CUSTOMER DETAILS</h1>
+        <div class="table-responsive">
+
 {{#if published}}
    {{content}}
  {{/if}}
- <center>
+ 
  	<form method="post" action="/users/pay">
   <div class="find">
   <div class="right-inner-addon ">
@@ -222,9 +80,8 @@ function myFunction() {
         </div><br><br>
 
 </form>
-</center>
 </div>
-</div>
+
 </div>
 </div>
 </body>
