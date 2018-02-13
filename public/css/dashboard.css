@@ -1,4 +1,30 @@
+/*login form css*/
 
+
+
+.modal-content{
+      background-color: #006b96;
+    }
+    .btn-link{
+      color: #fff;
+    }
+     
+    .modal-heading h2{
+      color: White;
+
+    }
+
+.modal-dialog{
+  float: center;
+  padding-top: 90px;
+  width: 350px;
+  height: 500px;
+  font-family: Calibri;
+}
+
+
+
+/*layout css*/
 .header-right {
   float: right;
 
@@ -11,7 +37,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
 html, body {
-  font-family: 'Lato', serif;  
+  font-family: Calibri;  
 }
 
 .navbar-default {
@@ -36,6 +62,7 @@ html, body {
 
 .navbar-default .navbar-brand {
   color: white;
+  font-size: 20px;
 }
 
 .navbar-default .navbar-brand:hover {
@@ -389,3 +416,7 @@ button:hover, a:hover {
     color:#fff;
 }
 
+/*language translator*/
+.language{
+  width: 10px;
+}
