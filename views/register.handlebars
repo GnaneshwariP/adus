@@ -1,43 +1,75 @@
-
-<div class="container">
-    {{#if errors}}
+<center>
+  <div class="container">
+  {{#if errors}}
 {{#each errors}}
 <div class="alert alert-danger">{{msg}}</div>
 {{/each}}
 {{/if}}
-<div class="sign">
-    <div class="jumbotron">
-  <form method="post" action="/users/register">
-    <h2  class="Center">SignUp</h2>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input id="email" type="text" class="form-control" name="name" placeholder="Name">
-      </div><br>
-      <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="email" type="text" class="form-control" name="username" placeholder="Username">
-        </div><br>
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h2 class="text-center">SignUp</h2>
+      </div>
+      <hr />
+      <div class="modal-body">
+        <form action="/users/register" method="post" role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" name="name" placeholder="Enter your Name " required />
+            </div>
           </div>
-      <br>
-      <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-      </div>
-      <br>
-      <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-          <input id="password" type="password" class="form-control" name="password2" placeholder="confirm Password">
-        </div>
-        <br>
-      <div style="text-align:center;">
-          <button type="submit" class="btn btn-primary btn-md">SignUp</button>
-      </div>
 
-   
-      </form>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+              </span>
+              <input type="text" class="form-control" name="username" placeholder="User Name " required />
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-envelope"></span>
+              </span>
+              <input type="email" class="form-control" name="email" placeholder="Email-Address " required />
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" name="password" placeholder="Password" required />
+              </div>
+          </div>
+         
+          
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required />
+              </div>
+          </div>
+
+
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-success btn-lg">SignUp</button>
+           
+          </div>
+
+        </form>
+      </div>
     </div>
-</div>
-</div>
+  </div>
+    </div>
+    </div>
+<center>
