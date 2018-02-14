@@ -1216,6 +1216,8 @@ h6 .small,
   line-height: 1;
   color: #777;
 }
+
+
 h1,
 .h1,
 h2,
@@ -1581,12 +1583,12 @@ pre code {
   max-height: 340px;
   overflow-y: scroll;
 }
-/*.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: 3px;
+.container {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
   margin-left: auto;
-}*/
+}
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -1602,6 +1604,7 @@ pre code {
     width: 1170px;
   }
 }
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -1617,6 +1620,7 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+
 }
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
@@ -2513,6 +2517,7 @@ label {
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 18px;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -2550,11 +2555,12 @@ output {
   color: #555;
 }
 .form-control {
+
   display: block;
   width: 100%;
   height: 34px;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.42857143;
   color: #555;
   background-color: #fff;
@@ -3440,6 +3446,7 @@ fieldset[disabled] .btn-link:focus {
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
+  
 }
 .btn-sm,
 .btn-group-sm > .btn {
@@ -3987,7 +3994,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-top: 40px;
   margin-right: -21px; /* 20px padding + 1px border */
   margin-bottom: 20px;
-  margin-left: -20px;
+  margin-left: -10px;
   /*position: fixed;*/
   background-color: #D6DCE0;
   
@@ -4100,7 +4107,7 @@ margin-bottom: 15px;
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     [class*="col-"] {
-        width: 800%;
+        width: 100%;
     }
 }
 @media (min-width: 768px) {
@@ -4211,12 +4218,13 @@ margin-bottom: 15px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+/*
 .navbar {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
-}
+}*/
 @media (min-width: 768px) {
   .navbar {
     border-radius: 4px;
@@ -4378,7 +4386,7 @@ margin-bottom: 15px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
-    position: static;
+    position: relative;
     float: none;
     width: auto;
     margin-top: 0;
