@@ -3,28 +3,6 @@
 <head>
 <title>device</title>
 
-<script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-</script>
 </head>
 <body>
   <div class="container">
@@ -45,48 +23,65 @@ function myFunction() {
 </div>
 
 <table  class="table table-hover" border=5 id="myTable">
-
+<thead>
 <tr>
   <th>customer name</th>
-  <th>customer id</th>
-  <th>DeviceName</th>
-  <th>DeviceID</th>
+
+  <th>Device Name</th>
+  <th>Device ID</th>
   <th>Date of purchase</th>
   <th>Total amount</th>
   <th>Balance amount</th>
   <th>Charge per day</th>
   <th> selection</th>
 </tr>
+</thead>
+
+<tbody>
 {{#each newUser}}
 {{#each this}}
 <tr>
 <td>{{this.customername}}</td>
-<td>{{this.customerid}}</td>
+
 <td>{{this.DeviceName}}</td>
 <td>{{this.DeviceId}}</td>
 <td>{{this.Dop}}</td>
 <td>{{this.totalamount}}</td>
 <td>{{this.balanceamount}}</td>
 <td>{{this.chargepd}}</td>
-<td align="center"><input type="radio" name="payment" value="{{this.DeviceId}}"  required></td>
-
+<td align="center"><input type="radio" name="payment" value="{{this.DeviceId}}" data-error="" required></td>
 </tr>
-           {{/each}}
 {{/each}}
+{{/each}}
+</tbody>
 </table>
-
-
-<font size="4pt">
-             <div class="help-block with-errors" style="background-color: beige;"></div>
-             </font>
 <br><br>
+<script>
+function filterTable(event) {
+    var filter = event.target.value.toUpperCase();
+    var rows = document.querySelector("#myTable tbody").rows;
+    
+    for (var i = 0; i < rows.length; i++) {
+        var firstCol = rows[i].cells[0].textContent.toUpperCase();
+        var secondCol = rows[i].cells[3].textContent.toUpperCase();
+        if (firstCol.indexOf(filter) > -1 || secondCol.indexOf(filter) > -1) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
+        }      
+    }
+}
 
-<<div style="text-align:center;">
-           <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-center" value="Submit now!" type="submit">
-           
-   </div><br><br>
+document.querySelector('#myInput').addEventListener('keyup', filterTable, false);
+</script>
+<div style="text-align:center;">
+            <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-center" value="Submit now!" type="submit">
+
+        </div><br><br>
 
 </form>
+
+
 </div>
 
 </div>
