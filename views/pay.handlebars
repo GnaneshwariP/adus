@@ -54,9 +54,13 @@
   <center>
 
 
-  <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin">
-
-<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form"><br><br><br>
+  <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
+<div class="form-group">
+<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" data-error="can't be left blank---or---enter only positive numbers"required>
+ <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+             </div>
 <div class="capbox">
 <div id="CaptchaDiv"></div>
 <div class="capbox-inner">
