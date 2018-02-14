@@ -6,6 +6,7 @@ var LocalStrategy=require('passport-local').Strategy;
 var User=require('../models/user');
 var User1=require('../models/add');
 var User2=require('../models/payhis');
+var Contus=require('../models/cont');
 var datetime=require('node-datetime');
 router.get('/register',function(req,res)
 {
@@ -19,12 +20,15 @@ router.get('/contactus',function(req,res)
 {
     res.render('contactus');
 });
+
+
+
 //to show the past payments
 router.get('/payment',ensureAuthenticated, function(req,res,next){
   User2.find(function(err,docs){
     
    res.render('payment',{
-    title:'Payment history',
+  
     published:true,
     newUser:docs
    });
@@ -37,27 +41,6 @@ router.get('/profile',ensureAuthenticated,function(req,res)
 {
     res.render('profile');
 });
-
-//router for report
-router.get('/report',ensureAuthenticated,function(req,res)
-{
-  User1.device_sum(function(err,user3){
-    if(err) throw err;
-    User1.cust_name(function(err,result){
-      if(err) throw err;
-
-console.log(result);
-    var n1 = user3;
-console.log(n1);
-res.render('report',{
-  sum:n1,
-  cust:result
-});
-  });
-});
-
-});
-
 
 //retreive the amount paid and update it in balance
 router.post('/otp',function(req,res){
@@ -96,6 +79,42 @@ User1.findOne({DeviceId:p1},function(err,docs){
 });
 
 
+/*route for report*/
+router.get('/report',ensureAuthenticated,function(req,res)
+{
+  
+    User1.cust_name(function(err,result){
+      if(err) throw err;
+
+
+res.render('report',{
+  
+  cust:result
+});
+  });
+});
+
+
+router.get('/report1',ensureAuthenticated,function(req,res)
+{
+  User1.device_sum(function(err,user3){
+    if(err) throw err;
+  
+
+
+    var n1 = user3;
+
+res.render('report1',{
+  sum:n1
+});
+  });
+});
+
+
+
+
+
+
 
 //retreive the selected device
 router.post('/pay',function(req,res)
@@ -107,7 +126,7 @@ var selected1 = req.body.payment;
   User1.find({DeviceId:selected1},function(err,docs){
   
 res.render('pay',{
-    content: 'CURRENT DEVICE LIST',
+    
     published: true,
     newUser:docs
     });
@@ -144,7 +163,7 @@ router.get('/currentdevice',ensureAuthenticated, function(req,res){
   deviceChunks.push(docs.slice(i,i+chunkSize));
 }  
 res.render('currentdevice',{
-    content: 'CURRENT DEVICE LIST',
+    
     published: true,
     newUser:deviceChunks
     });
@@ -236,7 +255,7 @@ router.post('/login',
 router.post('/add_device',function(req,res)
 {
   var customername=req.body.customername;
-   var customerid=req.body.customerid;
+  
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
@@ -245,7 +264,7 @@ router.post('/add_device',function(req,res)
    var chargepd=req.body.chargepd;
  
 req.checkBody('customername','customername is req').notEmpty();
-req.checkBody('customerid','customerid dosnt match').notEmpty();  
+
 req.checkBody('DeviceName','name is req').notEmpty();
 req.checkBody('DeviceId','id is req').notEmpty();
 req.checkBody('Dop','dop is req').notEmpty();
@@ -283,6 +302,47 @@ res.redirect('/users/add_device');
 }
 });
 
+
+router.post('/contactus',function(req,res)
+{
+  var firstname=req.body.firstname;
+   var lastname=req.body.lastname;
+   var email=req.body.email;
+   var phonenumber=req.body.phonenumber;
+   var message=req.body.message;
+req.checkBody('firstname','firstname is req').notEmpty();
+req.checkBody('email','email is required').notEmpty();  
+req.checkBody('email','invalid email').isEmail(); 
+req.checkBody('phonenumber','phonenumber is req').notEmpty();
+req.checkBody('message','enter the message').notEmpty();  
+
+var errors=req.validationErrors();
+if(errors)
+{
+res.render('contactus',{
+    errors:errors
+});
+    
+}
+else
+{
+    var newUser=new Contus({
+        firstname:firstname,
+        lastname:lastname,
+        email:email,
+        phonenumber:phonenumber,
+        message:message
+       
+    });
+    Contus.createUser(newUser,function(err,contus)
+{
+    if(err) throw err;
+    console.log(contus);
+});
+req.flash('success_msg',"Your request is sent");
+res.redirect('/users/contactus'); 
+}
+});
 
 function ensureAuthenticated(req,res,next){
     if(req.isAuthenticated())
