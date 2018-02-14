@@ -2,13 +2,10 @@
 <html>
 <head>
 
- <meta charset="utf-8">
+ 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
+   
 <title>device</title>
 
 </head>
@@ -25,9 +22,9 @@
 <table class="table table-hover" border=5 id="myTable">
 <tr>
   <th>customer name</th>
- 
+  
   <th>DeviceName</th>
-  <th>DeviceID</th>
+  <th>Device ID</th>
   <th>Date of purchase</th>
    <th>Total amount</th>
   <th>Balance amount</th>
@@ -53,75 +50,85 @@
   </div>
   <center>
 
+ <script type="text/javascript">
+     var RecaptchaOptions = {
+        theme : 'custom',
+        custom_theme_widget: 'recaptcha_widget'
+     };
+</script>               
 
-  <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
+<form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
 <div class="form-group">
 <font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" data-error="can't be left blank---or---enter only positive numbers"required>
  <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
-             </div>
-<div class="capbox">
-<div id="CaptchaDiv"></div>
-<div class="capbox-inner">
-Type the above number:<br>
-<input type="hidden" id="txtCaptcha">
-<input type="text" name="CaptchaInput" id="CaptchaInput"  size="15"><br>
-</div>
-</div>
-<br><br>
-{{#each newUser}}
 
- <div style="text-align:center;">
+                    <script type="text/javascript">
+                         var RecaptchaOptions = {
+                            theme : 'custom',
+                            custom_theme_widget: 'recaptcha_widget'
+                         };
+                    </script>
+                    <div id="recaptcha_widget" style="display:none">
+
+                        <div class="control-group">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                                <a id="recaptcha_image" href="#" class="thumbnail"></a>
+                                <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
+                            </div>
+                        </div>
+
+                           <div class="control-group">
+                               <label class="recaptcha_only_if_image control-label">Enter the words above:</label>
+                              <label class="recaptcha_only_if_audio control-label">Enter the numbers you hear:</label>
+
+                              <div class="controls">
+                                  <div class="input-append">
+                                      <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="input-recaptcha" />
+                                      <a class="btn" href="javascript:Recaptcha.reload()"><i class="icon-refresh"></i></a>
+                                      <a class="btn recaptcha_only_if_image" href="javascript:Recaptcha.switch_type('audio')"><i title="Get an audio CAPTCHA" class="icon-headphones"></i></a>
+                                      <a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image')"><i title="Get an image CAPTCHA" class="icon-picture"></i></a>
+                                    <a class="btn" href="javascript:Recaptcha.showhelp()"><i class="icon-question-sign"></i></a>
+                                  </div>
+                              </div>
+                        </div>
+
+                    </div><br>
+                    <br>
+
+
+{{#each newUser}}
+<div style="text-align:center;">
       <button type="submit" class="btn btn-primary" name="dev1" value="{{this.DeviceId}}">MAKE PAYMENT</button>
    </div>
-
 {{/each}}
-</form>
-</center>
-</div>
+                    <script type="text/javascript"
+                       src="<?php echo $recaptcha_url; ?>">
+                    </script>
 
-</div>
-<script type="text/javascript">
-// Captcha Script
-function checkform(theform){
-var why = "";
-if(theform.CaptchaInput.value == ""){
-why += "- Please Enter CAPTCHA Code.\n";
-}
-if(theform.CaptchaInput.value != ""){
-if(ValidCaptcha(theform.CaptchaInput.value) == false){
-why += "- The CAPTCHA Code Does Not Match.\n";
-}
-}
-if(why != ""){
-alert(why);
-return false;
-}
-}
-var a = Math.ceil(Math.random() * 9)+ '';
-var b = Math.ceil(Math.random() * 9)+ '';
-var c = Math.ceil(Math.random() * 9)+ '';
-var d = Math.ceil(Math.random() * 9)+ '';
-var e = Math.ceil(Math.random() * 9)+ '';
-var code = a + b + c + d + e;
-document.getElementById("txtCaptcha").value = code;
-document.getElementById("CaptchaDiv").innerHTML = code;
-// Validate input against the generated number
-function ValidCaptcha(){
-var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
-var str2 = removeSpaces(document.getElementById('CaptchaInput').value);
-if (str1 == str2){
-return true;
-}else{
-return false;
-}
-}
-// Remove the spaces from the entered and generated code
-function removeSpaces(string){
-return string.split(' ').join('');
-}
-</script>
+                    <noscript>
+                        <iframe src="<?php echo $recaptcha_noscript_url; ?>"
+                           height="300" width="500" frameborder="0"></iframe><br>
+                        <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                        </textarea>
+                        <input type="hidden" name="recaptcha_response_field"
+                           value="manual_challenge">
+                      </noscript>
+</form>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LcrK9cSAAAAALEcjG9gTRPbeA0yAVsKd8sBpFpR"></script>
+
+<noscript>
+    <iframe src="<?php echo $recaptcha_noscript_url; ?>"
+       height="300" width="500" frameborder="0"></iframe><br>
+    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+    </textarea>
+    <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+</noscript>
+
+
+
 </center></div></div>
 </body>
 </html>   
