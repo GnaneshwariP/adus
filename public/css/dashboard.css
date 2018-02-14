@@ -1,3 +1,11 @@
+.new{
+  padding-top: 50px;
+}
+
+ .input-recaptcha{
+ width:172px;   
+}
+
 /*login form css*/
 
 
@@ -13,8 +21,6 @@
       color: White;
 
     }
-
-
 
 
 /*layout css*/
@@ -336,26 +342,70 @@ button:hover, a:hover {
     font-size: 14px;
     padding: 13px 30px;
     border-radius: 5px;
-    border: 1px solid #b40028 ;
+    border: 1px solid #3891e0 ;
     min-width: 200px;
     display: inline-block;
     text-align: center;
     position: relative;
     z-index: 1;
-    color: #b40028 ;
+    color: #3891e0 ;
     background-color:transparent;
     transition: all .25s ease-in-out;
     margin: 10px 0px 10px 0px;
     
 }
 .site-btn:hover {
-    background: #b40028 ;
-    border: 1px solid #fff;
+    background: #3891e0 ;
+    border: 1px solid #3891e0;
     font-weight:700px;
     
     
 }
  
+.site-btnx {
+    font-size: 14px;
+    padding: 13px 30px;
+    border-radius: 5px;
+    border: 1px solid red ;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: red ;
+    background-color:transparent;
+    transition: all .25s ease-in-out;
+    margin: 10px 0px 10px 0px;
+    
+}
+.site-btnx:hover {
+    background: red ;
+    border: 1px solid red;
+    font-weight:700px;
+    }
+
+
+.site-btny {
+    font-size: 20px;
+    padding: 13px 15px;
+    border-radius: 5px;
+    border: 1px solid #3891e0  ;
+    min-width: 200px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #3891e0  ;
+    background-color:transparent;
+    transition: all .25s ease-in-out;
+    margin: 10px 0px 10px 0px;
+    
+}
+.site-btny:hover {
+    background: #3891e0  ;
+    border: 1px solid #3891e0 ;
+    font-weight:700px;
+    }
 
 
 /* Social Icons */
@@ -410,6 +460,6 @@ button:hover, a:hover {
 }
 
 /*language translator*/
-.language{
-  width: 10px;
+#google_translate_element{
+  font-size: 10px;
 }
