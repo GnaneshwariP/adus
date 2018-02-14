@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Dashboard Template for Bootstrap</title>
+    
 
 
-<script src="C:\project2\loginapp2\public\js\bootstrap"></script>
+<script src="validator.js"></script>
 
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -30,13 +30,17 @@
     <div class="container">
     <div class="container-fluid">
          <h1 class="page-header">Add Customer</h1>
-    <form method="post" action="/users/add_device">
+    <form method="post" action="/users/add_device" data-toggle="validator" role="form">
 
     <div class="form-group">
         <label>CustomerName</label><br>
-        <input type="text" class="form-control"
-        placeholder="customer name" name="customername">
-    </div><br>
+         <input type="text" class="form-control"
+        placeholder="customer name" name="customername "pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
+          <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+              </div>
+    <br>
      <div class="form-group">
         <label>Customer Id</label><br>
         <input type="text" class="form-control"
@@ -46,31 +50,53 @@
     <div class="form-group">
         <label>Device Name</label><br>
         <input type="text" class="form-control"
-        placeholder="device name" name="DeviceName">
+        placeholder="device name" name="DeviceName" pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" data-error="can't be left blank --or-- no special characters" required>
+        <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+   
     </div><br>
     <div class="form-group">
         <label>Device Id</label>
         <input type="text" class="form-control"
-        placeholder="deviceid" name="DeviceId">
+        placeholder="deviceid" name="DeviceId" pattern="^\d+$" data-error="can't be left blank --or-- enter only positive interger value" required>
+        <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
     </div>
+
     <div class="form-group">
         <label>Date Of Purchase</label>
        <input type="date" class="form-control" name="Dop" id="datepicker" />
     </div>
+
    <div class="form-group">
         <label>Total Amount</label>
         <input type="text" class="form-control"
-        placeholder="Total Amount" name="totalamount">
+        placeholder="Total Amount" name="totalamount" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" id="TotalAmount" data-error="can't be left blank---or---enter only positive numbers" required>
+    <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
     </div>
+
     <div class="form-group">
         <label> Balance Amount</label>
         <input type="text" class="form-control"
-        placeholder="Balance Amount" name="balanceamount">
+        placeholder="Balance Amount" name="balanceamount"  data-match="#TotalAmount" data-match-error="can't be left blank---or---amount dosen't match with total amount" required>
+
+        <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
     </div>
      <div class="form-group">
         <label>Charge per day</label>
         <input type="text" class="form-control"
-        placeholder="charge per day" name="chargepd">
+        placeholder="charge per day" name="chargepd" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" data-error="can't be left blank---or---enter positive integer only" required>
+   
+        <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+   
     </div>
   
    <div style="text-align:center;">

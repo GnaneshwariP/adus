@@ -1,4 +1,4 @@
-<center>
+
   <div class="container">
   {{#if errors}}
 {{#each errors}}
@@ -12,32 +12,46 @@
       </div>
       <hr />
       <div class="modal-body">
-        <form action="/users/register" method="post" role="form">
+        <form action="/users/register" data-toggle="validator" method="post" role="form">
           <div class="form-group">
             <div class="input-group">
+             
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-user"></span>
-              </span>
-              <input type="text" class="form-control" name="name" placeholder="Enter your Name " required />
-            </div>
+              </span>              
+              <input type="text" class="form-control" name="name" id="inputName"placeholder="Enter your Name" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required />
+          
+             </div>
+             <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
           </div>
+          
+
 
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-user"></span>
               </span>
-              <input type="text" class="form-control" name="username" placeholder="User Name " required />
+              <input type="text" class="form-control" name="username" placeholder="User Name " pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" data-error="can't be left blank --or-- no special characters" required />
             </div>
+            <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
           </div>
+          
           
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-envelope"></span>
               </span>
-              <input type="email" class="form-control" name="email" placeholder="Email-Address " required />
+              <input type="email" class="form-control" name="email" placeholder="example@example.com " pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" data-pattern-error="enter a valid email address" required  />
             </div>
+            <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
           </div>
 
 
@@ -46,8 +60,11 @@
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-lock"></span>
               </span>
-              <input type="password" class="form-control" name="password" placeholder="Password" required />
+              <input type="password" class="form-control" name="password" placeholder="Password" id="inputPassword" data-error="enter the password" required />
               </div>
+              <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
           </div>
          
           
@@ -56,13 +73,16 @@
               <span class="input-group-addon">
               <span class="glyphicon glyphicon-lock"></span>
               </span>
-              <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required />
+              <input type="password" class="form-control" name="password2" placeholder="Confirm Password"  data-match="#inputPassword" data-match-error="password dont match"  required/>
               </div>
+              <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
           </div>
 
 
           <div class="form-group text-center">
-            <button type="submit" class="btn btn-success btn-lg">SignUp</button>
+            <button type="submit"  class="btn btn-success btn-lg">SignUp</button>
            
           </div>
 
@@ -71,5 +91,5 @@
     </div>
   </div>
     </div>
-    </div>
-<center>
+
+
