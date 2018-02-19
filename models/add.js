@@ -18,9 +18,7 @@ var UserSchema= mongoose.Schema({
       type:String,
       index:true
     },
-    customerid:{
-      type:String
-    },
+  
     DeviceName:{
        type:String,
         index:true
