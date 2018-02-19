@@ -7,10 +7,10 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    
+    <title>Dashboard Template for Bootstrap</title>
 
 
-<script src="validator.js"></script>
+<script src="C:\project2\loginapp2\public\js\bootstrap"></script>
 
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -27,6 +27,11 @@
   </head>
 
   <body>
+    {{#if errors}}
+{{#each errors}}
+<div class="alert alert-danger">{{msg}}</div>
+{{/each}}
+{{/if}}
     <div class="container">
     <div class="container-fluid">
          <h1 class="page-header">Add Customer</h1>
@@ -35,7 +40,7 @@
     <div class="form-group">
         <label>CustomerName</label><br>
          <input type="text" class="form-control"
-        placeholder="customer name" name="customername "pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
+        placeholder="customer name" name="customername"pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
           <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -55,7 +60,7 @@
     <div class="form-group">
         <label>Device Id</label>
         <input type="text" class="form-control"
-        placeholder="deviceid" name="DeviceId" pattern="^\d+$" data-error="can't be left blank --or-- enter only positive interger value" required>
+        placeholder="deviceid" name="DeviceId" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank --or-- enter only positive interger value" required>
         <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -95,11 +100,11 @@
    
     </div>
   
+  <center>
    <div style="text-align:center;">
-           <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-center" value="Submit now!" type="submit">
-           
-   </div>
-
+            <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-center" value="Submit now!" type="submit">
+ </div>
+ </center>
 </form>
 
 </div>
