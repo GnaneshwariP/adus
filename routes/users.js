@@ -48,10 +48,10 @@ router.post('/otp',function(req,res){
 var dt = datetime.create();
 var my_date = dt.format('m-d-Y');
 var paidamount=req.body.paidamount;
-  var p1=req.body.dev1;
-  console.log(p1);
-  console.log(paidamount);
+req.checkBody('paidamount','Paidamount is required').notEmpty();
 
+  var p1=req.body.dev1;
+ 
   var newUser=new User2({
     paidamount:paidamount,
     DeviceId:p1,
@@ -120,6 +120,7 @@ res.render('report1',{
 router.post('/pay',function(req,res)
 {
 var selected1 = req.body.payment;
+
    
    console.log(selected1);
   
@@ -133,6 +134,8 @@ res.render('pay',{
 console.log(docs);
     });
   
+
+
 }); 
 
 
@@ -264,7 +267,6 @@ router.post('/add_device',function(req,res)
    var chargepd=req.body.chargepd;
  
 req.checkBody('customername','customername is req').notEmpty();
-
 req.checkBody('DeviceName','name is req').notEmpty();
 req.checkBody('DeviceId','id is req').notEmpty();
 req.checkBody('Dop','dop is req').notEmpty();
@@ -284,11 +286,10 @@ else
 {
     var newUser=new User1({
         customername:customername,
-        
         DeviceName:DeviceName,
         DeviceId:DeviceId,
         Dop:Dop,
-       totalamount:totalamount,
+        totalamount:totalamount,
         balanceamount:balanceamount,
         chargepd:chargepd
     });
