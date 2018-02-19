@@ -284,7 +284,7 @@ else
 {
     var newUser=new User1({
         customername:customername,
-        customerid:customerid,
+        
         DeviceName:DeviceName,
         DeviceId:DeviceId,
         Dop:Dop,
