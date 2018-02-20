@@ -31,6 +31,9 @@
 <div class="alert alert-danger">{{msg}}</div>
 {{/each}}
 {{/if}}
+{{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
 </div>
     <div class="container">
     <div class="container-fluid">
@@ -40,7 +43,7 @@
     <div class="form-group">
         <label>CustomerName</label><br>
          <input type="text" class="form-control"
-        placeholder="customer name" name="customername"pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
+        placeholder="customer name" name="customername"pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required >
           <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -60,7 +63,7 @@
     <div class="form-group">
         <label>Device Id</label>
         <input type="text" class="form-control"
-        placeholder="deviceid" name="DeviceId" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank --or-- enter only positive interger value" required>
+        placeholder="deviceid" name="DeviceId"   data-error="can't be left blank --or-- enter only positive interger value" required>
         <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -74,7 +77,7 @@
    <div class="form-group">
         <label>Total Amount</label>
         <input type="text" class="form-control"
-        placeholder="Total Amount" name="totalamount" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" id="TotalAmount" data-error="can't be left blank---or---enter only positive numbers" required>
+        placeholder="Total Amount" name="totalamount" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" id="TotalAmount" data-error="can't be left blank---or---enter only positive numbers" required >
     <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -83,7 +86,7 @@
     <div class="form-group">
         <label> Balance Amount</label>
         <input type="text" class="form-control"
-        placeholder="Balance Amount" name="balanceamount"  data-match="#TotalAmount" data-match-error="can't be left blank---or---amount dosen't match with total amount" required>
+        placeholder="Balance Amount" name="balanceamount"  data-match="#TotalAmount" data-match-error="can't be left blank---or---amount dosen't match with total amount" required >
 
         <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
