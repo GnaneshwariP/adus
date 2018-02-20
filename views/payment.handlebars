@@ -8,16 +8,34 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-       <title>Dashboard Template for Bootstrap</title>        
+       <title>Dashboard Template for Bootstrap</title>
       <script src="C:\project2\loginapp2\public\js\bootstrap"></script>
   </head>
 
 <body>
-
+  <script>
+  function myFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
 
   <div class="container">
     <div class="container-fluid">
-    
+
        <h1 class="page-header">Payment history</h1>
          <!-- device table -->
           <div class="table-responsive">
@@ -25,6 +43,12 @@
    {{content}}
  {{/if}}
 
+ <div class="find">
+ <div class="right-inner-addon ">
+ <input type="search" id="myInput" onkeyup="myFunction()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" ><br>
+ </div>
+ </div>
+ 
 <table class="table table-hover" border=5 id="myTable" >
   <tr>
     <th>Transactionid</th>
@@ -35,7 +59,7 @@
 
 
   {{#each newUser}}
-  
+
    <tr>
   <td>{{this.transactionid}}</td>
   <td>{{this.date}}</td>
@@ -49,7 +73,7 @@
           </div>
         </div>
     </div>
-  
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
