@@ -26,9 +26,9 @@ router.get('/contactus',function(req,res)
 //to show the past payments
 router.get('/payment',ensureAuthenticated, function(req,res,next){
   User2.find(function(err,docs){
-
+    
    res.render('payment',{
-
+  
     published:true,
     newUser:docs
    });
@@ -46,36 +46,56 @@ router.get('/profile',ensureAuthenticated,function(req,res)
 router.post('/otp',function(req,res){
 
 var dt = datetime.create();
-var my_date = dt.format('m-d-Y H:M:S p');
+var my_date = dt.format('m-d-Y I:M:S p');
 var paidamount=req.body.paidamount;
+var p1=req.body.dev1;
 
 req.checkBody('paidamount','Paidamount is required').notEmpty();
+var errors=req.validationErrors();
+if(errors)
+{
+    User1.find({DeviceId:p1},function(err,docs){
+        res.render('pay',{
+            errors:errors,
+            published:true,
+            newUser:docs
+        });
+    })
 
-  var p1=req.body.dev1;
+    
+}
+else{
 
+    var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
+  
+ 
   var newUser=new User2({
     paidamount:paidamount,
     DeviceId:p1,
-    date:my_date
+    date:my_date,
+    otp:val
   });
   User2.createUser(newUser,function(err,user)
   {
     if(err) throw err;
-
-  });
+   
+  });  
 
   //update the balance amount when paid
  User1.update_doc(p1,paidamount,function(err,user1){
     if(err) throw err;
-
+   
 });
 
 User1.findOne({DeviceId:p1},function(err,docs){
     var num_of_days=(paidamount)/(docs.chargepd);
     res.render('otp',{
-        nod:num_of_days
+        nod:num_of_days,
+        otp:val
     });
 });
+
+}
 
 });
 
@@ -83,13 +103,13 @@ User1.findOne({DeviceId:p1},function(err,docs){
 /*route for report*/
 router.get('/report',ensureAuthenticated,function(req,res)
 {
-
+  
     User1.cust_name(function(err,result){
       if(err) throw err;
 
 
 res.render('report',{
-
+  
   cust:result
 });
   });
@@ -100,7 +120,7 @@ router.get('/report1',ensureAuthenticated,function(req,res)
 {
   User1.device_sum(function(err,user3){
     if(err) throw err;
-
+  
 
 
     var n1 = user3;
@@ -122,22 +142,22 @@ router.post('/pay',function(req,res)
 {
 var selected1 = req.body.payment;
 
-
-   console.log(selected1);
-
+   
+ 
+  
   User1.find({DeviceId:selected1},function(err,docs){
-
+  
 res.render('pay',{
-
+    
     published: true,
     newUser:docs
     });
-console.log(docs);
+
     });
+  
 
 
-
-});
+}); 
 
 
 
@@ -165,9 +185,9 @@ router.get('/currentdevice',ensureAuthenticated, function(req,res){
   for(var i = 0; i<docs.length; i+=chunkSize)
 {
   deviceChunks.push(docs.slice(i,i+chunkSize));
-}
+}  
 res.render('currentdevice',{
-
+    
     published: true,
     newUser:deviceChunks
     });
@@ -182,20 +202,20 @@ router.post('/register',function(req,res)
    var username=req.body.username;
    var password=req.body.password;
    var password2=req.body.password2;
-
-req.checkBody('name','name is req').notEmpty();
-req.checkBody('email','email is req').notEmpty();
+   
+req.checkBody('name','name is required').notEmpty();
+req.checkBody('email','email is required').notEmpty();
 req.checkBody('email','email is not valid').isEmail();
-req.checkBody('username','username req').notEmpty();
-req.checkBody('password','pwd is req').notEmpty();
-req.checkBody('password2','pwd dosnt match').equals(req.body.password);
+req.checkBody('username','username required').notEmpty();
+req.checkBody('password','password is required').notEmpty();
+req.checkBody('password2','password dose not match').equals(req.body.password);
 var errors=req.validationErrors();
 if(errors)
 {
 res.render('register',{
     errors:errors
 });
-
+    
 }
 else
 {
@@ -211,7 +231,7 @@ else
     console.log(user);
 });
 req.flash('success_msg',"reg n can login");
-res.redirect('/users/login');
+res.redirect('/users/login'); 
 }
 });
 passport.use(new LocalStrategy(
@@ -237,7 +257,7 @@ User.comparePassword(password,user.password,function(err,isMatch){
     passport.serializeUser(function(user, done) {
         done(null, user.id);
       });
-
+      
       passport.deserializeUser(function(id, done) {
         User.getUserById(id, function(err, user) {
           done(err, user);
@@ -259,21 +279,22 @@ router.post('/login',
 router.post('/add_device',function(req,res)
 {
   var customername=req.body.customername;
-
+  
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
  var totalamount=req.body.totalamount;
    var balanceamount=req.body.balanceamount;
    var chargepd=req.body.chargepd;
-
-req.checkBody('customername','customername is req').notEmpty();
-req.checkBody('DeviceName','name is req').notEmpty();
-req.checkBody('DeviceId','id is req').notEmpty();
-req.checkBody('Dop','dop is req').notEmpty();
-req.checkBody('totalamount','amount is req').notEmpty();
-req.checkBody('balanceamount','balanceamount is req').notEmpty();
-req.checkBody('chargepd','chargepd is req').notEmpty();
+ 
+req.checkBody('customername','customername is required').notEmpty();
+req.checkBody('DeviceName','name is required').notEmpty();
+req.checkBody('DeviceId','id is required').notEmpty();
+req.checkBody('DeviceId','Enter a valid number').isNumeric();
+req.checkBody('Dop','Date of purchase is required').notEmpty();
+req.checkBody('totalamount','amount is required').notEmpty();
+req.checkBody('balanceamount','balanceamount should match with total amount').equals(req.body.totalamount);
+req.checkBody('chargepd','charge per day is required').notEmpty();
 
 var errors=req.validationErrors();
 if(errors)
@@ -281,7 +302,7 @@ if(errors)
 res.render('add_device',{
     errors:errors
 });
-
+    
 }
 else
 {
@@ -300,7 +321,7 @@ else
     console.log(user1);
 });
 req.flash('success_msg',"device added");
-res.redirect('/users/add_device');
+res.redirect('/users/add_device'); 
 }
 });
 
@@ -313,10 +334,10 @@ router.post('/contactus',function(req,res)
    var phonenumber=req.body.phonenumber;
    var message=req.body.message;
 req.checkBody('firstname','firstname is req').notEmpty();
-req.checkBody('email','email is required').notEmpty();
-req.checkBody('email','invalid email').isEmail();
+req.checkBody('email','email is required').notEmpty();  
+req.checkBody('email','invalid email').isEmail(); 
 req.checkBody('phonenumber','phonenumber is req').notEmpty();
-req.checkBody('message','enter the message').notEmpty();
+req.checkBody('message','enter the message').notEmpty();  
 
 var errors=req.validationErrors();
 if(errors)
@@ -324,7 +345,7 @@ if(errors)
 res.render('contactus',{
     errors:errors
 });
-
+    
 }
 else
 {
@@ -334,7 +355,7 @@ else
         email:email,
         phonenumber:phonenumber,
         message:message
-
+       
     });
     Contus.createUser(newUser,function(err,contus)
 {
@@ -342,7 +363,7 @@ else
     console.log(contus);
 });
 req.flash('success_msg',"Your request is sent");
-res.redirect('/users/contactus');
+res.redirect('/users/contactus'); 
 }
 });
 
@@ -358,5 +379,5 @@ function ensureAuthenticated(req,res,next){
     }
 }
 
-
+  
 module.exports=router;
