@@ -5,7 +5,7 @@
  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+   <script src='https://www.google.com/recaptcha/api.js'></script>
 <title>device</title>
 <script src="/js/my.js"></script>
 </head>
@@ -57,12 +57,7 @@
   </div>
   <center>
 
- <script type="text/javascript">
-     var RecaptchaOptions = {
-        theme : 'custom',
-        custom_theme_widget: 'recaptcha_widget'
-     };
-</script>               
+             
 
 <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
 <div class="form-group">
@@ -71,68 +66,15 @@
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
 
-                    <script type="text/javascript">
-                         var RecaptchaOptions = {
-                            theme : 'custom',
-                            custom_theme_widget: 'recaptcha_widget'
-                         };
-                    </script>
-                    <div id="recaptcha_widget" style="display:none">
-
-                        <div class="control-group">
-                            <label class="control-label"></label>
-                            <div class="controls">
-                                <a id="recaptcha_image" href="#" class="thumbnail"></a>
-                                <div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorrect please try again</div>
-                            </div>
-                        </div>
-
-                           <div class="control-group">
-                               <label class="recaptcha_only_if_image control-label">Enter the words above:</label>
-                              <label class="recaptcha_only_if_audio control-label">Enter the numbers you hear:</label>
-
-                              <div class="controls">
-                                  <div class="input-append">
-                                      <input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="input-recaptcha" />
-                                      <a class="btn" href="javascript:Recaptcha.reload()"><i class="icon-refresh"></i></a>
-                                      <a class="btn recaptcha_only_if_image" href="javascript:Recaptcha.switch_type('audio')"><i title="Get an audio CAPTCHA" class="icon-headphones"></i></a>
-                                      <a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image')"><i title="Get an image CAPTCHA" class="icon-picture"></i></a>
-                                    <a class="btn" href="javascript:Recaptcha.showhelp()"><i class="icon-question-sign"></i></a>
-                                  </div>
-                              </div>
-                        </div>
-
-                    </div><br>
-                    <br>
-
+                    
+                  <div class="g-recaptcha" data-sitekey="6Lf5ZkcUAAAAAPGtQz1rk6fMZd9uEKCvbQm7En4E"></div>
 
 {{#each newUser}}
 <div style="text-align:center;">
-      <button type="submit" class="btn btn-primary" name="dev1" value="{{this.DeviceId}}">MAKE PAYMENT</button>
+      <button type="submit" class="btn btn-primary site-btn" name="dev1" value="{{this.DeviceId}}">MAKE PAYMENT</button>
    </div>
 {{/each}}
-                    <script type="text/javascript"
-                       src="<?php echo $recaptcha_url; ?>">
-                    </script>
-
-                    <noscript>
-                        <iframe src="<?php echo $recaptcha_noscript_url; ?>"
-                           height="300" width="500" frameborder="0"></iframe><br>
-                        <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-                        </textarea>
-                        <input type="hidden" name="recaptcha_response_field"
-                           value="manual_challenge">
-                      </noscript>
-</form>
-<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6LcrK9cSAAAAALEcjG9gTRPbeA0yAVsKd8sBpFpR"></script>
-
-<noscript>
-    <iframe src="<?php echo $recaptcha_noscript_url; ?>"
-       height="300" width="500" frameborder="0"></iframe><br>
-    <textarea name="recaptcha_challenge_field" rows="3" cols="40">
-    </textarea>
-    <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
-</noscript>
+                   
 
 
 
