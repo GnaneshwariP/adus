@@ -1,8 +1,7 @@
 var mongoose=require('mongoose');
 var bcrypt=require('bcryptjs');
 var mongoose=require('mongoose');
-var mongo=require('mongodb');
-var MongoClient = require('mongodb').MongoClient;
+
 
 var permission=mongoose.connect('mongodb://localhost:27017/contact',{
     useMongoClient:true,

@@ -1,8 +1,7 @@
 var mongoose=require('mongoose');
 var bcrypt=require('bcryptjs');
 var mongoose=require('mongoose');
-var mongo=require('mongodb');
-var MongoClient = require('mongodb').MongoClient;
+
 
 var permission=mongoose.connect('mongodb://localhost:27017/contact',{
     useMongoClient:true,
@@ -10,10 +9,7 @@ var permission=mongoose.connect('mongodb://localhost:27017/contact',{
 
 
 var UserSchema= mongoose.Schema({
-    transactionid:{
-        type:String,
-        index:true
-    },
+    
     date:{
         type:String
     },
@@ -22,6 +18,9 @@ var UserSchema= mongoose.Schema({
     },
    
     paidamount:{
+        type:Number
+    },
+    otp:{
         type:Number
     }
 });
