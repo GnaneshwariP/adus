@@ -77,6 +77,12 @@ sup {
   line-height: 0;
   vertical-align: baseline;
 }
+.flash_msg{
+  position:relative;
+  align-self: center;
+  height: 2000px;
+    width: 25%;
+}
 sup {
   top: -.5em;
 }
@@ -3126,6 +3132,7 @@ fieldset[disabled] .btn-default.focus {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
+  width: 200px;
 }
 .btn-primary:focus,
 .btn-primary.focus {
