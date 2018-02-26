@@ -243,7 +243,7 @@ router.post('/register',function(req,res)
    var username=req.body.username;
    var password=req.body.password;
    var password2=req.body.password2;
-   var question=req.body.question;
+   var security=req.body.security;
    var answer=req.body.answer;
    
 req.checkBody('name','name is required').notEmpty();
@@ -252,6 +252,8 @@ req.checkBody('email','email is not valid').isEmail();
 req.checkBody('username','username required').notEmpty();
 req.checkBody('password','password is required').notEmpty();
 req.checkBody('password2','password dose not match').equals(req.body.password);
+    req.checkBody('security',' choose a question').notEmpty();
+    req.checkBody('answer','answer is required').notEmpty();
 
 var errors=req.validationErrors();
 if(errors)
@@ -278,6 +280,8 @@ else
         email:email,
         username:username,
         password:password,
+        security:security,
+        answer:answer
        
     });
 
