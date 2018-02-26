@@ -1,0 +1,51 @@
+
+<div class="container">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h2 class="text-center">Answer Security Question</h2>
+      </div>
+      <hr />
+      <div class="modal-body">
+        <form action="/users/forgot2" data-toggle="validator" method="post" role="form">
+
+  {{#if published}}
+   {{content}}
+ {{/if}}         
+{{#each newUser}}
+{{#each this}}
+<tr>
+<td>{{this.security}}</td>
+           
+{{/each}}
+{{/each}}
+
+          <div class="form-group">
+              <p><font color="white">Your Security Question is</font></p>           
+              <input type="text" class="form-control" enable="false" name="security" value="{{this.security}}" data-error="can't be left blank --or--  numbers cant be used " required />
+          
+             </div>
+             <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+            <br>
+
+             <div class="form-group">
+                            
+              <input type="text" class="form-control" name="answer" data-error="can't be left blank --or--  numbers cant be used " required />
+          
+             </div>
+             <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+            <br>
+
+              <div class="form-group text-center">
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+          </div>
+            </form>
+          </div>
+          </div>
+          </div>
+          </div>
+          

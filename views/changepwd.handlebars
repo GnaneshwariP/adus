@@ -1,0 +1,62 @@
+{{#if published}}
+   {{content}}
+ {{/if}}
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <h2 class="text-center">Change Password</h2>
+      </div>
+      <hr />
+    
+
+      <div class="modal-body">
+        <form action="/users/login" data-toggle="validator" method="post" role="form">
+
+         <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" name="password" placeholder="Old Password" id="inputPassword" value="this.password" data-error="enter the password" required />
+              </div>
+              <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" name="password" placeholder="NewPassword" id="inputPassword" data-error="enter the password" required />
+              </div>
+              <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+          </div>
+         
+          
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+              </span>
+              <input type="password" class="form-control" name="password2" placeholder="Confirm Password"  data-match="#inputPassword" data-match-error="password dont match"  required/>
+              </div>
+              <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit"  class="btn btn-success btn-lg">SignUp</button>
+           
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+    </div>
+    
+
