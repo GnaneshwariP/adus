@@ -235,6 +235,7 @@ res.render('currentdevice',{
 router.get('/error',function(req,res){
     res.render('error');
 });
+
 //register
 router.post('/register',function(req,res)
 {
@@ -245,34 +246,23 @@ router.post('/register',function(req,res)
    var password2=req.body.password2;
    var security=req.body.security;
    var answer=req.body.answer;
-   
+
 req.checkBody('name','name is required').notEmpty();
 req.checkBody('email','email is required').notEmpty();
 req.checkBody('email','email is not valid').isEmail();
 req.checkBody('username','username required').notEmpty();
 req.checkBody('password','password is required').notEmpty();
 req.checkBody('password2','password dose not match').equals(req.body.password);
-    req.checkBody('security',' choose a question').notEmpty();
-    req.checkBody('answer','answer is required').notEmpty();
-
+req.checkBody('security','select one security question').notEmpty();
+req.checkBody('answer','answer is required').notEmpty();
 var errors=req.validationErrors();
 if(errors)
 {
 res.render('register',{
     errors:errors
 });
-    
+
 }
-else
-{  
-    
-        User.findOne({username:req.body.username},function(err,docs){
-            if(docs){
-                req.flash('error_msg',"user name already exists");
-                res.redirect('/users/register');
-            }
-        
-   
 else
 {
     var newUser=new User({
@@ -282,7 +272,7 @@ else
         password:password,
         security:security,
         answer:answer
-       
+    
     });
 
     User.createUser(newUser,function(err,user)
