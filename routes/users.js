@@ -193,7 +193,10 @@ res.render('currentdevice',{
     });
     });
 });
-
+//
+router.get('/error',function(req,res){
+    res.render('error');
+});
 //register
 router.post('/register',function(req,res)
 {
@@ -202,6 +205,8 @@ router.post('/register',function(req,res)
    var username=req.body.username;
    var password=req.body.password;
    var password2=req.body.password2;
+   var question=req.body.question;
+   var answer=req.body.answer;
    
 req.checkBody('name','name is required').notEmpty();
 req.checkBody('email','email is required').notEmpty();
@@ -209,6 +214,7 @@ req.checkBody('email','email is not valid').isEmail();
 req.checkBody('username','username required').notEmpty();
 req.checkBody('password','password is required').notEmpty();
 req.checkBody('password2','password dose not match').equals(req.body.password);
+
 var errors=req.validationErrors();
 if(errors)
 {
@@ -218,21 +224,37 @@ res.render('register',{
     
 }
 else
+{  
+    
+        User.findOne({username:req.body.username},function(err,docs){
+            if(docs){
+                req.flash('error_msg',"user name already exists");
+                res.redirect('/users/register');
+            }
+        
+   
+else
 {
     var newUser=new User({
         name:name,
         email:email,
         username:username,
-        password:password
+        password:password,
+       
     });
+
     User.createUser(newUser,function(err,user)
 {
     if(err) throw err;
     console.log(user);
 });
+
 req.flash('success_msg',"reg n can login");
 res.redirect('/users/login'); 
 }
+});
+}
+
 });
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -274,6 +296,9 @@ router.post('/login',
       res.redirect('/users/login');
 
   });
+
+
+
 
 //add device
 router.post('/add_device',function(req,res)
