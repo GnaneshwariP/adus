@@ -15,9 +15,6 @@ var UserSchema= mongoose.Schema({
       type:String,
       index:true
     },
-    phoneno:{
-        type:String
-    },
     DeviceName:{
        type:String
         
