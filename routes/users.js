@@ -20,6 +20,23 @@ router.get('/contactus',function(req,res)
 {
     res.render('contactus');
 });
+router.get('/forgot',function(req,res)
+{
+    res.render('forgot');
+});
+router.post('/forgot1',function(req,res)
+{
+    res.render('forgot1');
+});
+router.post('/forgot2',function(req,res)
+{
+    res.render('forgot2');
+});
+
+router.get('/changepwd',function(req,res)
+{
+    res.render('changepwd');
+});
 
 
 
