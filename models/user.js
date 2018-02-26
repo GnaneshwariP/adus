@@ -2,7 +2,7 @@ var mongoose=require('mongoose');
 var bcrypt=require('bcryptjs');
 var mongoose=require('mongoose');
 var UserSchema= mongoose.Schema({
-    username:{
+     username:{
         type:String,
         index:true
     },
