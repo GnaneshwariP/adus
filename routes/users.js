@@ -8,44 +8,6 @@ var User1=require('../models/add');
 var User2=require('../models/payhis');
 var Contus=require('../models/cont');
 var datetime=require('node-datetime');
-
-router.get('/register',function(req,res)
-{
-    res.render('register');
-});
-router.get('/aboutus',function(req,res)
-{
-    res.render('aboutus');
-});
-router.get('/contactus',function(req,res)
-{
-    res.render('contactus');
-});
-router.get('/forgot',function(req,res)
-{
-    res.render('forgot');
-});
-router.post('/forgot1',function(req,res)
-{
-    res.render('forgot1');
-});
-router.post('/forgot2',function(req,res)
-{
-    res.render('forgot2');
-});
-
-router.get('/changepwd',function(req,res)
-{
-    res.render('changepwd');
-});
-
-
-
-
-
-
-
-
 router.get('/register',function(req,res)
 {
     res.render('register');
@@ -235,7 +197,6 @@ res.render('currentdevice',{
 router.get('/error',function(req,res){
     res.render('error');
 });
-
 //register
 router.post('/register',function(req,res)
 {
@@ -244,25 +205,34 @@ router.post('/register',function(req,res)
    var username=req.body.username;
    var password=req.body.password;
    var password2=req.body.password2;
-   var security=req.body.security;
+   var question=req.body.question;
    var answer=req.body.answer;
-
+   
 req.checkBody('name','name is required').notEmpty();
 req.checkBody('email','email is required').notEmpty();
 req.checkBody('email','email is not valid').isEmail();
 req.checkBody('username','username required').notEmpty();
 req.checkBody('password','password is required').notEmpty();
 req.checkBody('password2','password dose not match').equals(req.body.password);
-req.checkBody('security','select one security question').notEmpty();
-req.checkBody('answer','answer is required').notEmpty();
+
 var errors=req.validationErrors();
 if(errors)
 {
 res.render('register',{
     errors:errors
 });
-
+    
 }
+else
+{  
+    
+        User.findOne({username:req.body.username},function(err,docs){
+            if(docs){
+                req.flash('error_msg',"user name already exists");
+                res.redirect('/users/register');
+            }
+        
+   
 else
 {
     var newUser=new User({
@@ -270,9 +240,7 @@ else
         email:email,
         username:username,
         password:password,
-        security:security,
-        answer:answer
-    
+       
     });
 
     User.createUser(newUser,function(err,user)
@@ -285,7 +253,9 @@ req.flash('success_msg',"reg n can login");
 res.redirect('/users/login'); 
 }
 });
+}
 
+});
 passport.use(new LocalStrategy(
     function(username, password, done) {
     User.getUserByUsername(username,function(err,user)  {
@@ -334,6 +304,7 @@ router.post('/login',
 router.post('/add_device',function(req,res)
 {
   var customername=req.body.customername;
+  
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
