@@ -382,7 +382,7 @@ else
   
     var newUser=new User1({
         customername:customername,
-        phoneno=phoneno,
+        phoneno:phoneno,
         DeviceName:DeviceName,
         DeviceId:DeviceId,
         Dop:Dop,
