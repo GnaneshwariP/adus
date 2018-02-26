@@ -8,6 +8,44 @@ var User1=require('../models/add');
 var User2=require('../models/payhis');
 var Contus=require('../models/cont');
 var datetime=require('node-datetime');
+
+router.get('/register',function(req,res)
+{
+    res.render('register');
+});
+router.get('/aboutus',function(req,res)
+{
+    res.render('aboutus');
+});
+router.get('/contactus',function(req,res)
+{
+    res.render('contactus');
+});
+router.get('/forgot',function(req,res)
+{
+    res.render('forgot');
+});
+router.post('/forgot1',function(req,res)
+{
+    res.render('forgot1');
+});
+router.post('/forgot2',function(req,res)
+{
+    res.render('forgot2');
+});
+
+router.get('/changepwd',function(req,res)
+{
+    res.render('changepwd');
+});
+
+
+
+
+
+
+
+
 router.get('/register',function(req,res)
 {
     res.render('register');
