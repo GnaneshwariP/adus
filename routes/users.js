@@ -285,9 +285,7 @@ req.flash('success_msg',"reg n can login");
 res.redirect('/users/login'); 
 }
 });
-}
 
-});
 passport.use(new LocalStrategy(
     function(username, password, done) {
     User.getUserByUsername(username,function(err,user)  {
