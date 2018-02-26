@@ -14,6 +14,12 @@ var UserSchema= mongoose.Schema({
     },
     name:{
         type:String
+    },
+    security:{
+       type:String
+    },
+    answer:{
+        type:String
     }
 
 });
