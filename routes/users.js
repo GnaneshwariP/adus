@@ -342,7 +342,7 @@ router.post('/login',
 router.post('/add_device',function(req,res)
 {
   var customername=req.body.customername;
-  
+  var phoneno=req.body.phoneno;
    var DeviceName=req.body.DeviceName;
    var DeviceId=req.body.DeviceId;
    var Dop=req.body.Dop;
@@ -351,6 +351,7 @@ router.post('/add_device',function(req,res)
    var chargepd=req.body.chargepd;
  
 req.checkBody('customername','customername is required').notEmpty();
+    req.checkBody('phoneno','customername is required').notEmpty();
 req.checkBody('DeviceName','name is required').notEmpty();
 req.checkBody('DeviceId','id is required').notEmpty();
 req.checkBody('DeviceId','Enter a valid number').isNumeric();
@@ -381,6 +382,7 @@ else
   
     var newUser=new User1({
         customername:customername,
+        phoneno=phoneno,
         DeviceName:DeviceName,
         DeviceId:DeviceId,
         Dop:Dop,
