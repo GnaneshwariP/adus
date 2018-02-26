@@ -20,23 +20,6 @@ router.get('/contactus',function(req,res)
 {
     res.render('contactus');
 });
-router.get('/forgot',function(req,res)
-{
-    res.render('forgot');
-});
-router.post('/forgot1',function(req,res)
-{
-    res.render('forgot1');
-});
-router.post('/forgot2',function(req,res)
-{
-    res.render('forgot2');
-});
-
-router.get('/changepwd',function(req,res)
-{
-    res.render('changepwd');
-});
 
 
 
@@ -347,7 +330,17 @@ res.render('add_device',{
     
 }
 else
-{
+{  
+
+    User1.findOne({DeviceId:DeviceId},function(err,docs){
+        if(docs){
+            console.log(DeviceId);
+            req.flash('error_msg',"Device Id already registered");
+            res.redirect('/users/add_device');
+        }
+        else
+        {
+  
     var newUser=new User1({
         customername:customername,
         DeviceName:DeviceName,
@@ -364,6 +357,8 @@ else
 });
 req.flash('success_msg',"device added");
 res.redirect('/users/add_device'); 
+}
+});
 }
 });
 
