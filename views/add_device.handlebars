@@ -39,9 +39,9 @@
     <form method="post" action="/users/add_device" data-toggle="validator" role="form">
 
     <div class="form-group">
-        <label>CustomerName</label><br>
+        <label>CustomerName*</label><br>
          <input type="text" class="form-control"
-        placeholder="customer name" name="customername"pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required >
+        placeholder="customer name" name="customername" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required >
           <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -50,7 +50,7 @@
      
 
     <div class="form-group">
-        <label>Device Name</label><br>
+        <label>Device Name*</label><br>
         <input type="text" class="form-control"
         placeholder="device name" name="DeviceName" pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" data-error="can't be left blank --or-- no special characters" required>
         <font size="4pt">
@@ -59,7 +59,7 @@
    
     </div><br>
     <div class="form-group">
-        <label>Device Id</label>
+        <label>Device Id*</label>
         <input type="text" class="form-control"
         placeholder="deviceid" name="DeviceId"   data-error="can't be left blank --or-- enter only positive interger value" required>
         <font size="4pt">
@@ -68,12 +68,12 @@
     </div>
 
     <div class="form-group">
-        <label>Date Of Purchase</label>
+        <label>Date Of Purchase*</label>
        <input type="date" class="form-control" name="Dop" id="datepicker" />
     </div>
 
    <div class="form-group">
-        <label>Total Amount</label>
+        <label>Total Amount*</label>
         <input type="text" class="form-control"
         placeholder="Total Amount" name="totalamount" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" id="TotalAmount" data-error="can't be left blank---or---enter only positive numbers" required >
     <font size="4pt">
@@ -82,7 +82,7 @@
     </div>
 
     <div class="form-group">
-        <label> Balance Amount</label>
+        <label> Balance Amount*</label>
         <input type="text" class="form-control"
         placeholder="Balance Amount" name="balanceamount"  data-match="#TotalAmount" data-match-error="can't be left blank---or---amount dosen't match with total amount" required >
 
@@ -91,7 +91,7 @@
              </font>
     </div>
      <div class="form-group">
-        <label>Charge per day</label>
+        <label>Charge per day*</label>
         <input type="text" class="form-control"
         placeholder="charge per day" name="chargepd" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" data-error="can't be left blank---or---enter positive integer only" required>
    
