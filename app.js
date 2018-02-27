@@ -8,11 +8,18 @@ var flash=require('connect-flash');
 var session=require('express-session');
 var passport=require('passport');
 var LocalStrategy=require('passport-local').Strategy;
-var mongo=require('mongodb');
+const config = require('./config/database');
 var mongoose=require('mongoose');
-var permission=mongoose.connect('mongodb://localhost:27017/contact',{
-    useMongoClient:true,
-});
+
+
+mongoose.connection.on('connected', () => {
+    console.log('Connected to Database '+config.database);
+  });
+  // On Error
+  mongoose.connection.on('error', (err) => {
+    console.log('Database error '+err);
+  });
+
 var jwt=require('jsonwebtoken');
 
 
@@ -61,6 +68,8 @@ app.use(expressValidator({
 
     }
 }));
+
+
 
 app.use(flash());
 
