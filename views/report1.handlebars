@@ -19,30 +19,8 @@
     </style>
 
     <link href="dashboard.css" rel="stylesheet">
-<script src="C:\project2\loginapp2\public\js\bootstrap"></script>
-   
+    <script src="/js/my.js">
 
-    <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
 </script>
   </head>
 <body>
@@ -51,11 +29,11 @@ function myFunction() {
      <h1 class="page-header">Device Payment</h1>
    <div class="table-responsive">
   <div class="right-inner-addon ">
-  <input type="search" id="myInput" onkeyup="myFunction()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" /><br>
+  <input type="search" id="myInput_r1" onkeyup="myFunction_r1()" placeholder="&#xe003 search"  class="form-control glyphicon glyphicon-search" /><br>
 </div>
 
 
- <table  class="table table-hover" border=5 id="myTable">
+ <table  class="table table-hover" border=5 id="myTable_r1">
 
 <tr>
   <th>Device Name</th>

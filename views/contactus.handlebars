@@ -32,25 +32,35 @@
               Saturday - Sunday CLOSED
                     </div></div>
                     <div class="col-md-9 col-sm-8">
-                        <form method="post" action="/users/contactus">
+                        <form method="post" action="/users/contactus" data-toggle="validator" role="form">
                           <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <input id="fname" name="firstname" class="form-control input-lg" placeholder="First name*" type="text">
+                                        <input id="fname" name="firstname" class="form-control input-lg" placeholder="First name*" type="text" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
+                                         <font size="4pt">
+                                          <div class="help-block with-errors" style="background-color: beige;"></div>
+                                         </font>
                                     </div>
                                     <div class="form-group">
                                         <input id="lname" name="lastname" class="form-control input-lg" placeholder="Last name" type="text">
                                     </div>
                                     <div class="form-group">
-                                        <input id="email" name="email" class="form-control input-lg" placeholder="Email*" type="email">
+                                        <input id="email" name="email" class="form-control input-lg" placeholder="Email*" type="email" data-match-error="can't be left blank---or--- enter th email in correct format " required >
+                                       <font size="4pt">
+                                        <div class="help-block with-errors" style="background-color: beige;"></div>
+                                       </font>
                                     </div>
                                     <div class="form-group">
-                                        <input id="phone" name="phonenumber" class="form-control input-lg" placeholder="Phonenumber" type="text">
+                                        <input id="phone" name="phonenumber" class="form-control input-lg" placeholder="Phonenumber" type="text" >
+                                    
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="form-group">
-                                        <textarea cols="6" rows="8" id="comments" name="message" class="form-control input-lg" placeholder="Message"></textarea>
+                                        <textarea cols="6" rows="8" id="comments" name="message" class="form-control input-lg" placeholder="Message*" data-match-error="can't be left blank---or--- enter th email in correct format " required></textarea>
+                                     <font size="4pt">
+                                        <div class="help-block with-errors" style="background-color: beige;"></div>
+                                       </font>
                                     </div>
                                     <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-left" value="Submit now!" type="submit">
 
