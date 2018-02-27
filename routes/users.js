@@ -25,6 +25,17 @@ router.get('/forgot',function(req,res)
 {
     res.render('forgot');
 });
+
+router.get('/forgot1',function(req,res)
+{
+    res.render('forgot1');
+});
+
+router.get('/forgot2',function(req,res)
+{
+    res.render('forgot2');
+});
+
 //to get security question
 router.post('/forgot1',function(req,res)
 {
@@ -32,20 +43,51 @@ router.post('/forgot1',function(req,res)
   var username=req.body.username;
 
   User.findOne({username:username},function(err,docs){
-    console.log(username);
+  //  console.log(username);
       var question=docs.security;
-      
-      res.render('forgot1',{
 
-          question:question
+      res.render('forgot1',{
+        question:question,
+        user_name:username
       });
+
   });
 
 
 });
 router.post('/forgot2',function(req,res)
 {
-    res.render('forgot2');
+    //var question = "hello";
+    var answer=req.body.answer;
+    var a1=req.body.ans;
+  console.log(a1);
+
+    req.checkBody('answer','Answer is required').notEmpty();
+    var errors=req.validationErrors();
+  //  if(errors)
+    //{
+
+        User.findOne({username:a1},function(err,docs){
+          var answer1=docs.answer;
+          console.log(answer1);
+          var q1=docs.security;
+          console.log(q1);
+          if(answer1==answer){
+            res.render('forgot2');
+          }
+          else{
+
+            req.flash('error_msg',"Answer is not matched");
+            res.redirect('/users/forgot');
+
+
+          }
+        });
+// }
+
+
+
+
 });
 
 router.get('/changepwd',function(req,res)
@@ -108,7 +150,7 @@ if(errors)
             published:true,
             newUser:docs
         });
-    })
+    });
 
 
 }
