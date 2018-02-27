@@ -1,28 +1,33 @@
-
+<div id="mydiv1">
+{{#if errors}}
+{{#each errors}}
+<div class="alert alert-danger">{{msg}}</div>
+{{/each}}
+{{/if}}
+{{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+            {{/if}}
+             {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+            {{/if}}
+</div>
 <div class="container">
    <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-heading">
         <h2 class="text-center">Answer Security Question</h2>
+
+
       </div>
       <hr />
       <div class="modal-body">
         <form action="/users/forgot2" data-toggle="validator" method="post" role="form">
 
-  {{#if published}}
-   {{content}}
- {{/if}}
-{{#each newUser}}
-{{#each this}}
-<tr>
-<td>{{this.security}}</td>
 
-{{/each}}
-{{/each}}
 
           <div class="form-group">
               <p><font color="white">Your Security Question is</font></p>
-              <input type="text" class="form-control" enable="false" name="security" value="{{this.question}}" data-error="can't be left blank --or--  numbers cant be used " disabled />
+              <input type="text" class="form-control" enable="false" name="security" value="{{question}}" data-error="can't be left blank --or--  numbers cant be used " disabled />
 
              </div>
              <font size="4pt">
@@ -41,10 +46,12 @@
             <br>
 
               <div class="form-group text-center">
-            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            <button type="submit" class="btn btn-success btn-lg" name="ans" value="{{user_name}}">Submit</button>
+
           </div>
             </form>
           </div>
           </div>
+
           </div>
           </div>
