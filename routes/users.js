@@ -43,13 +43,18 @@ router.post('/forgot1',function(req,res)
   var username=req.body.username;
 
   User.findOne({username:username},function(err,docs){
-  //  console.log(username);
-      var question=docs.security;
-
+        
+          if(docs){
+            var question=docs.security;
       res.render('forgot1',{
         question:question,
         user_name:username
       });
+    }
+    else{
+        req.flash('error_msg',"Username Not Found");
+        res.redirect('/users/forgot');
+    }
 
   });
 
@@ -57,15 +62,14 @@ router.post('/forgot1',function(req,res)
 });
 router.post('/forgot2',function(req,res)
 {
-    //var question = "hello";
+  
     var answer=req.body.answer;
     var a1=req.body.ans;
   console.log(a1);
 
     req.checkBody('answer','Answer is required').notEmpty();
     var errors=req.validationErrors();
-  //  if(errors)
-    //{
+
 
         User.findOne({username:a1},function(err,docs){
           var answer1=docs.answer;
@@ -83,7 +87,7 @@ router.post('/forgot2',function(req,res)
 
           }
         });
-// }
+
 
 
 
@@ -94,8 +98,28 @@ router.get('/changepwd',function(req,res)
 {
     res.render('changepwd');
 });
+//change the password
+router.post('/changepwd',function(req,res){
 
+    var old_password = req.body.old_password;
+    var new_password =req.body.new_password;
+    var confirm_password=req.body.confirm_password;
+     var user_name =  req.user.username;
+    console.log( old_password);
+    console.log( new_password);
+    console.log( confirm_password); 
+ 
+      
+   User.findOne({username:user_name},function(err,docs){
+       var old_password = docs.password;
+       console.log(old_password);
+   });
+     
 
+    req.flash('success_msg',"password changed");
+   res.redirect('/');
+
+});
 
 
 router.get('/register',function(req,res)
@@ -379,11 +403,14 @@ User.comparePassword(password,user.password,function(err,isMatch){
           done(err, user);
         });
       });
+
 router.post('/login',
   passport.authenticate('local',{successRedirect:'/',failureRedirect:'/users/login',failureFlash:true}),
   function(req, res) {
     res.redirect('/');
+    
   });
+
   router.get('/logout',function(req,res){
       req.logout();
       req.flash('success_msg','you have logged out');
@@ -502,6 +529,7 @@ function ensureAuthenticated(req,res,next){
     if(req.isAuthenticated())
     {
         return next();
+       
     }
     else
     {
