@@ -43,41 +43,44 @@ router.post('/forgot1',function(req,res)
   var username=req.body.username;
 
   User.findOne({username:username},function(err,docs){
-        
-          if(docs){
-            var question=docs.security;
+  //  console.log(username);
+  if(docs){
+      var question=docs.security;
+
       res.render('forgot1',{
         question:question,
         user_name:username
       });
     }
     else{
-        req.flash('error_msg',"Username Not Found");
-        res.redirect('/users/forgot');
+      req.flash('error_msg',"Username not found");
+      res.redirect('/users/forgot');
     }
-
   });
 
 
 });
 router.post('/forgot2',function(req,res)
 {
-  
+    //var question = "hello";
     var answer=req.body.answer;
     var a1=req.body.ans;
   console.log(a1);
 
     req.checkBody('answer','Answer is required').notEmpty();
     var errors=req.validationErrors();
-
+  //  if(errors)
+    //{
 
         User.findOne({username:a1},function(err,docs){
           var answer1=docs.answer;
-          console.log(answer1);
+        //  console.log(answer1);
           var q1=docs.security;
-          console.log(q1);
+          //console.log(q1);
           if(answer1==answer){
-            res.render('forgot2');
+            res.render('forgot2',{
+              user_name:a1
+            });
           }
           else{
 
@@ -87,14 +90,10 @@ router.post('/forgot2',function(req,res)
 
           }
         });
-
-
-
-
+// }
 
 });
 
-//forgot password and login
 router.post('/pwdch',function(req,res){
   var newpassword=req.body.newpassword;
   var confirmpassword=req.body.confirmpassword;
@@ -143,30 +142,16 @@ router.post('/pwdch',function(req,res){
 });
 
 
+router.get('/pwdch',function(req,res){
+  res.render('pwdch');
+});
+
 router.get('/changepwd',function(req,res)
 {
     res.render('changepwd');
 });
-//change the password
+
 router.post('/changepwd',function(req,res){
-
-    var old_password = req.body.old_password;
-    var new_password =req.body.new_password;
-    var confirm_password=req.body.confirm_password;
-     var user_name =  req.user.username;
-    console.log( old_password);
-    console.log( new_password);
-    console.log( confirm_password); 
- 
-      
-   User.findOne({username:user_name},function(err,docs){
-       var old_password = docs.password;
-       console.log(old_password);
-   });
-     
-
-    req.flash('success_msg',"password changed");
-   res.redirect('/');
 
 });
 
@@ -405,6 +390,7 @@ else
         email:email,
         username:username,
         password:password,
+
         security:security,
         answer:answer
 
@@ -453,13 +439,12 @@ User.comparePassword(password,user.password,function(err,isMatch){
         });
       });
 
+
 router.post('/login',
   passport.authenticate('local',{successRedirect:'/',failureRedirect:'/users/login',failureFlash:true}),
   function(req, res) {
     res.redirect('/');
-    
   });
-
   router.get('/logout',function(req,res){
       req.logout();
       req.flash('success_msg','you have logged out');
@@ -578,7 +563,6 @@ function ensureAuthenticated(req,res,next){
     if(req.isAuthenticated())
     {
         return next();
-       
     }
     else
     {
