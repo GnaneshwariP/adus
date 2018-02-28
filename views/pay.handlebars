@@ -60,12 +60,19 @@
              
 
 <form onsubmit="return checkform(this);" method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
-<div class="form-group">
-<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank---or---enter only positive numbers" required>
+<div class="md-5">
+  
+<div class="form-group row">
+    <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+ 
+<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form-control" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank---or---enter only positive numbers" required>
  <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
-
+             </div>
+ <div class="col-sm-4"></div>
+</div>
                     
                   <div class="g-recaptcha" data-sitekey="6Lf5ZkcUAAAAAPGtQz1rk6fMZd9uEKCvbQm7En4E"></div>
 
