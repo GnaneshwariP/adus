@@ -20,6 +20,9 @@ var UserSchema= mongoose.Schema({
     },
     answer:{
         type:String
+    },
+    newpassword:{
+      type:String
     }
 
 });
@@ -46,6 +49,27 @@ module.exports.comparePassword=function(candidatePassword,hash,callback){
     bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
         if(err) throw err;
         callback(null,isMatch);
-        
+
     });
+}
+
+
+module.exports.createUser1=function(newUser1,callback){
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newUser1.newpassword, salt, function(err, hash) {
+           newUser1.newpassword=hash;
+           newUser1.save(callback);
+        });
+    });
+
+}
+
+
+
+
+
+
+module.exports.changepassword=function(username,newpassword,callback){
+  var query={username:username}
+              User.update(query,{ $set: {password:newpassword } },callback);
 }
