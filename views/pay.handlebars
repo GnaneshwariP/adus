@@ -8,6 +8,7 @@
    <script src='https://www.google.com/recaptcha/api.js'></script>
 <title>device</title>
 <script src="/js/my.js"></script>
+<script src="/js/valid.js"></script>
 
 </head>
 <body>
@@ -61,8 +62,11 @@
              
 
 <form  method="post" action="/users/otp" class="formmargin" data-toggle="validator" role="form">
-<div class="form-group">
-<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form-control" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank---or---enter only positive numbers" required>
+<div class="form-group row">
+
+
+<font color="blue" size="5"> PAY   : </font>
+<input  type="text" name="paidamount" size="4" class="form-control" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)"  data-error="can't be left blank---or---enter only positive numbers" required>
  <font size="4pt">
              <div class="help-block with-errors" style="background-color: beige;"></div>
              </font>
@@ -79,8 +83,10 @@
      <div class="form-group">
         <div class="g-recaptcha" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback" data-sitekey="6Lf5ZkcUAAAAAPGtQz1rk6fMZd9uEKCvbQm7En4E"></div>
         <input type="hidden" class="form-control" data-recaptcha="true" required>
-        <div class="help-block with-errors"style="background-color: beige;"></div>
-      </div>
+        <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+		</div>
 
 
 {{#each newUser}}
