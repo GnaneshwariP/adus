@@ -94,6 +94,55 @@ router.post('/forgot2',function(req,res)
 
 });
 
+//forgot password and login
+router.post('/pwdch',function(req,res){
+  var newpassword=req.body.newpassword;
+  var confirmpassword=req.body.confirmpassword;
+  var u=req.body.pwd;
+  console.log(u);
+  console.log(newpassword);
+  req.checkBody('newpassword','password is required').notEmpty();
+  req.checkBody('confirmpassword','password is not matched').equals(req.body.newpassword);
+
+
+
+
+ var errors=req.validationErrors();
+  if(errors)
+  {
+  res.render('forgot2',{
+      errors:errors
+  });
+
+  }
+  else
+  {
+      var newUser1=new User({
+          username:u,
+          password:newpassword
+
+      });
+
+
+      User.createUser(newUser1,function(err,user)
+  {
+      if(err) throw err;
+      console.log(user.password);
+      User.changepassword(u,user.password,function(err,user){
+          if(err) throw err;
+          console.log(user);
+       });
+
+  });
+  req.flash('success_msg',"password is changed");
+  res.redirect('/users/login');
+}
+
+
+
+});
+
+
 router.get('/changepwd',function(req,res)
 {
     res.render('changepwd');
