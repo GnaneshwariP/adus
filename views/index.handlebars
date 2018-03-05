@@ -11,18 +11,32 @@
 
     <title>Dashboard Template for Bootstrap</title>
    <script src="C:\project2\loginapp2\public\js\bootstrap"></script>
+   <script src="/js/my.js">
 
-   
+   </script>
+
+
   </head>
 
   <body>
 
+       <div id="mydiv1">
+                {{#if success_msg}}
+                <div class="alert alert-success">{{success_msg}}</div>
+                {{/if}}
+                {{#if error_msg}}
+                <div class="alert alert-danger">{{error_msg}}</div>
+                {{/if}}
+                {{#if error}}
+                <div class="alert alert-danger">{{error}}</div>
+                {{/if}}
+               </div>
 <div class="container">
-    <div class="container-fluid">        
+    <div class="container-fluid">
          <h1 class="page-header">Products</h1>
 
          <div class="row placeholders"> <!-- image container -->
-           
+
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="https://cdn.shopify.com/s/files/1/0666/9741/products/SolarPanel5__1_1024x1024.jpeg?v=1490203379" alt="Generic placeholder thumbnail" width="200px" height="150px">
               <h4>Solar device1</h4>
@@ -45,7 +59,7 @@
             </div>
 
           </div>
-      
+
 
     <div class="well-lg">
     <div class="one">
@@ -55,7 +69,7 @@
         <h3>Total Number of Customers</h3>
         <h1>{{num_of_cust}}</h1>
       </div>
-   
+
     </div>
   </div>
   <div class="two">
@@ -71,8 +85,8 @@
 </div>
 </div></div>
 
-    
-  
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
