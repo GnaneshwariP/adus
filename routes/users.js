@@ -102,10 +102,6 @@ router.post('/pwdch',function(req,res){
   console.log(newpassword);
   req.checkBody('newpassword','password is required').notEmpty();
   req.checkBody('confirmpassword','password is not matched').equals(req.body.newpassword);
-
-
-
-
  var errors=req.validationErrors();
   if(errors)
   {
@@ -121,9 +117,7 @@ router.post('/pwdch',function(req,res){
           password:newpassword
 
       });
-
-
-      User.createUser(newUser1,function(err,user)
+  User.createUser(newUser1,function(err,user)
   {
       if(err) throw err;
       console.log(user.password);
@@ -136,23 +130,22 @@ router.post('/pwdch',function(req,res){
   req.flash('success_msg',"password is changed");
   res.redirect('/users/login');
 }
-
-
-
 });
 
 
-router.get('/pwdch',function(req,res){
-  res.render('pwdch');
+/*router.post('/changepwd',
+  passport.authenticate('local',{successRedirect:'/',failureRedirect:'/users/changepwd',failureFlash:true}),
+  function(req, res) {
+    res.redirect('/');
+  });*/
+
+router.get('/changepwd',function(req,res){
+res.render('changepwd');
 });
 
-router.get('/changepwd',function(req,res)
-{
-    res.render('changepwd');
-});
 
-router.post('/changepwd',function(req,res){
-
+router.get('/changedp',function(req,res){
+res.render('changedp');
 });
 
 
@@ -452,6 +445,59 @@ router.post('/login',
 
   });
 
+
+  router.post('/changepwd',passport.authenticate('local',{successRedirect:'/users/changedp',failureRedirect:'/users/changepwd',failureFlash:true}),function(req,res)
+  {
+
+     res.redirect('/');
+
+  });
+
+  router.post('/changedp',function(req,res){
+
+    var newpassword=req.body.newpassword;
+    var confirmpassword=req.body.confirmpassword;
+    var u=req.user.username;
+ console.log(u);
+
+  req.checkBody('newpassword','New password is required').notEmpty();
+  req.checkBody('confirmpassword','Confirm password is not matched').equals(req.body.newpassword);
+  var errors=req.validationErrors();
+   if(errors)
+   {
+   res.render('changedp',{
+       errors:errors
+   });
+
+   }
+   else
+   {
+       var newUser1=new User({
+           username:u,
+           password:newpassword
+
+       });
+   User.createUser(newUser1,function(err,user)
+   {
+       if(err) throw err;
+       console.log(user.password);
+       User.changepassword(u,user.password,function(err,user){
+           if(err) throw err;
+           console.log(user);
+        });
+
+   });
+   req.flash('success_msg',"password is changed");
+   res.redirect('/');
+ }
+
+
+
+
+
+
+
+});
 
 
 
