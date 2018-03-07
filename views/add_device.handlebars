@@ -42,7 +42,7 @@ $(document).ready(function(){
     <form method="post" action="/users/add_device" data-toggle="validator" role="form">
 
     <div class="form-group">
-        <label>CustomerName*</label><br>
+        <label>CustomerName <font class="red_one">*</font></label><br>
          <input type="text" class="form-control"
         placeholder="customer name" name="customername" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required >
           <font size="4pt">
@@ -53,7 +53,7 @@ $(document).ready(function(){
      
 
     <div class="form-group">
-        <label>Device Name*</label><br>
+        <label>Device Name<font class="red_one">*</font></label><br>
         <input type="text" class="form-control"
         placeholder="device name" name="DeviceName" pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" data-error="can't be left blank --or-- no special characters" required>
         <font size="4pt">
@@ -62,7 +62,7 @@ $(document).ready(function(){
    
     </div><br>
     <div class="form-group">
-        <label>Device Id*</label>
+        <label>Device Id<font class="red_one">*</font></label>
         <input type="text" class="form-control"
         placeholder="deviceid" name="DeviceId"   data-error="can't be left blank --or-- enter only positive interger value" required>
         <font size="4pt">
@@ -71,20 +71,23 @@ $(document).ready(function(){
     </div>
                <div class="form-group">
               <div class="input-append date" id="dp3" data-date="-0d" data-date-format="dd-mm-yyyy">
-                  <label>Date of Purchase*</label>
-              <input class="form-control" size="16" type="text" placeholder="dd-mm-yyyy"  name="Dop">
+                  <label>Date of Purchase<font class="red_one">*</font></label>
+              <input class="form-control" size="16" type="text" placeholder="dd-mm-yyyy"  name="Dop" data-error="can't be left blank" required>
                 <span class="add-on"><i class="icon-th"></i></span>
+                <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
                  </div>
                  </div>
-                 <script type="text/javascript">
-                 $('#dp3').datepicker({endDate:'-0d'});
+                 <script>
+            $('#dp3').datepicker({endDate:'-0d'});
                  </script>
        
 
                 
 
    <div class="form-group">
-        <label>Total Amount*</label>
+        <label>Total Amount<font class="red_one">*</font></label>
         <input type="text" class="form-control"
         placeholder="Total Amount" name="totalamount" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" id="TotalAmount" data-error="can't be left blank---or---enter only positive numbers" required >
     <font size="4pt">
@@ -93,7 +96,7 @@ $(document).ready(function(){
     </div>
 
     <div class="form-group">
-        <label> Balance Amount*</label>
+        <label> Balance Amount<font class="red_one">*</font></label>
         <input type="text" class="form-control"
         placeholder="Balance Amount" name="balanceamount"  data-match="#TotalAmount" data-match-error="can't be left blank---or---amount dosen't match with total amount" required >
 
@@ -102,7 +105,7 @@ $(document).ready(function(){
              </font>
     </div>
      <div class="form-group">
-        <label>Charge per day*</label>
+        <label>Charge per day<font class="red_one">*</font></label>
         <input type="text" class="form-control"
         placeholder="charge per day" name="chargepd" pattern="(^\d*\.?\d*[0-9]+\d*$)|(^[0-9]+\d*\.\d*$)" data-error="can't be left blank---or---enter positive integer only" required>
    
