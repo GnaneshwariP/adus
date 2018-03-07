@@ -6,6 +6,8 @@
  width:172px;   
 }
 
+
+
 /*login form css*/
 
 
@@ -257,6 +259,11 @@ border-radius:0;
   margin: auto; 
   text-align: center;
   font-family: arial;
+}
+
+
+.cardmain{
+  padding-top: 70px;
 }
 
 .title {
