@@ -4,43 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-
-    <title>Dashboard Template for Bootstrap</title>
-    <script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
-<script src="C:\project\success\loginapp2_success\public\js\bootstrap"></script>
-<script type="text/javascript">
-var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
-
-</script>
 
 
   </head>
 
   <body>
+ <div class="container">
+  <div class="container-fluid">
+    <div class="cardmain">
+    <div class="card">
+       <h2 style="text-align: center; font-family:Arial Black">User Profile Card</h2>
+      <div *ngIf="user">
+     <h2>{{user.name}}</h2></div>
+      <p class="title">Software Engineer </p>
+      <p>Bangalore</p>
 
-<div class="container">
-    <div class="container-fluid">
-    
-<div class="card">
-           <h2 style="text-align: center">User Profile Card</h2>
-
-  <img src="https://cdn.theatlantic.com/assets/media/img/mt/2017/06/GettyImages_675371680/lead_960.jpg?1498239007" alt="John" style="width:100%">
-  <div *ngIf="user">
- <h2>{{user.name}}</h2></div>
-  <p class="title">Software Engineer </p>
-  <p>Bangalore</p>
-
-  <ul class="list-group">
-           <li class="list-group-item">Username : {{user.username}}</li>
-           <li class="list-group-item">Email : {{user.email}}</li>
- <p><button href="">Contact</button></p></ul>
-</div>
-
-    
+      <ul class="list-group">
+               <li class="list-group-item">Username : {{user.username}}</li>
+               <li class="list-group-item">Email : {{user.email}}</li>
+     <p><button href="">{{user.username}}</button></p></ul>
+    </div>
+    </div>
+  </div>
+ </div>
 
 
     <!-- Bootstrap core JavaScript
@@ -53,7 +42,6 @@ var val = Math.floor(100000000000000 + Math.random() * 900000000000000);
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
- </div> 
-</div>
+
 </body>
 </html>
