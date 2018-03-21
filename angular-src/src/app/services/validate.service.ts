@@ -23,15 +23,15 @@ export class ValidateService {
     return re.test(email);
   }
 
-validatePassword(password,password2){
-  if(password2!=password){
+
+  validateAddCustomer(user1){
+    if(user1.customername == undefined || user1.Devicename == undefined || user1.DeviceId == undefined ||
+    user1.Dop == undefined || user1.totalamount == undefined ||
+  user1.balanceamount == undefined || user1.chargepd == undefined ){
     return false;
-  }
-  else{
+  } else{
     return true;
   }
-}
+  }
 
 }
-
-

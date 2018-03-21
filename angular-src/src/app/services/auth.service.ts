@@ -8,6 +8,9 @@ import {tokenNotExpired} from 'angular2-jwt';
 export class AuthService {  
 authToken:  any;
 user: any;
+user1: any;
+
+
 
   constructor(private http:Http) { }
   registerUser(user) {
@@ -56,5 +59,23 @@ user: any;
     this.user = null;
     localStorage.clear();
   }
+
+
+  add_customerUser1(user1) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:4000/users/add_customer', user1, {headers: headers})
+      .map(res => res.json());
+  }
+
+  storeUser1Data(token, user1) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('user1', JSON.stringify(user1));
+    this.authToken = token;
+    this.user1 = user1;
+  }
+
+  
+
 
 }
