@@ -1,0 +1,130 @@
+
+/*layout css*/
+.header-right {
+  float: right;
+
+}
+.header-right a{
+  color: white;
+  font-size: 18px;
+  font-family: Calibri;
+}
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+html, body {
+  font-family: Calibri;  
+}
+
+.navbar-default {
+  
+  font-size: 1.15em;
+  font-weight: 400;
+  background-color: #3dcd58;
+  padding: 10px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+  font-size: 20px;
+  font-family: calibri;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #ffffff;
+  text-shadow: 1px -1px 8px #b3e9ff;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  background-color: #3dcd58;
+  color: white;
+  
+}
+
+.navbar-default .navbar-toggle {
+  border: none;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border: none;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #002433;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  color: white;
+  border: 0px;
+  border-radius: 2px;
+  padding-top: 13px;
+  padding-bottom: 10px;
+}
+
+.dropdown-menu>li>a {
+  background-color: white;
+  color: black;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+  background-color: #2dc5da ;
+  color:black;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: ;
+    background-color: #003246;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: black;
+    font-family: calibri;
+    font-size: 18px;
+}
+
+@media (max-width: 767px) { 
+  .dropdown-menu>li>a {
+    background-color: #3dcd58 ;
+    color: #000;
+  }
+  .dropdown-menu>li>a:hover {
+    color: black;
+  }
+  
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover {
+    color: black;
+    background-color: transparent;
+  }
+  
+  .dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: ;
+    background-color: #005577;
+  }
+} /* END Media Query */
+
+
+
+
+
+
+

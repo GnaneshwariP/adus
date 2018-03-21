@@ -1,0 +1,56 @@
+<h1>Customer Details</h1>
+<script type="text/javascript">
+
+</script>
+
+<div class="find">
+ <div class="right-inner-addon ">
+ <input type="text" [(ngModel)]="text" id="myInput" (keyup)="myFunction()" placeholder="search"  class="form-control glyphicon glyphicon-search" /><br>
+ </div>
+</div>
+<div class="table-responsive">
+<table  class="table table-hover" border=5 id="myTable">
+<thead>
+<tr>
+  <th>customer name</th>
+  <th>Device Name</th>
+  <th>Device ID</th>
+  <th>Date of purchase</th>
+  <th>Total amount</th>
+  <th>Balance amount</th>
+  <th>Charge per day</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>kkkkdshjdh</td>
+<td>homaya</td>
+<td>123456</td>
+<td>12/2/2333</td>
+<td>100000</td>
+<td>100000</td>
+<td>1000</td>
+<td>
+    <input type="button" id="edit_button1" value="Edit" class="edit" onclick="edit_row('1')">
+    <input type="button" id="Delete" value="delete" class="delete" onclick="delete_row('1')">
+  
+    </td>
+
+</tr>
+<tr>
+<td>mnaju</td>
+<td>homaya</td>
+<td>8987</td>
+<td>12/2/2333</td>
+<td>100000</td>
+<td>100000</td>
+<td>1000</td>
+
+</tr>
+
+
+</tbody>
+</table>
+</div>

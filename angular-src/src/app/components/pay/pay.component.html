@@ -1,0 +1,68 @@
+
+   
+ <h1 class="page-header">DEVICE LIST </h1>
+ 
+ 
+ <div class="table-responsive">
+<table class="table table-hover" border=5 id="myTable">
+<tr>
+  <th>customer name</th>  
+  <th>DeviceName</th>
+  <th>Device ID</th>
+  <th>Date of purchase</th>
+   <th>Total amount</th>
+  <th>Balance amount</th>
+ <th>Charge per day</th>
+ 
+</tr>
+
+<tr>
+<td>{{this.customername}}</td>
+
+<td>{{this.DeviceName}}</td>
+<td>{{this.DeviceId}}</td>
+<td>{{this.Dop}}</td>
+<td>{{this.totalamount}}</td>
+<td>{{this.balanceamount}}</td> 
+<td>{{this.chargepd}}</td>
+  
+</tr>
+</table>
+<div class="table-responsive">
+<br><br>
+
+ 
+
+             
+
+<form>
+<div class="md-5">
+  
+<div class="form-group row">
+    <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+ 
+<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form-control"  required>
+ <font size="4pt">
+             <div class="help-block with-errors" style="background-color: beige;"></div>
+             </font>
+             </div>
+ <div class="col-sm-4"></div>
+</div>
+               
+<div class="g-recaptcha" data-sitekey="6Lf5ZkcUAAAAAPGtQz1rk6fMZd9uEKCvbQm7En4E"></div>
+
+<div style="text-align:center;">
+     
+  
+<div style="text-align:center;">
+   
+    <input type="submit" [routerLink]="['/otp']" class="btn btn-primary btn-lg  site-btn pull-center" value="MAKE PAYMENT">
+  
+  </div><br><br>
+     
+   </div>
+
+                   
+
+
