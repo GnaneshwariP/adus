@@ -1,0 +1,129 @@
+.new{
+    padding-top: 50px;
+  }
+
+   .input-recaptcha{
+   width:172px;
+  }
+
+
+
+  /*login form css*/
+
+
+
+  .modal-content{
+        background-color: white;
+      }
+      .btn-link{
+        color: rgb(50, 160, 233);
+      }
+
+      .modal-heading h2{
+        color: #3dcd58 ;
+
+      }
+
+      .newrow{
+        float: right;
+      }
+
+
+
+      .mango{
+        float: right;
+
+      }
+
+      .orange{
+        float: left;
+       padding-left: 35px;
+      }
+
+      .device{
+        border: #3dcd58;
+      }
+
+
+  /*login side info*/
+
+  .side-content{
+    background-color: #ffffff;
+    text-align: justify;
+  }
+  .side-head h2{
+    color:green;
+    float: center;
+
+  }
+
+  .my-font{
+    font-family: sans-serif;
+    font-size: medium;
+  }
+
+
+  /*red star */
+  .red_one{
+    color: red;
+  }
+
+  /*tables css*/
+   #myTable {
+              border-collapse: collapse; /* Collapse borders */
+              width: 100%; /* Full-width */
+              border: 1px solid #ddd; /* Add a grey border */
+              font-size: 18px; /* Increase font-size */
+          }
+
+          #myTable th {
+              text-align: center; /* Left-align text */
+              padding: 12px; /* Add padding */
+              background-color: rgb(37, 46, 37);
+              color: #ddd;
+          }
+
+           #myTable td{
+             text-align: left; /* Left-align text */
+              padding: 12px; /* Add padding */
+           }
+
+          #myTable tr {
+              /* Add a bottom border to all table rows */
+              border-bottom: 1px solid #ddd;
+
+          }
+
+          #myTable tr.header, #myTable tr:hover {
+              /* Add a grey background color to the table header and on hover */
+              background-color: #f1f1f1;}
+
+              /* report tables css*/
+   #myTable_r1 {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+  }
+
+  #myTable_r1 th {
+    text-align: center; /* Left-align text */
+    padding: 12px; /* Add padding */
+    background-color: rgb(37, 46, 37);
+    color: #ddd;
+  }
+
+  #myTable_r1 td{
+   text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+  }
+
+  #myTable_r1 tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+
+  }
+
+  #myTable_r1 tr.header, #myTable_r1 tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;}
