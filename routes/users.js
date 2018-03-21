@@ -114,7 +114,7 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
 });
 
 
-//module.exports = router;
+module.exports = router;
 
 
 
@@ -140,7 +140,7 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
 
 
 
-
+/*
 
 
 //old routes non angular
@@ -283,7 +283,7 @@ router.post('/pwdch',function(req,res){
   passport.authenticate('local',{successRedirect:'/',failureRedirect:'/users/changepwd',failureFlash:true}),
   function(req, res) {
     res.redirect('/');
-  });*/
+  });
 
 router.get('/changepwd',function(req,res){
 res.render('changepwd');
@@ -387,7 +387,7 @@ User1.findOne({DeviceId:p1},function(err,docs){
 });
 
 
-/*route for report*/
+//route for report
 router.get('/report',ensureAuthenticated,function(req,res)
 {
 
@@ -762,5 +762,5 @@ function ensureAuthenticated(req,res,next){
         res.redirect('/users/login');
     }
 }
+module.exports=router;*/
 
-module.exports=router;
