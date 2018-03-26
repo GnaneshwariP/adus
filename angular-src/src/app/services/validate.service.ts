@@ -33,5 +33,16 @@ export class ValidateService {
     return true;
   }
   }
+  
+    //contactus validation
+  validateContactus(contus){
+    if(contus.firstname == undefined || contus.lastname == undefined || contus.email == undefined ||
+    contus.phonenumber == undefined || contus.message == undefined ){
+    return false;
+  } else{
+    return true;
+  }
+
+}
 
 }
