@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 
 import { AppComponent } from './app.component';
@@ -37,6 +38,8 @@ import {AuthService} from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditCustomersComponent } from './components/edit-customers/edit-customers.component';
+
 
 
 
@@ -64,7 +67,9 @@ const appRoutes: Routes =  [
   {path:'totalcustomers_activecustomers', component: TotalcustomersActivecustomersComponent,canActivate:[AuthGuard]},
   {path:'customer_rechargehistory', component: CustomerRechargehistoryComponent,canActivate:[AuthGuard]},
   {path:'pay', component: PayComponent,canActivate:[AuthGuard]},
-  {path:'dashboard', component: DashboardComponent,canActivate:[AuthGuard]}
+  {path:'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
+  {path:'edit-customers', component: EditCustomersComponent,canActivate:[AuthGuard]}
+ 
 
 ]
 
@@ -95,14 +100,18 @@ const appRoutes: Routes =  [
     AccesscodeHistoryComponent,
     GenerateAccesscodeComponent,
     PayComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditCustomersComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    BsDatepickerModule.forRoot()
+   
     
 
   ],
