@@ -8,46 +8,35 @@
 </div>
 <div class="table-responsive">
 <table  class="table table-hover" border=5 id="myTable">
-<thead>
 <tr>
-  <th>customer name</th>
+  <th>Customer Name</th>
   <th>Device Name</th>
-  <th>Device ID</th>
-  <th>Amount</th>
-  <th>Date of payment</th>
-  <th>charge per day</th>
+  <th>Device Id</th>
+  <th>Date of Purchase</th>
+  <th>Total Amount</th>
+  <th>Balance Amount</th>
+  <th>Charge Per Day</th>
   <th>Select</th>
-
-  
 </tr>
-</thead>
 
-<tbody>
 
-<tr>
-<td>man</td>
-<td>homaya</td>
-<td>123456</td>
-<td>2000</td>
-<td>12/2/2333</td>
-<td>100</td>
-<td align="center"><input type="radio" name="payment" value="{{this.DeviceId}}" data-error="" required></td>
 
-</tr>
-<tr>
-<td>manju</td>
-<td>homaya</td>
-<td>8987</td>
-<td>1000</td>
-<td>12/2/2333</td>
-<td>1000</td>
-<td align="center"><input type="radio" name="payment" value="{{this.DeviceId}}" data-error="" required></td>
 
+<tr *ngFor="let task of tasks">
+    
+<td> {{task.customername}} </td>
+<td>{{task.DeviceName}}</td>
+<td> {{task.DeviceId}}</td>
+<td> {{task.Dop}}</td>
+<td>{{task.totalamount}}</td>
+<td>{{task.balanceamount}}</td>
+<td>{{task.chargepd}}</td>
+<td align="center"><input type="radio" name="payment" value="{{task.DeviceId}}"  required></td>
 
 </tr>
 
 
-</tbody>
+
 </table>
 </div>
 
@@ -56,3 +45,12 @@
   <input type="submit" [routerLink]="['/pay']" class="btn btn-primary btn-lg  site-btn pull-center" value="submit">
 
 </div><br><br>
+
+
+ 
+ 
+  
+  
+ 
+  
+ 

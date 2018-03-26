@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-
+import {TaskService} from '../../services/task.service';
+import {Task} from '../../../../Task';
 @Component({
   selector: 'app-generate-accesscode',
   templateUrl: './generate-accesscode.component.html',
   styleUrls: ['./generate-accesscode.component.css']
 })
 export class GenerateAccesscodeComponent implements OnInit {
-
-  constructor() { }
+tasks: Task[];
+  constructor(private taskService:TaskService){
+    this.taskService.getTasks()
+    .subscribe(tasks => {
+      this.tasks = tasks;
+    });
+}
 
   ngOnInit() {
   }
