@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const User = require('../models/user');
 const User1 = require('../models/addcustomer');
+const Contus = require('../models/contactus');
 
 router.post('/register', (req, res, next) => {
   let newUser = new User ({
@@ -105,6 +106,40 @@ router.post('/add_customer', (req, res, next) => {
   });
 
 
+  //contactus storing data
+  router.post('/contactus', (req, res, next) => {
+    let newUser = new Contus ({
+       firstname: req.body.firstname,
+       lastame: req.body.lastame,
+       email: req.body.email,
+       phonenumber: req.body.phonenumber,
+       message: req.body.message
+      
+    });
+     
+  
+    Contus.createUser1(newUser, (err, contus) => {
+      if(err) {
+        res.json({success: false, msg: 'Failed to add customer'});
+      } else {     
+      
+  
+        res.json({success: true, msg: 'your request is sent',
+       
+        contus: {
+          id: contus._id,        
+          firstname: contus.firstname,
+          lastname: contus.lastname,
+          email: contus.email,
+          phonenumber: contus.phonenumber,
+          message: contus.message
+         
+        }
+      });
+    } 
+    });
+  
+    });
 
 
 
