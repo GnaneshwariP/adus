@@ -40,6 +40,7 @@ contus: any;
 
   storeUserData(token, user) {
     localStorage.setItem('id_token', token);
+
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
@@ -90,6 +91,14 @@ contus: any;
     this.contus = contus;
   }
   
+  validatePassword(password,password2){
+  if(password2!=password){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
 
 
 }
