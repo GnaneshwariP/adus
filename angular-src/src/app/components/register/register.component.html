@@ -1,97 +1,101 @@
 
 
       <form (submit)="onRegisterSubmit()" >
-        <div class="form-group">
+       
+        <div class="form-group"[class.has-error]="nameControl.invalid && nameControl.touched">
           <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+            </span> <input type="text" class="form-control"
+          placeholder="Name" [(ngModel)]="name" name="name" #nameControl="ngModel" required>
+        </div> 
+          <span class="help-block" *ngIf="nameControl.invalid && nameControl.touched">Name is required</span>
+      
+      </div><br>
+        
 
+
+
+
+            <div class="form-group"[class.has-error]="usernameControl.invalid && usernameControl.touched">
+          <div class="input-group">
             <span class="input-group-addon">
             <span class="glyphicon glyphicon-user"></span>
-            </span>
-            <input type="text" class="form-control" [(ngModel)]="name" name="name" id="inputName" placeholder="Enter your Name" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required />
-
-           </div>
-           <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-        </div>
+          </span> <input type="text" class="form-control"
+          placeholder="User Name" [(ngModel)]="username" name="username" #usernameControl="ngModel" required>
+        </div> 
+          <span class="help-block" *ngIf="usernameControl.invalid && usernameControl.touched">User Name is required</span>
+      
+      </div><br>
 
 
-
-        <div class="form-group">
+      <div class="form-group"[class.has-error]="emailControl.invalid && emailControl.touched">
           <div class="input-group">
             <span class="input-group-addon">
             <span class="glyphicon glyphicon-user"></span>
-            </span>
-            <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="User Name " pattern="^([a-zA-Z]+)[0-9]*\.*[a-zA-Z0-9]+$|^[a-zA-Z]+[0-9]*$" data-error="can't be left blank --or-- no special characters" required />
-          </div>
-          <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-        </div>
+          </span> <input type="email" class="form-control"
+          placeholder="Email" [(ngModel)]="email" name="email" #emailControl="ngModel" required>
+        </div> 
+          <span class="help-block" *ngIf="emailControl.invalid && emailControl.touched">Email is required</span>
+      
+      </div><br>
 
 
-        <div class="form-group">
+      <div class="form-group"[class.has-error]="passwordControl.invalid && passwordControl.touched">
           <div class="input-group">
             <span class="input-group-addon">
-            <span class="glyphicon glyphicon-envelope"></span>
-            </span>
-            <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="example@example.com " pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" data-pattern-error="enter a valid email address" required  />
-          </div>
-          <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-        </div>
+            <span class="glyphicon glyphicon-user"></span>
+          </span> <input type="password" class="form-control"
+          placeholder="Password" [(ngModel)]="password" name="password" #passwordControl="ngModel" required>
+        </div> 
+          <span class="help-block" *ngIf="passwordControl.invalid && passwordControl.touched">Password is required</span>
+      
+      </div><br>
 
 
-        <div class="form-group">
+
+        
+      <div class="form-group"[class.has-error]="password2Control.invalid && password2Control.touched">
           <div class="input-group">
             <span class="input-group-addon">
-            <span class="glyphicon glyphicon-lock"></span>
-            </span>
-            <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password" id="inputPassword" data-error="enter the password" required />
-            </div>
-            <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-        </div>
+            <span class="glyphicon glyphicon-user"></span>
+          </span> <input type="password" class="form-control"
+          placeholder="Confirm Password" [(ngModel)]="password2" name="password2" #password2Control="ngModel" required>
+        </div> 
+          <span class="help-block" *ngIf="password2Control.invalid && password2Control.touched">Confirm Password is required</span>
+      
+      </div><br>
 
-
-        <div class="form-group">
-          <div class="input-group">
-            <span class="input-group-addon">
-            <span class="glyphicon glyphicon-lock"></span>
-            </span>
-            <input type="password" class="form-control"  [(ngModel)]="password2" name="password2" placeholder="Confirm Password"  data-match="#inputPassword" data-match-error="password dont match"  required/>
-            </div>
-            <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-         </font>
-          </div>
 
 <p><font color="white">Security Question:</font></p>
-<div class="form-group">
-          <div class="input-group">
+<div class="form-group"[class.has-error]="securityControl.invalid && securityControl.touched">
+    <div class="input-group">
       <span class="input-group-addon">
-            <span class="	glyphicon glyphicon-question-sign"></span>
-            </span>
-  <select class="form-control" [(ngModel)]="security" name="security" data-error="choose a question" required >
-<option id="que1">What is the name of your first school?</option>
-<option id="que2" >In what city were you born?</option>
-<option id="que3">What was your first car?</option>
-<option id="que4">What is your Nick Name?</option>
-</select></div>
-<font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-</div>
+      <span class="glyphicon glyphicon-user"></span>
+    </span> 
+    <select class="form-control" [(ngModel)]="security" name="security" #securityControl="ngModel" placeholder="select a question" required>
+        <option value="" disabled selected>Select your Question</option>
+      <option id="que1">what is the name of your first school?</option>
+      <option id="que2">which city were you born in?</option>
+      <option id="que3">what is your nick name?</option>
+      <option id="que4">what is your mother's middle name?</option>
+    </select>
+  </div>
+    <span class="help-block" *ngIf="securityControl.invalid && securityControl.touched">Please select a Question</span>
 
-          <div class="form-group">
+</div><br>
 
-            <input type="text" [(ngModel)]="answer" name="answer" class="form-control" placeholder="Your Answer" data-error="enter answer for the question" required>
-            <font size="4pt">
-           <div class="help-block with-errors" style="background-color: beige;"></div>
-           </font>
-            </div>
+
+<div class="form-group"[class.has-error]="answerControl.invalid && answerControl.touched">
+    <div class="input-group">
+      <span class="input-group-addon">
+      <span class="glyphicon glyphicon-user"></span>
+    </span> <input type="text" class="form-control"
+    placeholder="Answer" [(ngModel)]="answer" name="answer" #answerControl="ngModel" required>
+  </div> 
+    <span class="help-block" *ngIf="answerControl.invalid && answerControl.touched">Answer is required</span>
+
+</div><br>
 
 
 

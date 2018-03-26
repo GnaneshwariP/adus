@@ -42,10 +42,13 @@
     <div class="col-sm-4"></div>
   <div class="col-sm-4">
  
-<font color="blue" size="5"> PAY   : </font><input  type="text" name="paidamount"  class="form-control"  required>
- <font size="4pt">
-             <div class="help-block with-errors" style="background-color: beige;"></div>
-             </font>
+    <div class="form-group"[class.has-error]="payControl.invalid && payControl.touched">
+      <label class="control-label">PAY</label><br>
+      <input type="text" class="form-control"
+      placeholder="payment" [(ngModel)]="paidamount" name="paidamount" #payControl="ngModel" required>
+    <span class="help-block" *ngIf="payControl.invalid && payControl.touched">Please enter the amount</span>
+    </div><br>
+    
              </div>
  <div class="col-sm-4"></div>
 </div>
