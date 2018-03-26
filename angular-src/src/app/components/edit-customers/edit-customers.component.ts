@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerService} from '../../services/customer.service';
-import {Task} from '../../../../task';
+
 @Component({
   selector: 'app-edit-customers',
   templateUrl: './edit-customers.component.html',
