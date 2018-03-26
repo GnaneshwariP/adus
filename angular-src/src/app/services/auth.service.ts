@@ -9,7 +9,7 @@ export class AuthService {
 authToken:  any;
 user: any;
 user1: any;
-
+contus: any;
 
 
   constructor(private http:Http) { }
