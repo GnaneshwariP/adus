@@ -100,7 +100,7 @@ router.post('/add_customer', (req, res, next) => {
         chargepd: user1.chargepd
       }
     });
-  } 
+ } 
   });
 
   });
@@ -110,7 +110,7 @@ router.post('/add_customer', (req, res, next) => {
   router.post('/contactus', (req, res, next) => {
     let newUser = new Contus ({
        firstname: req.body.firstname,
-       lastame: req.body.lastame,
+      lastame: req.body.lastame,
        email: req.body.email,
        phonenumber: req.body.phonenumber,
        message: req.body.message
@@ -142,25 +142,14 @@ router.post('/add_customer', (req, res, next) => {
     });
 
 
-
-
-
-
-
-  router.get('/view_edit_customer', function(req,res){
-    console.log('Get request for all videos');
-    User1.find({})
-    .exec(function(err,user1){
-      if(err){
-        console.log("error retrieving user1");
-      } else{
-        res.json(user1);
-      }
-    });
+router.get('/generate_access_code',(req,res,next) => {
+  User1.find(function(err,tasks){
+    if(err){
+      res.send(err);
+    }
+    res.json(tasks);
   });
-
- 
-
+});
 
 
 
