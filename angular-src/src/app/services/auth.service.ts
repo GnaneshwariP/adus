@@ -74,7 +74,21 @@ user1: any;
     this.authToken = token;
     this.user1 = user1;
   }
+  
+  //contactus stroredata into database
+  contactusContus(contus) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:4000/users/contactus', contus, {headers: headers})
+      .map(res => res.json());
+  }
 
+  storeContusData(token, contus) {
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('contus', JSON.stringify(contus));
+    this.authToken = token;
+    this.contus = contus;
+  }
   
 
 
