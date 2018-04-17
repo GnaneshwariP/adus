@@ -25,7 +25,7 @@ export class ValidateService {
 
 
   validateAddCustomer(user1){
-    if(user1.customername == undefined || user1.Devicename == undefined || user1.DeviceId == undefined ||
+    if(user1.customername == undefined || user1.DeviceName == undefined || user1.DeviceId == undefined ||
     user1.Dop == undefined || user1.totalamount == undefined ||
   user1.balanceamount == undefined || user1.chargepd == undefined ){
     return false;
@@ -44,5 +44,14 @@ export class ValidateService {
   }
 
 }
+
+validatePassword(password,password2){
+   if(password2!=password){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
 
 }
