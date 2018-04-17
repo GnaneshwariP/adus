@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 export class AddCustomerComponent implements OnInit {
  
   customername: String;
-  Devicename: String;
+  DeviceName: String;
   DeviceId: String;
   Dop: String;
   totalamount: String;
@@ -47,7 +47,7 @@ datePickerConfig:Partial<BsDatepickerConfig>;
  onAddCustomerSubmit(){
     const user1 = {
       customername: this.customername,
-      Devicename: this.Devicename,
+      DeviceName: this.DeviceName,
       DeviceId: this.DeviceId,
       Dop: this.Dop,
       totalamount: this.totalamount,
