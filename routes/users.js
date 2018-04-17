@@ -6,6 +6,11 @@ const config = require('../config/database');
 const User = require('../models/user');
 const User1 = require('../models/addcustomer');
 const Contus = require('../models/contactus');
+var aesjs = require('aes-js');
+var djb2 = require("djb2");
+var crc32 = require('crc32');
+const farmhash = require('farmhash');
+var converter = require('hex2dec');
 
 router.post('/register', (req, res, next) => {
   let newUser = new User ({
@@ -77,20 +82,20 @@ router.post('/add_customer', (req, res, next) => {
     balanceamount: req.body.balanceamount,
     chargepd: req.body.chargepd
   });
-  
+
 
 
   User1.createUser(newUser, (err, user1) => {
     if(err) {
       res.json({success: false, msg: 'Failed to add customer'});
     } else {
-     
-    
+
+
 
       res.json({success: true, msg: 'customer is added',
-     
+
       user1: {
-        id: user1._id,        
+        id: user1._id,
         customername: user1.customername,
         Devicename: user1.Devicename,
         DeviceId: user1.DeviceId,
@@ -100,7 +105,7 @@ router.post('/add_customer', (req, res, next) => {
         chargepd: user1.chargepd
       }
     });
- } 
+ }
   });
 
   });
@@ -114,31 +119,31 @@ router.post('/add_customer', (req, res, next) => {
        email: req.body.email,
        phonenumber: req.body.phonenumber,
        message: req.body.message
-      
+
     });
-     
-  
+
+
     Contus.createUser1(newUser, (err, contus) => {
       if(err) {
         res.json({success: false, msg: 'Failed to add customer'});
-      } else {     
-      
-  
+      } else {
+
+
         res.json({success: true, msg: 'your request is sent',
-       
+
         contus: {
-          id: contus._id,        
+          id: contus._id,
           firstname: contus.firstname,
           lastname: contus.lastname,
           email: contus.email,
           phonenumber: contus.phonenumber,
           message: contus.message
-         
+
         }
       });
-    } 
+    }
     });
-  
+
     });
 
 
@@ -163,6 +168,54 @@ router.get('/login', (req, res, next) => {
 router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res, next) => {
   res.json({user: req.user});
 });
+
+router.get('/aes',function(req,res){
+  // An example 128-bit key (16 bytes * 8 bits/byte = 128 bits)
+  var key = [ 18, 22, 35, 45, 55, 65, 75, 85, 96, 10, 11, 12, 13, 14, 15, 16 ];
+
+  // Convert text to bytes
+  var text = 'why is this so hard?0111';
+  var textBytes = aesjs.utils.utf8.toBytes(text);
+
+  // The counter is optional, and if omitted will begin at 1
+  var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+  var encryptedBytes = aesCtr.encrypt(textBytes);
+
+  // To print or store the binary data, you may convert it to hex
+  var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
+  console.log(encryptedHex);
+  var h=crc32(encryptedHex);
+  console.log(h);
+  var hex = converter.hexToDec(h);
+  console.log(hex);
+  var n = hex.toString();
+  var duration = "012";
+  var Hd = n.concat(duration);
+  console.log(Hd);
+    var z =[];
+  for(i=0;i<Hd.length;i++)
+  {
+    var res=Hd.charAt(i);
+    console.log(res);
+    var nn=Number(res);
+    var a = Math.pow(nn,3);
+    var x= a%10;
+    var y = x.toString();
+
+    z.push(y);
+    }
+
+    var gna = "";
+  for(j=0;j<z.length;j++)
+  {
+    gna += z[j]+ "";
+  }
+console.log(gna);
+
+
+});
+
+
 
 
 module.exports = router;
