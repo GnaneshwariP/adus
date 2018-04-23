@@ -34,10 +34,10 @@ export class ValidateService {
   }
   }
   
-    //contactus validation
+   
+  //contactus validation
   validateContactus(contus){
-    if(contus.firstname == undefined || contus.lastname == undefined || contus.email == undefined ||
-    contus.phonenumber == undefined || contus.message == undefined ){
+    if(contus.DeviceId == undefined || contus.device_name == undefined || contus.AgentUsername == undefined || contus.message == undefined ){
     return false;
   } else{
     return true;
