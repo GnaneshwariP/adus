@@ -50,7 +50,8 @@
        </li>
       
        <li  *ngIf="authService.loggedIn()"><a [routerLink]="['/aboutus']"> About Us </a></li>
-       <li  *ngIf="authService.loggedIn()"><a [routerLink]="['/contactus']"> Contact Us </a></li>
+       <li  *ngIf="authService.loggedIn()"><a [routerLink]="['/contactus']"> Support
+         </a></li>
 
        <li class="dropdown" *ngIf="authService.loggedIn()" align="right">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="caret"></span></a>
