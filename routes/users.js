@@ -115,37 +115,36 @@ router.post('/add_customer', (req, res, next) => {
   //contactus storing data
   router.post('/contactus', (req, res, next) => {
     let newUser = new Contus ({
-       firstname: req.body.firstname,
-      lastame: req.body.lastame,
-       email: req.body.email,
-       phonenumber: req.body.phonenumber,
+       DeviceId: req.body.DeviceId,
+       device_name: req.body.device_name,
+       AgentUsername: req.body.AgentUsername,
        message: req.body.message
-
+      
     });
-
-
+     
+  
     Contus.createUser1(newUser, (err, contus) => {
       if(err) {
         res.json({success: false, msg: 'Failed to add customer'});
-      } else {
-
-
+      } else {     
+      
+  
         res.json({success: true, msg: 'your request is sent',
-
+       
         contus: {
-          id: contus._id,
-          firstname: contus.firstname,
-          lastname: contus.lastname,
-          email: contus.email,
-          phonenumber: contus.phonenumber,
+          id: contus._id,        
+          DeviceId: contus.DeviceId,
+          device_name: contus.device_name,
+          AgentUsername: contus.AgentUsername,
           message: contus.message
-
+         
         }
       });
-    }
+    } 
     });
-
+  
     });
+  
 
 
 router.get('/generate_access_code',(req,res,next) => {
