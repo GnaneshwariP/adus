@@ -7,10 +7,11 @@ const User = require('../models/user');
 const User1 = require('../models/addcustomer');
 const Contus = require('../models/contactus');
 var aesjs = require('aes-js');
-var djb2 = require("djb2");
+
 var crc32 = require('crc32');
-const farmhash = require('farmhash');
+
 var converter = require('hex2dec');
+var fnv = require('fnv-plus');
 
 router.post('/register', (req, res, next) => {
   let newUser = new User ({
@@ -172,10 +173,15 @@ router.get('/profile', passport.authenticate('jwt', {session:false}), (req, res,
 router.get('/aes',function(req,res){
   // An example 128-bit key (16 bytes * 8 bits/byte = 128 bits)
   var key = [ 18, 22, 35, 45, 55, 65, 75, 85, 96, 10, 11, 12, 13, 14, 15, 16 ];
+var DeviceId = "abc";
+var duration = "034";
+var counter = 3;
+
 
   // Convert text to bytes
-  var text = 'why is this so hard?0111';
+  var text = DeviceId+duration+counter;
   var textBytes = aesjs.utils.utf8.toBytes(text);
+  console.log(text);
 
   // The counter is optional, and if omitted will begin at 1
   var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
@@ -189,7 +195,7 @@ router.get('/aes',function(req,res){
   var hex = converter.hexToDec(h);
   console.log(hex);
   var n = hex.toString();
-  var duration = "012";
+
   var Hd = n.concat(duration);
   console.log(Hd);
     var z =[];
@@ -198,7 +204,7 @@ router.get('/aes',function(req,res){
     var res=Hd.charAt(i);
     console.log(res);
     var nn=Number(res);
-    var a = Math.pow(nn,3);
+    var a = Math.pow(nn,7);
     var x= a%10;
     var y = x.toString();
 
@@ -213,6 +219,10 @@ router.get('/aes',function(req,res){
 console.log(gna);
 
 
+astring = 'abc034fogpirewncvoehfoiwehufdiewlncdiewxewqr4r543t45teq1qaazsxc3';
+  ahash32 = fnv.hash(astring);
+  tomo = ahash32.dec();
+console.log(tomo);
 });
 
 
