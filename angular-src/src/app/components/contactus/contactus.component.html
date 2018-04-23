@@ -1,19 +1,6 @@
-<p>
-  contactus works!
-</p>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
     <title>Dashboard Template for Bootstrap</title>
 
   </head>
@@ -23,55 +10,51 @@
 <div class="container">
     <div class="container-fluid">
 
-            <h1 class="page-header">Contact Us</h1>
+            <h1 class="page-header">Support / Feedback</h1>
 <div class="contact-section paddingTB60">
     <div class="container">
 
                  <div class="border">
                   <div class="col-md-3 col-sm-4">
-              <i class="glyphicon glyphicon-home"></i> <b>Whitefield - Hoskote Main road, Near Safal Market, Goravigere Village, Bangalore, Karnataka 560067</b><br><br>
+              
               <i class="glyphicon glyphicon-phone"></i> <b>1800-xxx-990</b><br><br>
               <i class="glyphicon glyphicon-earphone"></i> <b>1800-xxx-996</b><br><br>
               <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:example@info.com">info@schneider-electric.com</a><br><br>
               <i class="fa fa-home"></i> <b>Mon - Fri 8.00am - 4.30pm</b><br>
               Saturday - Sunday CLOSED
                     </div></div>
-                    <div class="col-md-9 col-sm-8">
-                        <form method="post" action="/users/contactus" data-toggle="validator" role="form">
+                    <div >
+                        <form (submit)="onContactusSubmit()">
                           <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <input id="fname" name="firstname" class="form-control input-lg" placeholder="First name*" type="text" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
+                                        <input id="deviceid" [(ngModel)]="DeviceId" name="DeviceId" class="form-control input-lg" placeholder="Device ID*" type="text" pattern="^([a-zA-z\s]{1,32})$" data-error="can't be left blank --or--  numbers cant be used " required>
                                          <font size="4pt">
                                           <div class="help-block with-errors" style="background-color: beige;"></div>
                                          </font>
                                     </div>
                                     <div class="form-group">
-                                        <input id="lname" name="lastname" class="form-control input-lg" placeholder="Last name" type="text">
+                                        <input id="devicename" [(ngModel)]="device_name" name="device_name" class="form-control input-lg" placeholder="Device Name *" type="text" required>
                                     </div>
                                     <div class="form-group">
-                                        <input id="email" name="email" class="form-control input-lg" placeholder="Email*" type="email" data-match-error="can't be left blank---or--- enter th email in correct format " required >
+                                        <input id="agentusername" [(ngModel)]="AgentUsername" name="AgentUsername" class="form-control input-lg" placeholder="Agent / user name*" type="email" data-match-error="can't be left blank---or--- enter th email in correct format " required >
                                        <font size="4pt">
                                         <div class="help-block with-errors" style="background-color: beige;"></div>
                                        </font>
                                     </div>
-                                    <div class="form-group">
-                                        <input id="phone" name="phonenumber" class="form-control input-lg" placeholder="Phonenumber" type="text" >
                                     
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
+                             
                                     <div class="form-group">
-                                        <textarea cols="6" rows="8" id="comments" name="message" class="form-control input-lg" placeholder="Message*" data-match-error="can't be left blank---or--- enter th email in correct format " required></textarea>
+                                        <textarea cols="6" rows="8" id="comments" [(ngModel)]="message" name="message" class="form-control input-lg" placeholder="Feedback or Message*" data-match-error="can't be left blank---or--- enter th email in correct format " required></textarea>
                                      <font size="4pt">
                                         <div class="help-block with-errors" style="background-color: beige;"></div>
                                        </font>
                                     </div>
-                                    <input id="submit" name="submit" class="btn btn-primary btn-lg  site-btn pull-left" value="Submit now!" type="submit">
+                                    <input  name="submit" class="btn btn-primary btn-lg  site-btn pull-left" value="Submit now!" type="submit">
 
-                                    <input type="reset" name="reset" class="btn btn-primary btn-lg  site-btnx pull-right" value="ClearForm!" type="submit">
+                                   
                                 </div>
-                               
+
                             </div>
                     </form>
                         <div class="clearfix"></div>
