@@ -4,19 +4,15 @@ var mongoose=require('mongoose');
 
 
 var UserSchema = mongoose.Schema({
-    firstname:{
+   DeviceId:{
         type:String,
         index:true
     },
-    lastname:{
+    device_name:{
         type:String
     },
-    email:{
+    AgentUsername:{
         type:String
-    },
-   
-    phonenumber:{
-        type:Number
     },
     message:{
         type:String
